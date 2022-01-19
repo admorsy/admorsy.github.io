@@ -1,0 +1,121 @@
+
+/*
+* https://remixicon.com
+* https://github.com/Remix-Design/RemixIcon
+* Copyright RemixIcon.com
+* Released under the Apache License Version 2.0
+*/
+
+@font-face {
+    font-family: "remixicon";
+    src: url('remixicon.eot?t=1634788887821'); /* IE9*/
+    src: url('remixicon.eot?t=1634788887821#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url("remixicon.woff2?t=1634788887821") format("woff2"),
+    url("remixicon.woff?t=1634788887821") format("woff"),
+    url('remixicon.ttf?t=1634788887821') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('remixicon.svg?t=1634788887821#remixicon') format('svg'); /* iOS 4.1- */
+    font-display: swap;
+}
+
+[class^="ri-"], [class*="ri-"] {
+    font-family: 'remixicon' !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ri-lg { font-size: 1.3333em; line-height: 0.75em; vertical-align: -.0667em; }
+.ri-xl { font-size: 1.5em; line-height: 0.6666em; vertical-align: -.075em; }
+.ri-xxs { font-size: .5em; }
+.ri-xs { font-size: .75em; }
+.ri-sm { font-size: .875em }
+.ri-1x { font-size: 1em; }
+.ri-2x { font-size: 2em; }
+.ri-3x { font-size: 3em; }
+.ri-4x { font-size: 4em; }
+.ri-5x { font-size: 5em; }
+.ri-6x { font-size: 6em; }
+.ri-7x { font-size: 7em; }
+.ri-8x { font-size: 8em; }
+.ri-9x { font-size: 9em; }
+.ri-10x { font-size: 10em; }
+.ri-fw { text-align: center; width: 1.25em; }
+
+.ri-moon-fill:before { content: "\ef72"; }
+.ri-contrast-2-line:before { content: "\ebd4"; }
+.ri-contrast-2-fill:before { content: "\ebd3"; }
+.ri-sun-line:before { content: "\f1bf"; }
+.ri-sun-fill:before { content: "\f1bc"; }
+.ri-checkbox-blank-circle-line:before { content: "\eb7d"; }
+.ri-checkbox-blank-circle-fill:before { content: "\eb7c"; }
+.ri-home-4-line:before { content: "\ee1d"; }
+.ri-arrow-left-up-line:before { content: "\ea66"; }
+.ri-arrow-up-line:before { content: "\ea76"; }
+.ri-arrow-right-line:before { content: "\ea6c"; }
+.ri-arrow-down-line:before { content: "\ea4c"; }
+.ri-arrow-left-line:before { content: "\ea60"; }
+.ri-arrow-down-s-line:before { content: "\ea4e"; }
+.ri-arrow-up-s-line:before { content: "\ea78"; }
+.ri-behance-fill:before { content: "\eab9"; }
+.ri-linkedin-box-line:before { content: "\eeb4"; }
+.ri-linkedin-box-fill:before { content: "\eeb3"; }
+.ri-linkedin-fill:before { content: "\eeb5"; }
+.ri-facebook-box-line:before { content: "\ecb9"; }
+.ri-facebook-box-fill:before { content: "\ecb8"; }
+.ri-facebook-fill:before { content: "\ecbc"; }
+.ri-attachment-line:before { content: "\ea86"; }
+.ri-mail-line:before { content: "\eef6"; }
+.ri-attachment-fill:before { content: "\ea85"; }
+.ri-chat-2-line:before { content: "\eb4f"; }
+.ri-chat-4-line:before { content: "\eb53"; }
+.ri-message-2-line:before { content: "\ef44"; }
+.ri-contrast-line:before { content: "\ebda"; }
+.ri-contrast-fill:before { content: "\ebd9"; }
+.ri-focus-line:before { content: "\ed4e"; }
+.ri-focus-2-line:before { content: "\ed4a"; }
+.ri-focus-fill:before { content: "\ed4d"; }
+.ri-file-2-line:before { content: "\ecc3"; }
+.ri-file-pdf-line:before { content: "\ecfd"; }
+.ri-file-download-line:before { content: "\ecd9"; }
+.ri-file-download-fill:before { content: "\ecd8"; }
+.ri-attachment-2:before { content: "\ea84"; }
+.ri-codepen-line:before { content: "\ebb0"; }
+.ri-github-line:before { content: "\edcb"; }
+.ri-github-fill:before { content: "\edca"; }
+.ri-facebook-circle-fill:before { content: "\ecba"; }
+.ri-facebook-circle-line:before { content: "\ecbb"; }
+.ri-instagram-line:before { content: "\ee66"; }
+.ri-instagram-fill:before { content: "\ee65"; }
+.ri-pinterest-line:before { content: "\f000"; }
+.ri-pinterest-fill:before { content: "\efff"; }
+.ri-navigation-fill:before { content: "\ef88"; }
+.ri-navigation-line:before { content: "\ef89"; }
+.ri-more-fill:before { content: "\ef78"; }
+.ri-more-2-fill:before { content: "\ef76"; }
+.ri-checkbox-circle-line:before { content: "\eb81"; }
+.ri-checkbox-circle-fill:before { content: "\eb80"; }
+.ri-checkbox-blank-fill:before { content: "\eb7e"; }
+.ri-checkbox-blank-line:before { content: "\eb7f"; }
+.ri-checkbox-line:before { content: "\eb85"; }
+.ri-checkbox-fill:before { content: "\eb82"; }
+.ri-alert-line:before { content: "\ea21"; }
+.ri-alert-fill:before { content: "\ea20"; }
+.ri-check-line:before { content: "\eb7b"; }
+.ri-close-line:before { content: "\eb99"; }
+.ri-radio-button-line:before { content: "\f050"; }
+.ri-close-circle-line:before { content: "\eb97"; }
+.ri-add-circle-line:before { content: "\ea11"; }
+.ri-indeterminate-circle-line:before { content: "\ee57"; }
+.ri-arrow-right-s-line:before { content: "\ea6e"; }
+.ri-arrow-left-s-line:before { content: "\ea64"; }
+.ri-download-line:before { content: "\ec5a"; }
+.ri-search-line:before { content: "\f0d1"; }
+.ri-eye-line:before { content: "\ecb5"; }
+.ri-eye-close-line:before { content: "\ecb3"; }
+.ri-eye-fill:before { content: "\ecb4"; }
+.ri-eye-close-fill:before { content: "\ecb2"; }
+.ri-share-line:before { content: "\f0fe"; }
+.ri-thumb-up-line:before { content: "\f207"; }
+.ri-toggle-line:before { content: "\f219"; }
+.ri-toggle-fill:before { content: "\f218"; }
+.ri-external-link-line:before { content: "\ecaf"; }
