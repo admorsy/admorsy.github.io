@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Résumé | Ahmad Morsy</title>
+  <meta name="description"
+    content="Some brief info about my education, work experience, skills, and other qualifications.">
+  <meta name="author" content="Ahmad Morsy">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="art, design, graphic, web, sculpture, print, identity, drawing, coding, programming">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="img/site/RemixIconFont/remixicon.css">
+  <link rel="stylesheet" href="css/monorale/monorale.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript>
+    <style>
+      body {
+        opacity: 1;
+      }
+    </style>
+  </noscript>
+  <style>
+    html,
+    body {
+      background-color: var(--bg-color);
+    }
+  </style>
+  <script>
+    var loadPage = function () {
+      // $('#preloader').delay(3000).fadeOut(500);
+      // $('.pre-cursor').delay(1000).fadeIn(500).addClass('pulse');
+
+      document.getElementById("preloader").classList.remove("fade-in");
+      document.body.classList.remove("is-loading");
+
+
+
+
+      setTimeout(function () {
+        // window.location.href = t;
+        document.getElementById("preloader").classList.add("fade-out");
+        document.body.classList.add("loaded");
+
+      }, 2000);
+
+    };
+
+    var unloadPage = function () {
+      document.getElementById("preloader").classList.remove("fade-out");
+      document.body.classList.remove("loaded");
+
+      setTimeout(function () {
+
+
+        loadPage();
+
+      }, 2000);
+
+
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+      loadPage();
+    });
+
+    var link = document.getElementsByTagName("a");
+
+    link.addEventListener('click', function (e) {
+
+      e.preventDefault();
+
+      var newUrl = link.getAttribute("href");
+
+
+      document.getElementById("preloader").classList.add("fade-in");
+      document.body.classList.add("is-loading");
+
+      setTimeout(function () {
+        window.location.href = newUrl;
+        unloadPage();
+      }, 2000)
+
+
+    });
+  </script>
+</head>
+
+<body class="pgtr-resume">
+  <div id="preloader"></div>
+  <div class="page">
+    <div class="header ik outline--2px"><img
+        src="https://ik.imagekit.io/amorsy/site/respectrum.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1635821308702" loading="lazy" alt="respectrum">
+      <div class="header-text"><span>#</span> <span>r</span> <span>é</span> <span>s</span> <span>u</span> <span>m</span>
+        <span>é</span></div>
+    </div>
+    <div id="scroll" class="custom-link"><span></span></div>
+    <div class="main">
+      <div class="block">
+        <h3 class="h3 text--600 text--lwrc mt--24 pb--16 border-bottom-2">education</h3>
+        <h4 class="h6 text--600 text--uprc mt--16 mb--8">associate degree <span class="float--right">&vellip; 2016 -
+            2020</span></h4>
+        <h4 class="h6 text--600 text--cptz mb--8 mt--4">Major: Art & Design</h4>
+        <h4 class="h4 text--xs text--600 mt--8 mb--24 text--italic">Community College of Philadelphia, PA</h4>
+        <p class="text--sm mt--8">Covered foundation coursework like drawing, and painting in oil and acrylics.</p>
+        <p class="text--sm mb--8">Developed my design skills and 3D art creation.</p>
+        <h4 class="h6 text--600 text--uprc mt--20 mb--8">BACHELOR OF SCIENCE <span class="float--right">&vellip; 2004 -
+            2008</span></h4>
+        <h4 class="h6 text--600 text--cptz mb--8 mt--4">Major: Electrical Engineering</h4>
+        <h4 class="h4 text--xs text--italic text--600 mt--8 mb--24">Ain Shams University in Cairo, Egypt</h4>
+        <p class="text--sm mt--8">Acquired good knowledge about electrical systems, technology and design applications.
+        </p>
+        <p class="mb--8">Developed great skills like problem solving, teamwork, precision, and research.</p><br>
+        <h3 class="h3 text--600 text--lwrc pb--16 border-bottom-2 mt--24">SKILLS</h3>
+        <table>
+          <tr>
+            <td>
+              <p class="h6 mt--16 mb--12">Photoshop</p>
+            </td>
+            <td><span class="skill-bar"><span class="first skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">Illustrator</p>
+            </td>
+            <td><span class="skill-bar"><span class="second skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">InDesign</p>
+            </td>
+            <td><span class="skill-bar"><span class="third skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">Sketchbook</p>
+            </td>
+            <td><span class="skill-bar"><span class="forth skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">Illustrator</p>
+            </td>
+            <td><span class="skill-bar"><span class="fifth skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">HTML</p>
+            </td>
+            <td><span class="skill-bar"><span class="sixth skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">CSS</p>
+            </td>
+            <td><span class="skill-bar"><span class="seventh skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">Javascript</p>
+            </td>
+            <td><span class="skill-bar"><span class="eighth skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">Typography</p>
+            </td>
+            <td><span class="skill-bar"><span class="nineth skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">Animation</p>
+            </td>
+            <td><span class="skill-bar"><span class="tenth skill-value"></span></span></td>
+          </tr>
+        </table><br>
+        <h3 class="h3 text--600 text--lwrc mt--24 pb--16 border-bottom-2">LANGUAGES</h3>
+        <table>
+          <tr>
+            <td>
+              <p class="h6 mt--16 mb--12">English</p>
+            </td>
+            <td><span class="skill-bar"><span class="eleventh skill-value"></span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="h6 mtmb--12">Arabic</p>
+            </td>
+            <td><span class="skill-bar"><span class="twelfth skill-value"></span></span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="block py0">
+        <h3 class="h3 text--600 text--lwrc mt--24 pb--16 border-bottom-2">EXPERIENCE</h3>
+        <h4 class="h6 text--600 text--uprc mt--16 mb--8">Print designer<span class="float--right">&vellip; 2015 -
+            2020</span></h4>
+        <h4 class="h6 text--600 text--cptz mb--8 mt--4">Millennium Art Gallery Inc.</h4>
+        <h4 class="h4 text--xs text--italic text--600 mt--8 mb--24">Philadelphia, PA</h4>
+        <p class="text--sm mt--8">Designing, printing, and, sometimes framing in the custom framing store.</p>
+        <p class="text--sm mt--8">Managing social media and researching new ideas and materials to improve the business.
+        </p>
+        <p class="text--sm mt--8 mb--24">Identifying and planning for resources that help the store achieve its
+          production objectives.</p>
+        <h4 class="h6 text--600 text--uprc mt--24 mb--8">SENIOR GRAPHIC DESIGNER <span class="float--right">&vellip;
+            2014 - 2015</span></h4>
+        <h4 class="h6 text--600 text--cptz mb--8 mt--4">HMD | Hani Mahfouz Designs</h4>
+        <h4 class="h4 text--xs text--italic text--600 mt--8 mb--24">Cairo, Egypt</h4>
+        <p class="text--sm mt--8">Contributed design ideas in early planning stages with customers and project managers.
+        </p>
+        <p class="text--sm mt--8">Worked with clients to gather and define requirements, establish scopes and manage
+          project milestones.</p>
+        <p class="text--sm mt--8 mb--24">Developed creative design for marketing packages, including print materials,
+          brochures, banners and signs.</p>
+        <h4 class="h6 text--600 text--uprc mt--24 mb--8">JUNIOR GRAPHIC ARTIST <span class="float--right">&vellip; 2013
+            - 2014</span></h4>
+        <h4 class="h6 text--600 text--cptz mb--8 mt--4">Joud Home Accessories</h4>
+        <h4 class="h4 text--xs text--italic text--600 mt--8 mb--24">Cairo, Egypt</h4>
+        <p class="text--sm mt--8">Create artwork incorporating design techniques and elements like layout, typography,
+          composition, and color ready to be printed on different home accessories like coasters, trays and cushions.
+        </p>
+        <p class="text--sm mt--8">Develop collateral such as display, marketing and packaging materials according to
+          brand guidelines.</p><br>
+        <h3 class="h3 text--600 text--lwrc pb--16 border-bottom-2 mt--24">REFERENCES</h3>
+        <p class="h6 mt--16 mb0">Available Upon Request</p><br>
+        <h3 class="h3 text--600 text--italic text--lwrc pb--16 border-bottom-2 mt--24">RELATED LINKS</h3><br>
+        <ul>
+          <li><a href="/files/amorsy-resume.pdf" target="_blank" class="h6 mt--16 mb--12 custom-link"><i
+                class="ri-attachment-2 ri-1x"></i> my-resume.pdf</a></li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-text">Copyright © 2021 Ahmad Morsy. All Rights Reserved.</div>
+    </footer>
+  </div>
+  <div id="frame">
+    <div class="top"></div>
+    <div class="middle">
+      <div class="nav-bar outline--2px">
+        <div class="nav-logo"><a href="index.html" class="custom-link" title="home"><svg
+              xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 14 14">
+              <title>am-logo</title>
+              <polygon points="0 10 0 0 7 0 7 10 6 9 9 9 9 0 10 0 10 10 6 10 6 1 1 1 1 10 0 10" style="fill: #fff" />
+              <polygon points="0 5 10 5 10 6 0 6 0 5" style="fill: #fff" />
+              <polygon points="2 7 2 10 3 10 3 7" style="fill: #fff" />
+              <polygon points="4 7 4 10 5 10 5 7" style="fill: #fff" />
+            </svg></a>
+          <div class="logo-type">AHMAD<strong>&nbsp;&nbsp;MORSY</strong></div>
+        </div>
+        <div class="page-title">#résumé</div>
+        <div class="nav-spacer"></div><input value="25" type="number" min="0" max="100" placeholder="progress">
+        <div id="back2Top" class="outline--2px custom-link"><svg class="ring" width="40" height="40">
+            <circle stroke="var(--border-color)" stroke-width="3" fill="transparent" r="14" cx="20" cy="20" /></svg>
+          <svg class="up-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            style="fill: var(--border-color)">
+            <path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path>
+          </svg></div>
+        <div class="nav-mode-container custom-link outline--2px"><input type="checkbox" id="nav-mode"> <label
+            for="nav-mode">
+            <div class="icon-moon custom-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                height="24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22 6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981z"
+                  fill="currentColor" /></svg></div>
+            <div class="icon-sun custom-link" hidden><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"
+                  fill="currentColor" /></svg></div>
+          </label></div>
+        <div class="nav-icon outline--2px custom-link">
+          <div class="bar1"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+      <div id="nav-page" class="outline--2px">
+        <div class="side-bar">
+          <div class="social-links"><a href="https://www.linkedin.com/in/ahmadmorc" target="_blank"
+              class="linkedin custom-link"><i class="ri-linkedin-fill ri-1x" aria-hidden="true" title="LinkedIn"></i>
+              <p>/ahmadmorc</p>
+            </a><a href="https://www.behance.net/ahmadmorsy" class="behance custom-link" target="_blank"><i
+                class="ri-behance-fill ri-1x" aria-hidden="true" title="Behance"></i>
+              <p>/ahmadmorsy</p>
+            </a><a href="https://www.facebook.com/ahmad.morsy.art" class="facebook custom-link" target="_blank"><i
+                class="ri-facebook-fill ri-1x" aria-hidden="true" title="Facebook"></i>
+              <p>@ahmad.morsy.art</p>
+            </a><a href="https://www.pinterest.com/ahmadmorc" class="pinterest custom-link" target="_blank"><i
+                class="ri-pinterest-fill ri-1x" aria-hidden="true" title="Pinterest"></i>
+              <p>@ahmadmorc</p>
+            </a><a href="mailto:ahmad.morsy@outlook.com?bcc=ahmad.mor.c@gmail.com&subject=Hi Ahmad!"
+              class="email custom-link" target="_blank"><i class="ri-mail-line ri-1x" aria-hidden="true"
+                title="Email"></i>
+              <p>ahmad.morsy@outlook.com</p>
+            </a></div>
+        </div><span class="v-line"></span> <span class="h-line"></span>
+        <div class="nav-links custom-link">
+          <div class="nav-link custom-link"><a href="index.html" class="custom-link" data-hover="hello"
+              data-type="page-transition">#hello</a></div>
+          <div class="nav-link custom-link current"><a href="resume.html" class="custom-link current"
+              data-hover="résumé" data-type="page-transition">#résumé</a></div>
+          <div class="nav-link custom-link"><a href="portfolio.html" class="custom-link" data-hover="portfolio"
+              data-type="page-transition">#portfolio</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom"></div>
+    <div class="right"></div>
+    <div class="left"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="js/script.min.js"></script>
+</body>
+
+</html>
