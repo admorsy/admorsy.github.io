@@ -27,7 +27,7 @@ if (theme === "dark") {
 	darkTheme();
 }
 
-if (theme === "light") {
+else {
 	lightTheme();
 }
 
