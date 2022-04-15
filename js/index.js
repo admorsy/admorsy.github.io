@@ -35,7 +35,8 @@ navMode.addEventListener("change", () => {
 	let theme = localStorage.getItem("dark-theme");
 	if (theme === "dark") {
 		lightTheme();
-	} else {
+	} 
+	if (theme === "light") {
 		darkTheme();
 	}
 });
