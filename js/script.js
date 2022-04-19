@@ -9,7 +9,7 @@ var totalHeight = $(document).height();
 const navMode = document.querySelector(".nav-mode-container");
 
 const darkTheme = () => {
-	document.documentElement.setAttribute("theme", "dark");
+	document.documentElement.setAttribute("data-theme", "dark");
 	localStorage.setItem("theme", "dark");
 	document.body.classList.remove("light");
 	document.body.classList.add("dark");
@@ -17,7 +17,7 @@ const darkTheme = () => {
 };
 
 const lightTheme = () => {
-	document.documentElement.setAttribute("theme", "light");
+	document.documentElement.setAttribute("data-theme", "light");
 	localStorage.setItem("theme", "light");
 	document.body.classList.remove("dark");
 	document.body.classList.add("light");
