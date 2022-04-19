@@ -922,7 +922,9 @@ footer {
   transition: color .3s;
 }
 
-body.dark .icon-sun,html[data-theme=dark] .icon-sun {
+body .icon-sun,
+body.dark .icon-sun,
+html[data-theme=dark] .icon-sun {
   opacity: 1;
 }
 
