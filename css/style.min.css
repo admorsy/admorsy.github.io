@@ -886,6 +886,7 @@ footer {
   color: var(--link-hover-color);
   transition: color 0.3s;
 }
+body .icon-sun,
 body.dark .icon-sun,
 html[data-theme="dark"] .icon-sun {
   opacity: 1;
