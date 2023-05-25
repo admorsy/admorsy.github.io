@@ -47,21 +47,31 @@ navMode.addEventListener("change", () => {
 var navPage = $('body #nav-page');
 var navLink = $('body #nav-page .nav-link a');
 
-$(".nav-icon").click(function() {
-  if ($(this).hasClass("change") || $("body").hasClass("nav-page--open")) {
-    navLink.addClass('slide-top').removeClass('slide-bottom'); 
-    $("body").removeClass("nav-page--open");
-    navPage.delay(1000).fadeOut(1000);
-    $("body, html").css("overflow", "auto");
-    $(".nav-icon").removeClass("change");
-  } else {
-    $(".nav-icon").addClass("change");
-    navPage.fadeIn();
-    $("body").addClass("nav-page--open");
-    $("body, html").css("overflow", "hidden");
-    navLink.delay(1000).addClass('slide-bottom').removeClass('slide-top');
-  }
+// $(".nav-icon").click(function() {
+//   if ($(this).hasClass("change") || $("body").hasClass("nav-page--open")) {
+//     navLink.addClass('slide-top').removeClass('slide-bottom'); 
+//     $("body").removeClass("nav-page--open");
+//     navPage.delay(1000).fadeOut(1000);
+//     $("body, html").css("overflow", "auto");
+//     $(".nav-icon").removeClass("change");
+//   } else {
+//     $(".nav-icon").addClass("change");
+//     navPage.fadeIn();
+//     $("body").addClass("nav-page--open");
+//     $("body, html").css("overflow", "hidden");
+//     navLink.delay(1000).addClass('slide-bottom').removeClass('slide-top');
+//   }
+// });
+
+
+var navPage = $("#nav-page");
+var navLink = $("#nav-page a");
+
+$(".nav-icon").click(function () {
+	$(this).toggleClass("is--active");
+	$("html").toggleClass("nav-page--open");
 });
+
 
 
 /*-------------nav page links---------------*/
