@@ -1110,6 +1110,8 @@ html.nav-page--open .block,html.nav-page--open .header,html.nav-page--open .main
 
 html.nav-page--open #nav-page {
   opacity: 1;
+width:100%;
+	height:100vh;
   pointer-events: auto;
   -webkit-transition-delay: 0.5s;
   transition-delay: 0.5s;
