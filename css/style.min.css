@@ -1047,6 +1047,7 @@ html.nav-page--open footer {
 }
 html.nav-page--open #nav-page {
   opacity: 1;
+  height:100vh;
   pointer-events: auto;
   -webkit-transition-delay: 0.5s;
   transition-delay: 0.5s;
