@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<style>
+div {
+transition:all 1s linear;
+
+opacity:0;
+
+}
+.fadein {
+transition:all 1s linear;
+opacity:1;
+}
+
+</style>
+<link rel="stylesheet" href="css/style.css">
+
+<body>
+<div id="page" class="fadein">
+
+<h2>Redirect to a Webpage</h2>
+<p>The replace() method replaces the current document with a new one:</p>
+
+<a href="#index" onclick="unloadPage()">Replace document</a>
+
+<script>
+
+
+function loadPage() {
+
+    window.location.href = newUrl;
+}
+
+
+function unloadPage() {
+    var link = document.getElementsByTagName("a");
+    var newUrl = link.getAttribute("href").remove("#").add(".html");
+    var element = document.getElementById("page");
+   element.classList.remove("fadein");
+  setTimeout(loadPage, 1000);
+}
+
+</script>
+
+</body>
+</html> 

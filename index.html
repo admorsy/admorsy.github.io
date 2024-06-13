@@ -13,7 +13,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css"><noscript>
+	<link rel="stylesheet" href="css/style.css">
+	<noscript>
 		<style>
 			body {
 				opacity: 1;
@@ -27,44 +28,65 @@
 		}
 	</style>
 	<script>
-		var loadPage = function() {
-			// $('#preloader').delay(3000).fadeOut(500);
-			// $('.pre-cursor').delay(1000).fadeIn(500).addClass('pulse');
-			document.getElementById("preloader").classList.remove("fade-in");
-			document.body.classList.remove("is-loading");
-			setTimeout(function() {
-				// window.location.href = t;
-				document.getElementById("preloader").classList.add("fade-out");
-				document.body.classList.add("loaded");
-			}, 2000);
-		};
-		var unloadPage = function() {
-			document.getElementById("preloader").classList.remove("fade-out");
-			document.body.classList.remove("loaded");
-			setTimeout(function() {
-				loadPage();
-			}, 2000);
-		};
-		document.addEventListener('DOMContentLoaded', function() {
-			loadPage();
-		});
-		var link = document.getElementsByTagName("a");
-		link.addEventListener('click', function(e) {
-			e.preventDefault();
-			var newUrl = link.getAttribute("href");
-			document.getElementById("preloader").classList.add("fade-in");
-			document.body.classList.add("is-loading");
-			setTimeout(function() {
-				window.location.href = newUrl;
-				unloadPage();
-			}, 2000)
-		});
+	function fadeInPage() {
+        if (!window.AnimationEvent) { return; }
+        var fader = document.getElementById('fader');
+        fader.classList.add('fade-out');
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!window.AnimationEvent) { return }
+
+        var anchors = document.getElementsByTagName('a');
+
+        for (var idx=0; idx<anchors.length; idx+=1) {
+          if (anchors[idx].hostname !== window.location.hostname) {
+            return;
+          }
+
+          anchors[idx].addEventListener('click', setTimeout(function(event) {
+            var fader = document.getElementById('fader'),
+                anchor = event.currentTarget;
+
+            var listener = function() {
+              window.location = anchor.href;
+              fader.removeEventListener('animationend', listener);
+            };
+            fader.addEventListener('animationend', listener);
+
+            event.preventDefault();
+			// var navPage = document.getElementById("nav-page");
+			// navPage.classList.add("fade-out");
+            fader.classList.add('fade-in');
+          }),3000);
+        }
+      });
+
+      window.addEventListener('pageshow', function (event) {
+        if (!event.persisted) {
+          return;
+        }
+        var fader = document.getElementById('fader');
+        fader.classList.remove('fade-in');
+      });
+
+
+      document.addEventListener('DOMContentLoaded', function() {
+
+            link = document.getElementById('link');
+        document.body.style.background = "var(--bg-color)";
+        link.style.color = 'var(--link-color)';
+      });
+    
 	</script>
+
 </head>
 
 <body class="pgtr-index imgloaded">
-	<div id="preloader">
+	<div id="preloader" class="fade-out">
 	</div>
+	<svg id="fader" class="fade-out"></svg>
+	<script>fadeInPage()</script>
 	<!-- <div id="precursor">
   </div> -->
 	<!-- <svg id="fader"></svg> -->
@@ -92,17 +114,19 @@
 		<div class="header ik outline--2px">
 			<!--
 			<img src="https://ik.imagekit.io/amorsy/site/exp12_2x.png?updatedAt=1635820864960" loading="lazy" alt="noise"> -->
-			<div class="header-img">
+			<div class="header-img glitch__image">
+				<img src="img/site/glitch.gif" alt="">
+				<img src="img/site/mood-swing-edit-lg.png" alt="">
 
 			</div>
 
-			<!-- 			<div class="hello shake glow">Hello World!</div> -->
+						<!-- <div class="hello shake glow">Hello World!</div> -->
 			<div class="bg--lined-thin"></div>
 
 			<div class="card">
 				<!-- Front Content -->
 				<div class="card__content">
-					<p class="typewritten shake glow">
+					<p class="scrambled__text glitch__text typewritten shake glow">
 						<span class="typed-text"></span>
 						<span class="cursor">&nbsp;</span>
 
@@ -124,7 +148,24 @@
 			<div class="nav-bar">
 				<div class="nav-logo">
 				  <a href="index.html" class="custom-link" title="home">
-					 <img src="/img/site/adam-logo-w-bg-b.png" alt="adam morsy logo"></a>
+					<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="25 0 200 50">
+
+  <path class="meem" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="M 50,50 L 100,0
+       L  100,0 L125,25
+       L  125,25 L 100,50
+       L 100,50 L 75,25
+     " pathLength="1" />
+  <path class="dal" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+       M  138,0 L163,25
+       L  163,25 L 138,50
+      " pathLength="1" />
+  <path class="alef" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+       M  185,0 v50" pathLength="1" />
+
+  <path class="madd" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+M 185,-25 h -50" pathLength="1" />
+
+</svg></a>
 				  <div class="logo-type">ADAM<strong>&nbsp;&nbsp;MORSY</strong></div>
 				</div>
 				<div class="page-title">#portfolio</div>
@@ -209,7 +250,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" crossorigin="anonymous"></script>
-	<script src="js/index.js"></script>
+	<script src="js/script.min.js"></script>
 
 </body>
 
