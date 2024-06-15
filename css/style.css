@@ -607,7 +607,7 @@ p {
   font-weight: 500;
   font-style: normal;
   font-size: 16px;
-  color:#8c8f91;
+  color:var(--p-color);
   text-align: left;
   margin-bottom: 10px;
 }
@@ -699,7 +699,7 @@ html[data-theme=dark] .pgtr-index .header-img {
   position: relative;
   font-family: var(--font-sans-serif);
   font-weight: 500;
-  font-size: 5rem;
+  font-size: 3rem;
   will-change: transform;
   color: #eee;
   text-transform: lowercase;
@@ -1364,11 +1364,11 @@ body .side-bar a p {
 }
 
 .text--xs {
-  font-size: 13px!important;
+  font-size: 14px!important;
 }
 
 .text--sm {
-  font-size: 15px!important;
+  font-size: 16px!important;
 }
 
 .text--italic {
@@ -3588,8 +3588,8 @@ html.project-page--open .close-icon {
   body #nav-page .nav-link a {
     height: 50px;
     line-height: 80px;
-    font-weight: 600;
-    font-size: 2.5rem;
+    font-weight: 500;
+    font-size: 2rem;
   }
 
   #filter-btns {
@@ -3671,8 +3671,8 @@ html.project-page--open .close-icon {
   body #nav-page .nav-link a {
     height: 100px;
     line-height: 100px;
-    font-weight: 700;
-    font-size: 5rem;
+    font-weight: 400;
+    font-size: 4rem;
   }
 
   #projects {
@@ -3727,7 +3727,7 @@ html.project-page--open .close-icon {
   body #nav-page .nav-link a {
     height: 80px;
     line-height: 80px;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 4rem;
   }
 
