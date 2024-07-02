@@ -1,326 +1,333 @@
-var windowHeight = $(window).height();
-var frameHeight = windowHeight - 65;
-var totalHeight = $(document).height();
+// klaedoscope code
 
-/*---------------------darkmode---------------*/
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+let cw = canvas.width = window.innerWidth;
+let ch = canvas.height = window.innerHeight;
+let cw2 = cw / 2, ch2 = ch / 2;
+const { PI, sin, cos } = Math;
+const PI2 = PI * 2;
 
-let theme = localStorage.getItem("dark-theme");
-const navMode = document.querySelector(".nav-mode-container");
+const slices = 8;
+const mirror = true;
 
-const darkTheme = () => {
-	document.documentElement.setAttribute("data-theme", "dark");
-	localStorage.setItem("dark-theme", "dark");
-	document.body.classList.remove("light");
-	document.body.classList.add("dark");
-	console.log("it's dark, baby");
+let img;
+let pattern;
+let offset = { x: 2, y: 2 };
+let patternStroke = "#41062e";
+
+canvas.onload = function () {
+	offset.x = 0;
+	offset.y = 0;
 };
-
-const lightTheme = () => {
-	document.documentElement.setAttribute("data-theme", "light");
-	localStorage.setItem("dark-theme", "light");
-	document.body.classList.remove("dark");
-	document.body.classList.add("light");
-	console.log("It's light, baby");
+window.onresize = function () {
+	cw = canvas.width = window.innerWidth;
+	ch = canvas.height = window.innerHeight;
+	cw2 = cw / 2;
+	ch2 = ch / 2;
 };
-
-if (theme === "dark") {
-	darkTheme();
+window.onmousemove = function (e) {
+	offset.x += img.width * (e.movementX / cw) * 0.25;
+	offset.y += img.height * (e.movementY / ch) * 0.25;
 }
-
-if (theme === "light") {
-	lightTheme();
+function setup() {
+	img = new Image();
+	img.src = canvas.getAttribute("data-image");
+	console.log(img.src);
+	img.onload = function () {
+		pattern = ctx.createPattern(img, 'repeat');
+		loop();
+	};
 }
+// animation will pause when paused==true
+var paused = false;
 
-navMode.addEventListener("change", () => {
-	let theme = localStorage.getItem("dark-theme");
-	if (theme === "dark") {
-		lightTheme();
-	} else {
-		darkTheme();
+// testing, a rotation angle for the animated rect
+var speed = 0;
+
+//pause the animation on #pause click
+$('html').on('mouseleave', function () {
+	paused = true;
+	speed = 0;
+});
+
+//continue the animation on #continue click
+$('html').on('mouseenter', function () {
+	paused = false;
+	requestAnimationFrame(loop);
+});
+
+// start the animation loop
+requestAnimationFrame(loop);
+
+function loop() {
+	if (paused) { return; }
+
+	let radius = cw2 + ch2;
+	let deltaAngle = PI2 / slices;
+
+	let x = [-1, -1, radius * sin(deltaAngle), radius * sin(deltaAngle / 2)];
+	let y = [-1, radius, radius * cos(deltaAngle), radius * cos(deltaAngle / 2)];
+
+	for (let i = 0; i < slices; i++) {
+
+		ctx.translate(cw2, ch2);
+		ctx.rotate(i * deltaAngle);
+		ctx.translate(offset.x, offset.y);
+		ctx.beginPath();
+		ctx.moveTo(x[0] - offset.x, y[0] - offset.y);
+		ctx.lineTo(x[1] - offset.x, y[1] - offset.y);
+		ctx.lineTo(x[2] - offset.x, y[2] - offset.y);
+		ctx.lineTo(x[0] - offset.x, y[0] - offset.y);
+		ctx.fillStyle = pattern;
+		ctx.fill();
+		ctx.resetTransform();
+
+		if (mirror) {
+			ctx.translate(cw2, ch2);
+			ctx.rotate((i - 1) * deltaAngle);
+			ctx.scale(-1, 1);
+			ctx.translate(offset.x, offset.y);
+
+			ctx.beginPath();
+			ctx.moveTo(x[0] - offset.x, y[0] - offset.y);
+			ctx.lineTo(x[1] - offset.x, y[1] - offset.y);
+			ctx.lineTo(x[3] - offset.x, y[3] - offset.y);
+			ctx.lineTo(x[0] - offset.x, y[0] - offset.y);
+			ctx.fillStyle = pattern;
+			ctx.fill();
+
+			ctx.resetTransform();
+		}
 	}
-});
+	speed = 0.15;
+	offset.x = (offset.x + speed) % img.width;
+	offset.y = (offset.y + speed) % img.height;
 
-// -----------------resize images
 
-function ResImg() {
-	// var jw1 = window.innerWidth;
-	// var jh1 = window.innerHeight;
-
-	// var hw1 = document.getElementById("h-w1");
-	// hw1.innerHTML = "viewport width: " + jw1;
-
-	// var hh1 = document.getElementById("h-h1");
-	// hh1.innerHTML = "viewport height: " + jh1;
-
-	$(".ik img").each(function () {
-		var jw1 = $(this).parent().width();
-		var jh1 = $(this).parent().height();
-
-		console.log(jw1, jh1);
-
-		var oldSrc = $(this).attr("src");
-		var baseUrl = oldSrc.split("?");
-		var imgSrc = baseUrl[0];
-		console.log(imgSrc);
-		var newSre;
-
-		if ($(this).parent().hasClass("project")) {
-			newSrc = imgSrc + "?tr=ar-8-5,w-" + jw1;
-		} else if (jw1 > jh1) {
-			newSrc = imgSrc + "?tr=w-" + jw1 + ",h-" + jh1;
-		} else {
-			newSrc = imgSrc + "?tr=w-" + jh1 + ",h-" + jw1;
-		}
-		console.log(newSrc);
-
-		$(this).attr("src", newSrc);
-
-		console.log($(this).attr("src"));
-	});
+	requestAnimationFrame(loop);
 }
 
-window.onload = ResImg();
+function rotate(x, y, a) {
+	let newx = x * cos(a) - y * sin(a);
+	let newy = x * sin(a) + y * cos(a);
+	x = 0.0001 * newx;
+	y = 0.0001 * newy;
+	return { x, y };
+}
+setup();
 
-window.addEventListener("resize", ResImg);
+// shuffled intro text
 
-ResImg();
+function WordShuffler(holder, opt) {
+	var that = this;
+	var time = 0;
+	this.now;
+	this.then = Date.now();
 
-/*-------------nav page---------------*/
+	this.delta;
+	this.currentTimeOffset = 0;
 
-var navPage = $("#nav-page");
-var navLink = $("#nav-page a");
+	this.word = null;
+	this.currentWord = null;
+	this.currentCharacter = 0;
+	this.currentWordLength = 0;
 
-$(".nav-icon").click(function () {
-	$(this).toggleClass("is--active");
-	$("html").toggleClass("nav-page--open");
-});
 
-/*-------------nav page links---------------*/
+	var options = {
+		fps: 60,
+		timeOffset: 1,
+		textColor: '#000',
+		fontSize: "50px",
+		useCanvas: false,
+		// mixCapital : false,
+		// mixSpecialCharacters : false,
+		needUpdate: true,
+		colors: [
+			'#666666'
+		]
+	}
 
-// var navLink = $(".nav-link");
-// navLink.click(function(event) {
-
-// 		$("body").animate({
-
-// 			opacity: 0
-// 			}, 1000, 'linear'
-// 		);
-
-// 		navLink.removeClass("current");
-// 		$(this).addClass("current");
-// 		// navLink.addClass('fade-out').removeClass('fade-in');
-// 		navPage.delay(2000).fadeOut(1000);
-
-// 		setTimeout(function() {
-// 			unloadPage();
-// 		},0);
-
-// 		// $("body, html").css("overflow", "auto");
-// 		$(".nav-icon").removeClass("is--active");
-// 	});
-
-//------------------- back to top ring calculations -------------------//
-
-var circle = document.querySelector("circle");
-var radius = circle.r.baseVal.value;
-var circumference = radius * 2 * Math.PI;
-var area = radius * radius * Math.PI;
-
-circle.style.strokeDasharray = `${circumference} ${circumference}`;
-circle.style.strokeDashoffset = `${circumference}`;
-
-/*---- transform "header-text" to "page-title" in nav-bar---------------*/
-
-$(document).ready(function () {
-	$("footer").css("display", "none");
-	$(".footer-text").css("display", "none");
-
-	$(window).scroll(function () {
-		var scrollHeight = $(this).scrollTop();
-		var windowHeight = $(window).height();
-		var totalHeight = $(document).height();
-
-		$(".scrolled").html(scrollHeight);
-
-		$(".nav-bar input").attr("value", scrollHeight);
-
-		const input = document.querySelector(".nav-bar input");
-		if (input.value < totalHeight && input.value > 0) {
-			setProgress(input.value);
+	if (typeof opt != "undefined") {
+		for (key in opt) {
+			options[key] = opt[key];
 		}
+	}
 
-		function setProgress(percent) {
-			var offset =
-				circumference -
-				(scrollHeight * circumference) / (totalHeight - windowHeight);
-			circle.style.strokeDashoffset = offset;
-			console.log(offset);
-			if (offset <= 3) {
-				$("footer").fadeIn();
-				$(".footer-text").fadeIn();
-			} else {
-				$("footer").fadeOut();
-				$(".footer-text").fadeOut();
+
+
+	this.needUpdate = true;
+	this.fps = options.fps;
+	this.interval = 1000 / this.fps;
+	this.timeOffset = options.timeOffset;
+	this.textColor = options.textColor;
+	this.fontSize = options.fontSize;
+	// this.mixCapital = options.mixCapital;
+	// this.mixSpecialCharacters = options.mixSpecialCharacters;
+	this.colors = options.colors;
+
+	// this.useCanvas = options.useCanvas;
+
+	this.chars = [
+		'A', 'B', 'C', 'D',
+		'E', 'F', 'G', 'H',
+		'I', 'J', 'K', 'L',
+		'M', 'N', 'O', 'P',
+		'Q', 'R', 'S', 'T',
+		'U', 'V', 'W', 'X',
+		'Y', 'Z'
+	];
+	this.specialCharacters = [
+		'!', '§', '$', '%',
+		'&', '/', '(', ')',
+		'=', '?', '_', '<',
+		'>', '^', '°', '*',
+		'#', '-', ':', ';', '~'
+	]
+
+
+	this.getRandomColor = function () {
+		var randNum = Math.floor(Math.random() * this.colors.length);
+		return this.colors[randNum];
+	}
+
+	//if DOM
+	if (typeof holder != "undefined") {
+		this.holder = holder;
+	}
+
+	if (!this.useCanvas && typeof this.holder == "undefined") {
+		console.warn('Holder must be defined in DOM Mode. Use Canvas or define Holder');
+	}
+
+
+	this.getRandCharacter = function (characterToReplace) {
+		if (characterToReplace == " ") {
+			return ' ';
+		}
+		var randNum = Math.floor(Math.random() * this.chars.length);
+		var lowChoice = -.5 + Math.random();
+		var picketCharacter = this.chars[randNum];
+		var choosen = picketCharacter.toLowerCase();
+		if (this.mixCapital) {
+			choosen = lowChoice < 0 ? picketCharacter.toLowerCase() : picketCharacter;
+		}
+		return choosen;
+
+	}
+
+	this.writeWord = function (word) {
+		this.word = word;
+		this.currentWord = word.split('');
+		this.currentWordLength = this.currentWord.length;
+
+	}
+
+	this.generateSingleCharacter = function (color, character) {
+		var span = document.createElement('span');
+		span.style.color = color;
+		span.innerHTML = character;
+		return span;
+	}
+
+	this.updateCharacter = function (time) {
+
+		this.now = Date.now();
+		this.delta = this.now - this.then;
+
+
+
+		if (this.delta > this.interval) {
+			this.currentTimeOffset++;
+
+			var word = [];
+
+			if (this.currentTimeOffset === this.timeOffset && this.currentCharacter !== this.currentWordLength) {
+				this.currentCharacter++;
+				this.currentTimeOffset = 0;
 			}
-		}
+			for (var k = 0; k < this.currentCharacter; k++) {
+				word.push(this.currentWord[k]);
+			}
 
-		/*------------- ring opacity with page scroll ---------------*/
+			for (var i = 0; i < this.currentWordLength - this.currentCharacter; i++) {
+				word.push(this.getRandCharacter(this.currentWord[this.currentCharacter + i]));
+			}
 
-		if (scrollHeight >= frameHeight) {
-			$(".page-title").css("opacity", "1");
-			// $(".up-arrow").fadeIn();
-			$("#back2Top .ring").fadeIn();
-		} else {
-			$(".page-title").css("opacity", "0");
-			// $(".up-arrow").fadeOut();
-			$("#back2Top .ring").fadeOut();
-		}
 
-		/*-------------header-text scrolling letters ---------------*/
-
-		var dyScroll = 0.05 * scrollHeight;
-
-		if (scrollHeight > 0 && scrollHeight < frameHeight) {
-			$(".header-text span:first-child").css(
-				"transform",
-				"translateY(" + -6 * dyScroll + "px)"
-			);
-
-			$(".header-text span:nth-child(2)").css(
-				"transform",
-				"translateY(" + -10 * dyScroll + "px)"
-			);
-
-			$(".header-text span:nth-child(3)").css(
-				"transform",
-				"translateY(" + -7 * dyScroll + "px)"
-			);
-
-			$(".header-text span:nth-child(4)").css(
-				"transform",
-				"translateY(" + -4 * dyScroll + "px)"
-			);
-
-			$(".header-text span:nth-child(5)").css(
-				"transform",
-				"translateY(" + -6 * dyScroll + "px)"
-			);
-
-			$(".header-text span:nth-child(6)").css(
-				"transform",
-				"translateY(" + -10 * dyScroll + "px)"
-			);
-
-			$(".header-text span:nth-child(7)").css(
-				"transform",
-				"translateY(" + -10 * dyScroll + "px)"
-			);
-
-			$(".header-text span:nth-child(8)").css(
-				"transform",
-				"translateY(" + -7 * dyScroll + "px)"
-			);
-
-			$(".header-text span:nth-child(9)").css(
-				"transform",
-				"translateY(" + -4 * dyScroll + "px)"
-			);
-
-			$(".header-text span:nth-child(10)").css(
-				"transform",
-				"translateY(" + -6 * dyScroll + "px)"
-			);
-		} else {
-			$(".header-text span").css("transform", "translateY(" + 0 + ")");
-		}
-	});
-});
-
-/*------------- back to top button function ---------------*/
-
-$(document).ready(function () {
-	$("#back2Top").on("click", function (event) {
-		event.preventDefault();
-
-		$("html, body").animate(
-			{
-				scrollTop: 0
-			},
-			1000,
-			"swing"
-		);
-	});
-});
-
-// ---------------------------scroll down button -------------------------
-
-$(function () {
-	// $('a[href*=#]').on('click', function(e) {
-	$("#scroll").on("click", function (e) {
-		e.preventDefault();
-
-		$("html, body").animate(
-			{
-				scrollTop: frameHeight
-			},
-			1000,
-			"linear"
-		);
-	});
-});
-
-//----------------------------------------------------------------------------//
-//-----------------------------filter gallery---------------------------------//
-//----------------------------------------------------------------------------//
-
-(function () {
-	function isElementInViewport(el) {
-		var rect = el.getBoundingClientRect();
-		return (
-			rect.top < (window.innerHeight || document.body.clientHeight) &&
-			rect.left < (window.innerWidth || document.body.clientWidth)
-		);
-	}
-
-	var handleObjectVisibility = function () {
-		var projects = [];
-
-		projects.forEach.call(
-			document.getElementsByClassName("project"),
-			function (el, i) {
-				if (isElementInViewport(el)) {
-					el.classList.add("loaded");
+			if (that.currentCharacter === that.currentWordLength) {
+				that.needUpdate = false;
+			}
+			this.holder.innerHTML = '';
+			word.forEach(function (w, index) {
+				var color = null
+				if (index > that.currentCharacter) {
+					color = that.getRandomColor();
 				} else {
-					el.classList.remove("loaded");
+					color = that.textColor;
 				}
-			}
-		);
-	};
+				that.holder.appendChild(that.generateSingleCharacter(color, w));
+			});
+		}
+		this.then = this.now - (this.delta % this.interval);
+	}
 
-	window.onload = function () {
-		window.addEventListener("scroll", handleObjectVisibility);
-		handleObjectVisibility();
-	};
-})();
+	this.restart = function () {
+		this.currentCharacter = 0;
+		this.needUpdate = true;
+	}
 
-$("#filter-btns div").click(function () {
-	$("#filter-btns div").removeClass("filter-active");
-	$(this).addClass("filter-active");
-	var selectedFilter = $(this).data("filter");
+	function update(time) {
+		time++;
+		if (that.needUpdate) {
+			that.updateCharacter(time);
+		}
+		requestAnimationFrame(update);
+	}
 
-	$("#projects").fadeTo(300, 0);
-	$(".project")
-		.fadeOut(300)
-		.addClass("scale-out-center")
-		.removeClass("scale-in-center");
+	this.writeWord(this.holder.innerHTML);
 
-	setTimeout(function () {
-		$(selectedFilter)
-			.fadeIn(300)
-			.addClass("scale-in-center")
-			.removeClass("scale-out-center");
-		$("#projects").fadeTo(300, 1);
-	}, 400);
+
+	console.log(this.currentWord);
+	update(time);
+}
+
+var headline = document.getElementById('headline');
+var text = document.getElementById('text');
+var welcomeline = document.getElementById('welcomeline');
+var shuffler = document.getElementById('shuffler');
+
+var headText = new WordShuffler(headline, {
+	textColor: '#aaaaaa',
+	timeOffset: 6,
+	// mixCapital : true,
+	// mixSpecialCharacters : true
 });
 
-// Create a lightbox/project page
+var pText = new WordShuffler(text, {
+	textColor: 'var(--accent-color)',
+	timeOffset: 4,
+});
+var welcomeText = new WordShuffler(welcomeline, {
+	textColor: '#aaaaaa',
+	timeOffset: 50,
+	// mixCapital : true,
+	// mixSpecialCharacters : true
+});
+
+
+var buttonText = new WordShuffler(shuffler, {
+	textColor: 'tomato',
+	timeOffset: 6
+});
+
+
+
+shuffler.addEventListener('click', function () {
+	headText.restart();
+	pText.restart();
+	welcomeText.restart();
+	buttonText.restart();
+});
+
+
