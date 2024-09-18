@@ -38,7 +38,6 @@
         if (!window.AnimationEvent) { return }
 
         var anchors = document.getElementsByTagName('a');
-
         for (var idx=0; idx<anchors.length; idx+=1) {
           if (anchors[idx].hostname !== window.location.hostname) {
             return;
@@ -78,7 +77,6 @@
         link.style.color = 'var(--link-color)';
       });
 	</script>
-	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 </head>
 
@@ -232,18 +230,7 @@ Skills: "design, illusration, and coding..",
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" crossorigin="anonymous"></script>
 	<script src="js/script.js"></script>
 	<script src="js/index.js"></script>
-
-	<script>
-		if (window.netlifyIdentity) {
-		  window.netlifyIdentity.on("init", (user) => {
-			if (!user) {
-			  window.netlifyIdentity.on("login", () => {
-				document.location.href = "/admin/";
-			  });
-			}
-		  });
-		}
-	  </script>
+	
 </body>
 
 </html>
