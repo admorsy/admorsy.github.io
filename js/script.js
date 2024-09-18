@@ -80,27 +80,29 @@ circle.style.strokeDasharray = circumference + " " + circumference, circle.style
     }, 400)
   }),
   function () {
-    var o = $("<div class='project-page ik'></div>"),
-      r = $("<h1></h1>"),
-      c = $("<h3></h3>"),
-      i = $("<img>"),
-      l = $("<p></p>"),
-      d = $("<div class='close-icon custom-link'><div class='bar1'></div><div class='bar3'></div></div>");
-    o.append(r).append(c).append(i).append(l).append(d), $(".middle").append(o), $(".project img").click(function (e) {
+    var projectPage = $("<div class='project-page ik'></div>"),
+      projectTitle = $("<h1></h1>"),
+      projectTags = $("<h3></h3>"),
+      projectImage = $("<img>"),
+      projectDesc = $("<p></p>"),
+      projectDetails = $("<p></p>"),
+      projectCloseIcon = $("<div class='close-icon custom-link'><div class='bar1'></div><div class='bar3'></div></div>");
+    projectPage.append(projectTitle).append(projectTags).append(projectImage).append(projectDesc).append(projectDetails).append(projectCloseIcon), $(".middle").append(projectPage), $(".project img").click(function (e) {
       e.preventDefault();
       var t = $(this).attr("title"),
         a = $(this).attr("data-tags"),
-        n = $(this).attr("data-details"),
-        s = i.width(),
-        e = i.height();
-      console.log(s, e);
-      e = $(this).attr("src").split("?")[0];
-      console.log(e);
-      s = e + "?tr=ar-8-5,w-" + s;
-      console.log(s), console.log($(this).attr("src")), i.attr("src", s), r.text(t), c.text(a), l.text(n), o.delay(300).fadeIn("fast"), $(".project-page").animate({
+        n = $(this).attr("data-description"),
+        x = $(this).attr("data-details"),
+        w = projectImage.width(),
+        h = projectImage.height();
+      console.log(w, h);
+      h = $(this).attr("src").split("?")[0];
+      console.log(h);
+      w = h + "?tr=ar-8-5,w-" + w;
+      console.log(w), console.log($(this).attr("src")), projectImage.attr("src", w), projectTitle.text(t), projectTags.text(a), projectDesc.text(n), projectDetails.text(x), projectPage.delay(300).fadeIn("fast"), $(".project-page").animate({
         scrollTop: 0
-      }, 500), $("html").addClass("project-page--open"), d.click(function () {
-        o.fadeOut(0), $("html").removeClass("project-page--open")
+      }, 500), $("html").addClass("project-page--open"), projectCloseIcon.click(function () {
+        projectPage.fadeOut(0), $("html").removeClass("project-page--open")
       })
     })
   }(), $(".project").mouseover(function (e) {
