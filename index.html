@@ -28,124 +28,120 @@
 		}
 	</style>
 	<script>
-	function fadeInPage() {
-        if (!window.AnimationEvent) { return; }
-        var fader = document.getElementById('fader');
-        fader.classList.add('fade-out');
-      }
-
-      document.addEventListener('DOMContentLoaded', function() {
-        if (!window.AnimationEvent) { return }
-
-        var anchors = document.getElementsByTagName('a');
-
-        for (var idx=0; idx<anchors.length; idx+=1) {
-          if (anchors[idx].hostname !== window.location.hostname) {
-            return;
-          }
-
-          anchors[idx].addEventListener('click', setTimeout(function(event) {
-            var fader = document.getElementById('fader'),
-                anchor = event.currentTarget;
-
-            var listener = function() {
-              window.location = anchor.href;
-              fader.removeEventListener('animationend', listener);
-            };
-            fader.addEventListener('animationend', listener);
-
-            event.preventDefault();
+		function fadeInPage() {
+			  if (!window.AnimationEvent) { return; }
+			  var fader = document.getElementById('fader');
+			  fader.classList.add('fade-out');
+			}
+		
+			document.addEventListener('DOMContentLoaded', function() {
+			  if (!window.AnimationEvent) { return }
+		
+			  var anchors = document.getElementsByTagName('a');
+		
+			  for (var idx=0; idx<anchors.length; idx+=1) {
+				if (anchors[idx].hostname !== window.location.hostname) {
+				  return;
+				}
+		
+				anchors[idx].addEventListener('click', setTimeout(function(event) {
+				  var fader = document.getElementById('fader'),
+					  anchor = event.currentTarget;
+		
+				  var listener = function() {
+					window.location = anchor.href;
+					fader.removeEventListener('animationend', listener);
+				  };
+				  fader.addEventListener('animationend', listener);
+		
+				  event.preventDefault();
 			// var navPage = document.getElementById("nav-page");
 			// navPage.classList.add("fade-out");
-            fader.classList.add('fade-in');
-          }),3000);
-        }
-      });
-
-      window.addEventListener('pageshow', function (event) {
-        if (!event.persisted) {
-          return;
-        }
-        var fader = document.getElementById('fader');
-        fader.classList.remove('fade-in');
-      });
-
-
-      document.addEventListener('DOMContentLoaded', function() {
-
-            link = document.getElementById('link');
-        document.body.style.background = "var(--bg-color)";
-        link.style.color = 'var(--link-color)';
-      });
-    
-	</script>
-
-</head>
-
-<body class="pgtr-index imgloaded">
-	<div id="preloader" class="fade-out">
-	</div>
-	<svg id="fader" class="fade-out"></svg>
-	<script>fadeInPage()</script>
-
-	<!-- <div id="precursor">
-  </div> -->
-	<!-- <svg id="fader"></svg> -->
-	<!-- <svg id="loader" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-
-    <circle cx="12" cy="12" r="6" fill="#40aab7" />
-    <animate attributeName="opacity" attributeType="XML" values="1; 0; 1" begin="0s" dur="2s" repeatCount="indefinite" />
-    <animate attributeName="width" attributeType="XML" values="24; 20; 24" begin="0s" dur="2s" repeatCount="indefinite" />
-
-    <circle cx="12" cy="12" r="10" stroke="#40aab7" stroke-width="2" fill="none" />
-    <animate attributeName="opacity" attributeType="XML" values="1; 0; 1" begin="0s" dur="2s" repeatCount="indefinite" />
-
-  </svg> -->
-	<!-- <div class="pre-loader">
-    <div class="pre-cursor pulse">
-      <div class="dot"></div>
-      <div class="ring"></div>
-    </div>
-  </div> -->
-	<!-- <script>
-    fadeInPage();
-  </script> -->
-	
-		<footer>
-			<div class="footer-text">
-				Copyright © 2021 Adam Morsy. All Rights Reserved.
-			</div>
-		</footer>
-	</div>
-	<div id="frame">
-		<div class="top">
+				  fader.classList.add('fade-in');
+				}),3000);
+			  }
+			});
 		
-		</div>
-		<div class="middle">
-			<div class="nav-bar">
+			window.addEventListener('pageshow', function (event) {
+			  if (!event.persisted) {
+				return;
+			  }
+			  var fader = document.getElementById('fader');
+			  fader.classList.remove('fade-in');
+			});
+		
+		
+			document.addEventListener('DOMContentLoaded', function() {
+		
+			  link = document.getElementById('link');
+				document.body.style.background = "var(--bg-color)";
+				link.style.color = 'var(--link-color)';
+			});
+		  
+		</script>
+		</head>
+		
+		<body class="">
+		  <div id="preloader" class="fade-out">
+			</div>
+			<svg id="fader" class="fade-out"></svg>
+			<script>fadeInPage()</script>
+		  <div class="page">
+			<div class="header ik outline--2px"><img
+				src="img/site/organometry-02-lg-ls.jpg" loading="lazy" alt="organometry-02">
+			  <!-- <div class="header-text"><span>H</span> <span>e</span> <span>l</span> <span>l</span> <span>o</span> <span>!</span></div> -->
+			  
+			  <div class="new-intro-text">
+				<h1>Hello.</h1>
+				<h2>My name is Adam.</h2>
+				<h3> I’m a digital designer and artist who believes in the power of minimal design. With a passion for blending technology and creativity, I create experiences that engage and inspire.
+				My work spans across branding, web design, and digital art—transforming ideas into visually compelling stories.
+				</h3>
+				<h3>
+				 Explore my portfolio to see some projects I worked on. If you are interested in working together on a new project, or have questions, feel free to say hi!
+				</h3>
+				<span class="custom-link"><a href="portfolio.html"  class="custom-link">view work</a></span>
+				<span class="custom-link"><a href="mailto:adam_morsy@outlook.com?subject=Hi,Adam!"  class="custom-link">say hi!</a></span>
+
+			  </div>
+			</div>
+			<!-- <div id="scroll" class="custom-link"><span></span></div> -->
+			<!-- <div class="main">
+			  <div class="block">
+				
+			  </div>
+			</div> -->
+			<footer>
+			  <div class="footer-text">Copyright © 2024 Adam Morsy. All Rights Reserved.</div>
+			</footer>
+		  </div>
+		  <div id="frame">
+			<div class="top"></div>
+			<div class="middle">
+			  <div class="nav-bar">
 				<div class="nav-logo">
 				  <a href="index.html" class="custom-link" title="home">
 					<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="25 0 200 50">
-
-  <path class="meem" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="M 50,50 L 100,0
-	   L  100,0 L125,25
-	   L  125,25 L 100,50
-	   L 100,50 L 75,25
-	 " pathLength="1" />
-  <path class="dal" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
-	   M  138,0 L163,25
-	   L  163,25 L 138,50
-	  " pathLength="1" />
-  <path class="alef" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
-	   M  185,0 v50" pathLength="1" />
-
-  <path class="madd" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
-M 185,-25 h -50" pathLength="1" />
-
-</svg></a>
+		
+		  <path class="meem" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="M 50,50 L 100,0
+			   L  100,0 L125,25
+			   L  125,25 L 100,50
+			   L 100,50 L 75,25
+			 " pathLength="1" />
+		  <path class="dal" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+			   M  138,0 L163,25
+			   L  163,25 L 138,50
+			  " pathLength="1" />
+		  <path class="alef" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+			   M  185,0 v50" pathLength="1" />
+		
+		  <path class="madd" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+		M 185,-25 h -50" pathLength="1" />
+		
+		</svg></a>
 				  <div class="logo-type">ADAM<strong>&nbsp;&nbsp;MORSY</strong></div>
 				</div>
-				<div class="page-title">#portfolio</div>
+				<div class="page-title">#résumé</div>
 				<div class="nav-spacer"></div><input value="25" type="number" min="0" max="100" placeholder="progress">
 				<div id="back2Top" class="custom-link"><svg class="ring" width="40" height="40">
 					<circle stroke="var(--border-color)" stroke-width="3" fill="transparent" r="14" cx="20" cy="20" /></svg>
@@ -172,125 +168,54 @@ M 185,-25 h -50" pathLength="1" />
 				  <div class="bar3"></div>
 				</div>
 			  </div>
-			<div id="nav-page" class="outline--2px">
+			  <div id="nav-page" class="outline--2px">
 				<div class="side-bar">
-					<div class="social-links">
-						<a href="https://www.linkedin.com/in/admorsy" target="_blank" class="linkedin custom-link">
-							<i class="ri-linkedin-fill ri-1x" aria-hidden="true" title="LinkedIn"></i>
-
-							<p>/admorsy</p>
-						</a>
-
-						<a href="https://www.behance.net/admorsy" class="behance custom-link" target="_blank">
-							<i class="ri-behance-fill ri-1x" aria-hidden="true" title="Behance"></i>
-
-							<p>/admorsy</p>
-						</a>
-						<a href="#" class="facebook custom-link" target="_blank">
-							<i class="ri-facebook-fill ri-1x" aria-hidden="true" title="Facebook">
-							</i>
-
-							<p></p>
-						</a>
-						<a href="#" class="pinterest custom-link" target="_blank">
-							<i class="ri-pinterest-fill ri-1x" aria-hidden="true" title="Pinterest"></i>
-
-							<p></p>
-						</a>
-						<a href="mailto:adam_morsy@outlook.com?bcc=ahmad.mor.c@gmail.com&subject=Hi,Adam!" class="email custom-link" target="_blank">
-							<i class="ri-mail-line ri-1x" aria-hidden="true" title="Email"></i>
-
-							<p>adam_morsy@outlook.com</p>
-						</a>
-					</div>
-				</div>
-				<span class="v-line"></span>
-				<span class="h-line"></span>
+				  <div class="social-links">
+								<a href="https://www.linkedin.com/in/admorsy" target="_blank" class="linkedin custom-link">
+									<i class="ri-linkedin-fill ri-1x" aria-hidden="true" title="LinkedIn"></i>
+		
+									<p>linkedin.com/admorsy</p>
+								</a>
+		
+								<a href="https://www.behance.net/admorsy" class="behance custom-link" target="_blank">
+									<i class="ri-behance-fill ri-1x" aria-hidden="true" title="Behance"></i>
+		
+									<p>behance.net/admorsy</p>
+								</a>
+								<!-- <a href="#" class="facebook custom-link" target="_blank">
+									<i class="ri-facebook-fill ri-1x" aria-hidden="true" title="Facebook">
+									</i>
+		
+									<p></p>
+								</a> -->
+								<!-- <a href="#" class="pinterest custom-link" target="_blank">
+									<i class="ri-pinterest-fill ri-1x" aria-hidden="true" title="Pinterest"></i>
+		
+									<p></p>
+								</a> -->
+								<a href="mailto:adam_morsy@outlook.com?subject=Hi,Adam!" class="email custom-link" target="_blank">
+									<i class="ri-mail-line ri-1x" aria-hidden="true" title="Email"></i>
+		
+									<p>adam_morsy@outlook.com</p>
+								</a>
+							</div>
+				</div><span class="v-line"></span> <span class="h-line"></span>
 				<div class="nav-links custom-link">
-					<div class="nav-link custom-link">
-						<a href="index.html" class="custom-link current" data-hover="hello" data-type="page-transition">#hello</a>
-					</div>
-					<div class="nav-link custom-link">
-						<a href="resume.html" class="custom-link" data-hover="résumé" data-type="page-transition">#résumé</a>
-					</div>
-					<div class="nav-link custom-link">
-						<a href="portfolio.html" class="custom-link" data-hover="portfolio" data-type="page-transition">#portfolio</a>
-					</div>
+				  <div class="nav-link custom-link current"><a href="index.html" class="custom-link" data-hover="hello"
+					  data-type="page-transition">#hello</a></div>
+				  <div class="nav-link custom-link"><a href="resume.html" class="custom-link current"
+					  data-hover="résumé" data-type="page-transition">#résumé</a></div>
+				  <div class="nav-link custom-link"><a href="portfolio.html" class="custom-link" data-hover="portfolio"
+					  data-type="page-transition">#portfolio</a></div>
 				</div>
-			</div>
-			<div class="canvas-container">
-				<canvas id="canvas" data-image="/img/site/organometry-08-lg-landscape-min-bw.jpg" class="ik"></canvas>
-
-
-				<!-- <div class="overscroll-fix"></div> -->
-			
-<!-- <div class="content">
-	<span class="text"></span>
-</div> -->
-				<div class="bg--lined-thin"></div>
-			  
-				<!-- <div id="glitch__title" class="header-text blur-in"> -->
-					<!-- <div id="kal"></div> -->
-			  
-			   
-				  <!-- <span>#</span> -->
-			  <!-- <span class="box1">h</span>
-			  <span class="box2">e</span>
-			  <span class="box3">l</span>
-			  <span class="box4">l</span>
-			  <span class="box5">o</span>
-			  <span class="box6">!</span>
-				</div> -->
-		
-				
-			  <!-- <div id="scroll" class="custom-link"><span></span></div> -->
-		
-			  <!-- <div class="overlay"></div> -->
-		
-			 
-					<!-- <div class="card">
-						<div class="card__content">
-							<p class="scrambled__text glitch__text typewritten shake glow">
-								<span class="typed-text"></span>
-								<span class="cursor">&nbsp;</span>
-		
-							</p>
-						</div>
-		
-					</div> -->
-				</div>
-				<div class="intro">
-				<pre id="headline" class="comment"> // Hello World!</pre>
-				  <pre id="text">
-const aboutMe = {
-
-name: "Adam Morsy",
-job: "graphic designer and a mixed media artist",
-location: "Philadelphia",
-interests: "patterns, geometry, and motion",
-favorites: "green-blue, squares, and peacocks.",
-skills: "design, illusration, and coding..",
-
-};</pre>
-				  <pre id="welcomeline" class="comment">// Welcome to my page!</pre>
-				  <!-- <button id="shuffler">shuffle</button> -->
 			  </div>
-				
-
-		</div>
-		
-
-		<div class="bottom"></div>
-		<div class="right"></div>
-		<div class="left"></div>
-	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" crossorigin="anonymous"></script>
-	<script src="js/script.js"></script>
-	<script src="js/index.js"></script>
-
-
-</body>
-
+			</div>
+			<div class="bottom"></div>
+			<div class="right"></div>
+			<div class="left"></div>
+		  </div>
+		  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		  <script src="js/script.js"></script>
+		</body>
 </html>

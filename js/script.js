@@ -86,8 +86,9 @@ circle.style.strokeDasharray = circumference + " " + circumference, circle.style
       projectImage = $("<img>"),
       projectDesc = $("<p></p>"),
       projectDetails = $("<p></p>"),
-      projectCloseIcon = $("<div class='close-icon custom-link'><div class='bar1'></div><div class='bar3'></div></div>");
-    projectPage.append(projectTitle).append(projectTags).append(projectImage).append(projectDesc).append(projectDetails).append(projectCloseIcon), $(".middle").append(projectPage), $(".project img").click(function (e) {
+      projectCloseIcon = $("<div class='close-icon custom-link'>Close Project</div></div></div>");
+      $(".middle").append(projectCloseIcon),
+    projectPage.append(projectTitle).append(projectTags).append(projectImage).append(projectDesc).append(projectDetails), $(".middle").append(projectPage), $(".project img").click(function (e) {
       e.preventDefault();
       var t = $(this).attr("title"),
         a = $(this).attr("data-tags"),
