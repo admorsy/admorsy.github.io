@@ -86,8 +86,8 @@ circle.style.strokeDasharray = circumference + " " + circumference, circle.style
       projectImage = $("<img>"),
       projectDesc = $("<p></p>"),
       projectDetails = $("<p></p>"),
-      projectCloseIcon = $("<div class='close-icon custom-link'>Close Project</div></div></div>");
-      $(".middle").append(projectCloseIcon),
+      projectCloseBtn = $("<div class='project-close-btn custom-link'><span>🡸 back to portfolio</span></div>");
+      $(".middle").append(projectCloseBtn),
     projectPage.append(projectTitle).append(projectTags).append(projectImage).append(projectDesc).append(projectDetails), $(".middle").append(projectPage), $(".project img").click(function (e) {
       e.preventDefault();
       var t = $(this).attr("title"),
@@ -102,7 +102,7 @@ circle.style.strokeDasharray = circumference + " " + circumference, circle.style
       w = h + "?tr=ar-8-5,w-" + w;
       console.log(w), console.log($(this).attr("src")), projectImage.attr("src", w), projectTitle.text(t), projectTags.text(a), projectDesc.text(n), projectDetails.text(x), projectPage.delay(300).fadeIn("fast"), $(".project-page").animate({
         scrollTop: 0
-      }, 500), $("html").addClass("project-page--open"), projectCloseIcon.click(function () {
+      }, 500), $("html").addClass("project-page--open"), projectCloseBtn.click(function () {
         projectPage.fadeOut(0), $("html").removeClass("project-page--open")
       })
     })
