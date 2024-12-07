@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Game Prototype | Adam Morsy</title>
+  <meta name="description" content="A collection of selected art and design work that cover the main categories.">
+  <meta name="author" content="Adam Morsy">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="art, design, graphic, web, sculpture, print, identity, drawing, coding, programming">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="img/site/RemixIconFont/remixicon.css">
+  <link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<!-- <link rel="stylesheet" href="css/scroll.css"> -->
+  <link rel="stylesheet" href="../css/style.css">
+	<noscript>
+		<style>
+			body {
+				opacity: 1;
+			}
+		</style>
+	</noscript>
+	<style>
+		html,
+		body {
+			background-color: var(--bg-color);
+		}
+	</style>
+ 
+	<script>
+	function fadeInPage() {
+        if (!window.AnimationEvent) { return; }
+        var fader = document.getElementById('fader');
+        fader.classList.add('fade-out');
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!window.AnimationEvent) { return }
+
+        var anchors = document.getElementsByTagName('a');
+
+        for (var idx=0; idx<anchors.length; idx+=1) {
+          if (anchors[idx].hostname !== window.location.hostname) {
+            return;
+          }
+
+          anchors[idx].addEventListener('click', setTimeout(function(event) {
+            var fader = document.getElementById('fader'),
+                anchor = event.currentTarget;
+
+            var listener = function() {
+              window.location = anchor.href;
+              fader.removeEventListener('animationend', listener);
+            };
+            fader.addEventListener('animationend', listener);
+
+            event.preventDefault();
+			// var navPage = document.getElementById("nav-page");
+			// navPage.classList.add("fade-out");
+            fader.classList.add('fade-in');
+          }),3000);
+        }
+      });
+
+      window.addEventListener('pageshow', function (event) {
+        if (!event.persisted) {
+          return;
+        }
+        var fader = document.getElementById('fader');
+        fader.classList.remove('fade-in');
+      });
+
+
+      document.addEventListener('DOMContentLoaded', function() {
+        
+        link = document.getElementById('link');
+        document.body.style.background = "var(--bg-color)";
+        link.style.color = 'var(--link-color)';
+      });
+    
+	</script>
+</head>
+
+<body class="pgtr-gameprototype">
+  <div id="preloader" class="fade-out">
+	</div>
+	<svg id="fader" class="fade-out"></svg>
+	<script>fadeInPage()</script>
+ 
+  <div class="page">
+    <div class="header ik outline--2px"><img
+        src="/capstone1/media/overall-shot.png" loading="lazy" alt="exp3">
+      <div class="header-text"><span>#</span> <span>Capstone</span><span>_</span> <span>Project</span><span>_</span> <span>1</span> </div>
+    </div>
+    <div id="scroll" class="custom-link"><span></span></div>
+  <div class="main">
+      <div class="block">
+        <h3>Race Diversity in Video Games</h3>
+        <br>
+        <p class="text--sm mt--8">
+        The gaming industry has been criticized for a lack of racial diversity in its character representation. A large percentage of video game protagonists are white or Asian, while characters of Black, Latino, and Indigenous descent are underrepresented. </p>
+        <p class="text--sm mt--8">
+Research from the International Game Developers Association (IGDA) indicates that 78% of game developers identify as white or Asian, which mirrors the dominance of these races in character designs and storylines. Here some of the challenges:</p>
+
+<p class="text--sm mt--8">Lack of Diverse Characters: Historically, video game characters have been predominantly white or light-skinned. When non-white characters are included, they are often relegated to secondary or stereotypical roles.</p>
+
+<p class="text--sm mt--8">Stereotyping and Tokenism: In many cases, characters of color are often presented with exaggerated features or placed in culturally stereotyped roles, perpetuating harmful tropes.</p>
+<p class="text--sm mt--8">Limited Customization: Even in games where character customization is possible, options for skin tones, hairstyles, and cultural expressions are often limited or poorly implemented.</p>
+<p class="text--sm mt--8">Industry Barriers: The low representation of game developers from diverse racial backgrounds contributes to this lack of inclusion, as developers' perspectives often influence the stories and characters they create.</p>
+<h5>Why is it important to address it?</h5>
+
+<p class="text--sm mt--8">
+Addressing race in video games matters because media representations influence how people perceive themselves and others. Gaming is a powerful medium that shapes narratives and identities. Providing racially diverse characters helps:</p>
+<p class="text--sm mt--8">Representation and Empowerment: Gamers from marginalized racial groups are more likely to feel connected to and empowered by characters that reflect their own identities.</p>
+
+<p class="text--sm mt--8">Encouraging Empathy: Games with diverse casts can foster empathy and understanding among players, allowing them to experience stories and perspectives outside their own.</p>
+<p class="text--sm mt--8">Combating Racism: Offering varied racial representations can counteract harmful stereotypes and normalize diversity, helping to deconstruct ingrained racial biases.</p>
+
+        <p class="text--sm mt--8">
+          For my Fall ‘24 semester, I took two classes about video games. One is about game theory and what “play” is and how it’s important to everyone. The second class was more technical introducing programming concepts using C# language. 
+
+        </p>
+       <p class="text--sm mt--8">
+          I wanted to practice what I’m learning in an actual project, so I decided my capstone project will be a prototype of a simple platformer game that has an option to customize the main character in the game. Of course, this concept can extend and be as complex as more work is done on the game development but for the purposes of this project, I wanted to keep it simple. Just five options that represent skin colo rs, which in turn can represent the idea of race diversity.
+
+        </p>
+        <h5> Where?</h5>
+        <p class="text--sm mt--8">
+         
+My plan for the game is to be mainly online on websites like itch.io. There could be further adaptations for different operating systems like MacOS and Windows if the game gains interests.
+
+
+        </p>
+        <h5> Who?</h5>
+        <p class="text--sm mt--8">
+         
+          My target audience is those interested in indie games. Hopefully the game reaches the racial groups it is intended to, and provides them a sense of belonging that should be there in the first place. The game is also for teachers and educators to incorporate in their activities with young students to develop their self-confidence and empathy towards one another. Plus later levels of the game should have more puzzles and advanced scenarios that can be a fun way to develop student thinking.
+        </p>
+        <h5> When?</h5>
+        <p class="text--sm mt--8">
+          This was my original timeline that I made to plan the process:
+
+        </p>
+        <p class="text--sm mt--8">
+          <table>
+            <tbody>
+            <tr>
+            <td colspan="2" rowspan="23">
+            <p><strong>Concept and Planning</strong></p>
+            <br />
+            <p><strong>Define the Game Concept</strong>: Decide on the theme, story, and main mechanics. This includes the customization options for the character's appearance.</p>
+            <p><strong>Game Design Document (GDD)</strong>: Write a GDD to outline gameplay, story, levels, controls, and any unique features.</p>
+            <br />
+            <p><strong>Prototyping</strong></p>
+            <br />
+            <p><strong>Basic Mechanics</strong>: Implement core gameplay mechanics like movement, jumping, and collisions.</p>
+            <p><strong>Level Layout</strong>: Create basic level layouts to test how the player will interact with platforms and obstacles.</p>
+            <p><strong>Customization Mechanic</strong>: Prototype the character customization feature, especially as it relates to the theme.</p>
+            <br />
+            <p><strong>Asset Creation</strong></p>
+            <p><strong>Character and Environment Art</strong>: Design and create character sprites, backgrounds, and platform assets. Use software like Photoshop or Illustrator for 2D art, then import it into Unity.</p>
+            <p><strong><em>Sound and Music</em></strong><em>: Develop or source sound effects and background music to match the theme. (TBD)</em></p>
+            <br />
+            <p><strong>Development and Integration</strong></p>
+            <br />
+            <p><strong>Gameplay Mechanics</strong>: Code character abilities, enemies, obstacles, and game physics.</p>
+            <p><strong>User Interface (UI)</strong>: Design and implement HUD elements like score, health, and customization options.</p>
+            <p><strong>Character Customization</strong>: Implement UI elements and underlying code for customizing the character&rsquo;s appearance.</p>
+            <br />
+            <p><strong>Level Design</strong></p>
+            <br />
+            <p><strong><em>Detailed Level Design</em></strong><em>: Build A level that becomes progressively challenging, introduce new mechanics gradually, and fit the game&rsquo;s story and theme. (TBD)</em></p>
+            <p><strong>Testing</strong>: Test game level(s) to ensure they&rsquo;re engaging and fair.</p>
+            <br />
+            <p><strong>Testing and Iteration</strong></p>
+            <br />
+            <p><strong>Playtesting</strong>: Have players test the game to gather feedback on mechanics, difficulty, and enjoyment.</p>
+            <p><strong>Bug Fixing</strong>: Identify and resolve bugs, especially those related to player movement, physics, and customization.</p>
+            <p><strong>Polish</strong>: Refine animations, transitions, and UI to improve the game experience.</p>
+            <br />
+            <p><strong>Submit/Publish</strong></p>
+            <br />
+            <p><strong><em>Publish the game</em></strong><em>: Make sure the game runs smoothly on all target platforms. (TBD)</em></p>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+        </p>
+        <p class="text--sm mt--8">
+          But this wasn’t a realistic timeline at all (yes, my instructor was right!)..especially since it’s my first time to create a game. Anyway, no regrets. It was definitely worth it because I learned a lot of stuff even if the outcome is nowhere close to being finished.
+
+
+        </p>
+        <h5> What?</h5>
+        <p class="text--sm mt--8">
+          Here is a video of me playing the game (or at least attempt to, since I made it too hard for myself) and some pictures of the design process.
+
+        </p>
+      </div>
+     
+      <div class="block">
+       <img src="/capstone1/media/custom-character.png" alt="">
+      </div>
+      <div class="block">
+        <img src="/capstone1/media/characters.png" alt="">
+       </div>
+       <div class="block">
+        <video width="800" autoplay muted loop>
+<source src="/capstone1//media/game-clip1.mov">
+        
+        </video>
+       </div>
+       <div class="block">
+        <video width="800" autoplay muted loop>
+<source src="/capstone1//media/game-clip2.mov">
+        
+        </video>
+       </div>
+       <div class="block">
+        <video width="800" autoplay muted loop>
+<source src="/capstone1//media/game-clip3.mov">
+        
+        </video>
+       </div>
+    </div>
+    <footer>
+      <div class="footer-text">Copyright © 2024 Adam Morsy. All Rights Reserved.</div>
+    </footer>
+  </div>
+  <!-- <div class="container"> -->
+  <div id="frame">
+    <div class="top"></div>
+    <div class="middle">
+      <div class="nav-bar">
+        <div class="nav-logo">
+          <a href="index.html" class="custom-link" title="home">
+            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="25 0 200 50">
+      
+        <path class="meem" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="M 50,50 L 100,0
+           L  100,0 L125,25
+           L  125,25 L 100,50
+           L 100,50 L 75,25
+         " pathLength="1"></path>
+        <path class="dal" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+           M  138,0 L163,25
+           L  163,25 L 138,50
+          " pathLength="1"></path>
+        <path class="alef" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+           M  185,0 v50" pathLength="1"></path>
+      
+        <path class="madd" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+      M 185,-25 h -50" pathLength="1"></path>
+      
+      </svg></a>
+          <div class="logo-type">ADAM<strong>&nbsp;&nbsp;MORSY</strong></div>
+        </div>
+        <div class="page-title">#portfolio</div>
+        <div class="nav-spacer"></div><input value="25" type="number" min="0" max="100" placeholder="progress">
+        <div id="back2Top" class="custom-link"><svg class="ring" width="40" height="40">
+            <circle stroke="var(--border-color)" stroke-width="3" fill="transparent" r="14" cx="20" cy="20" /></svg>
+          <svg class="up-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            style="fill: var(--border-color)">
+            <path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path>
+          </svg></div>
+        <div class="nav-mode-container custom-link"><input type="checkbox" id="nav-mode"> <label for="nav-mode">
+            <div class="icon-moon custom-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                height="24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22 6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981z"
+                  fill="currentColor" /></svg></div>
+            <div class="icon-sun custom-link" hidden><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"
+                  fill="currentColor" /></svg></div>
+          </label></div>
+        <div class="nav-icon custom-link">
+          <div class="bar1"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+      <div id="nav-page" class="outline--2px">
+        <div class="side-bar">
+          <div class="social-links">
+						<a href="https://www.linkedin.com/in/admorsy" target="_blank" class="linkedin custom-link">
+							<i class="ri-linkedin-fill ri-1x" aria-hidden="true" title="LinkedIn"></i>
+
+							<p>linkedin.com/admorsy</p>
+						</a>
+
+						<a href="https://www.behance.net/admorsy" class="behance custom-link" target="_blank">
+							<i class="ri-behance-fill ri-1x" aria-hidden="true" title="Behance"></i>
+
+							<p>behance.net/admorsy</p>
+						</a>
+						<!-- <a href="#" class="facebook custom-link" target="_blank">
+							<i class="ri-facebook-fill ri-1x" aria-hidden="true" title="Facebook">
+							</i>
+
+							<p></p>
+						</a> -->
+						<!-- <a href="#" class="pinterest custom-link" target="_blank">
+							<i class="ri-pinterest-fill ri-1x" aria-hidden="true" title="Pinterest"></i>
+
+							<p></p>
+						</a> -->
+						<a href="mailto:adam_morsy@outlook.com?subject=Hi,Adam!" class="email custom-link" target="_blank">
+							<i class="ri-mail-line ri-1x" aria-hidden="true" title="Email"></i>
+
+							<p>adam_morsy@outlook.com</p>
+						</a>
+					</div>
+        </div><span class="v-line"></span> <span class="h-line"></span>
+        <div class="nav-links custom-link">
+          <div class="nav-link custom-link"><a href="index.html" class="custom-link" data-value="#hello" data-type="page-transition">hello</a></div>
+          <div class="nav-link custom-link"><a href="resume.html" class="custom-link" data-value="résumé" data-type="page-transition">résumé</a></div>
+          <div class="nav-link custom-link current"><a href="portfolio.html" class="custom-link" data-value="portfolio" data-type="page-transition">#portfolio</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom"></div>
+    <div class="right"></div>
+    <div class="left"></div>
+  </div>
+
+  <!-- </div> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  <!-- <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script> -->
+  <!-- <script src="js/scroll.js"></script> -->
+
+  
+</body>
+
+</html>

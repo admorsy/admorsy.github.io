@@ -3812,6 +3812,35 @@ body.loaded {
     opacity: 1;
   }
 }
+.pgtr-gameprototype p{
+  margin:10px 0;
+  line-height: 2rem;
+}
+
+.pgtr-gameprototype h3,h5{
+  margin:30px 0;
+}
+.pgtr-gameprototype .block {
+  width:80%;
+  margin: 20px 10%;
+
+}
+.pgtr-gameprototype .block img {
+  width: 100%;
+  /* margin: 20px 10%; */
+}
+
+.pgtr-gameprototype .block video {
+  width: 100%;
+  /* margin: 20px 10%; */
+  outline: 20px solid black;
+  outline-offset: -20px;
+}
+
+/* .pgtr-gameprototype .block source {
+  width:80%;
+  margin:20px auto;
+} */
 
 body.dark,html[data-theme="dark"] {
   --bg-color: #101218;
