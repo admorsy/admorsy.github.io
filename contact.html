@@ -1,345 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Contact | Adam Morsy</title>
+		<meta name="description"
+		content="template branding project">
+		<meta name="author" content="Adam Morsy">
+		<meta name="robots" content="index, follow">
+		<meta name="keywords" content="art, design, graphic, web, sculpture, print, identity, drawing, coding, programming">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link
+		href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+		rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,ROND@6..144,1..1000,0..100&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.17/dist/lenis.css">
+	<script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
+			<noscript>
+			<style>
+				body {
+					opacity: 1;
+				}
+			</style>
+		</noscript>
+		<style>
+			html,
+			body {
+				background-color: var(--bg-color);
+			}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, shrink-to-fit=no"> -->
-  <title>Adam Morsy | Art &amp; Design Portfolio</title>
-  <meta name="description" content="Art and design work I did within the past 5 years">
-  <meta name="keywords" content="art, design, graphic, web, sculpture, print, identity, drawing, coding, programming">
-  <meta name="author" content="Adam Morsy">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-  <script>
-    function fadeInPage() {
-      if (!window.AnimationEvent) {
-        return;
-      }
-      var fader = document.getElementById('fader');
-      var body = document.body;
-      fader.classList.add('fade-out');
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      if (!window.AnimationEvent) {
-        return
-      }
-
-      var anchors = document.getElementsByTagName('a');
-
-      for (var idx = 0; idx < anchors.length; idx += 1) {
-        if (anchors[idx].hostname !== window.location.hostname) {
-          return;
-        }
-
-        anchors[idx].addEventListener('click', function(event) {
-          var fader = document.getElementById('fader'),
-            anchor = event.currentTarget;
-
-          var listener = function() {
-            window.location = anchor.href;
-            fader.removeEventListener('animationend', listener);
-          };
-          fader.addEventListener('animationend', listener);
-
-          event.preventDefault();
-          fader.classList.add('fade-in');
-          body.classList.add('loading');
-
-        });
-      }
-    });
-
-    window.addEventListener('pageshow', function(event) {
-      if (!event.persisted) {
-        return;
-      }
-      var fader = document.getElementById('fader');
-      fader.classList.remove('fade-in');
-      body.classList.add('loaded');
-
-    });
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-
-      link = document.getElementById('link');
-      document.body.style.background = '#fff';
-      link.style.color = '#034';
-    });
-  </script>
-  <script type="text/javascript">
-    (function() {
-      var link = document.createElement('link');
-      link.setAttribute('id', 'dark-css');
-      link.setAttribute('rel', 'stylesheet');
-      document.head.appendChild(link);
-      var style = localStorage.getItem('stylesheet');
-      if (style) {
-        document.getElementById('dark-css').setAttribute('href', style);
-      }
-    })()
-  </script>
-  <style>
-    body {
-      background-color: #fff;
-    }
-
-    #fader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: 500;
-      pointer-events: none;
-      background: #fff;
-      -webkit-animation-duration: 0.3s;
-      animation-duration: 0.3s;
-      -webkit-animation-timing-function: ease-in-out;
-      animation-timing-function: ease-in-out;
-    }
-
-    #fader:before {
-      content: 'fade';
-    }
-
-    @-webkit-keyframes fade-out {
-      from {
-        opacity: 1;
-      }
-
-      to {
-        opacity: 0;
-      }
-    }
-
-    @keyframes fade-out {
-      from {
-        opacity: 1;
-      }
-
-      to {
-        opacity: 0;
-      }
-    }
-
-    @-webkit-keyframes fade-in {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes fade-in {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    #fader.fade-out {
-      opacity: 0;
-      -webkit-animation-name: fade-out;
-      animation-name: fade-out;
-    }
-
-    #fader.fade-in {
-      opacity: 1;
-      -webkit-animation-name: fade-in;
-      animation-name: fade-in;
-    }
-  </style>
-  <link rel="stylesheet" href="css/style.css">
-  <!-- <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet"> -->
-  <!-- <link id="dark-css" rel="stylesheet" href="https://ahmadmorsy.github/io/css/dark.css"> -->
-  <style>
-    #frame {
-      outline: 2px solid #000;
-      outline-offset: -12px;
-      border: 10px solid #fff;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: 0px;
-      margin: 0 auto;
-      padding: 0;
-      pointer-events: none;
-      z-index: 300;
-      position: fixed;
-      background: transparent;
-    }
-  </style>
-  </head>
-
-  <body class="pgtr-contact fx--fade-in">
-  <svg id="fader" class="fade-out"></svg>
-  <script>
-    fadeInPage()
-  </script>
-
-  <div class="page">
-    <!-- 		<div class="overscroll-fix"></div> -->
-
-    <div class="header outline--2px">
-      <img src="img/site/organometry-08-lg-landscape-min.jpg" alt="organometry-08">
-
-
-
-      <div class="header-text">
-        <span>#</span>
-        <span>C</span>
-        <span>O</span>
-        <span>N</span>
-        <span>T</span>
-        <span>A</span>
-        <span>C</span>
-        <span>T</span>
-
-      </div>
-    </div>
-    <div class="main">
-
-      <div class="block">
-        <div class="form">
-
-             <form name="contact" method="POST"><input type="hidden" name="form-name" value="contact">
-               <div>
-                 <label for="name" class="title">Name:</label>
-                 <input type="text" id="name" name="name">
-               </div>
-               <div>
-                 <label for="email" class="title">Email:</label>
-                 <input type="email" id="email" name="email">
-               </div>
-               <div>
-                 <label for="subject" class="title">Subject:</label>
-                 <input type="text" id="subject" name="subject">
-               </div>
-               <div>
-                 <label for="message" class="title">Message:</label>
-                 <textarea type="text" id="message" name="message"></textarea>
-               </div>
-
-               <div>
-                 <input type="submit" value="send" id="submit">
-               </div>
-
-             </form>
-
-
-           </div>
-           <div class="invitation">
-
-                     <p> I am available starting from mid January 2019 and I am always interested in new experiences, so please get in touch, it would be great to hear from you.</p>
-                     <p>
-                        Whether you're interested in talk about a project, offer a new job opportunity or just say hello, Rene would love to hear from you!
-                     </p>
-                     
-
-                   </div>
-
-      </div>
-
-
-
-    </div>
-
-  </div>
-
-  <div id="frame">
-    <div class="nav-bar outline--2px">
-      <div class="nav-logo outline--2px">
-        <a href="index.html">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 14 14">
-            <title>am-logo</title>
-            <polygon points="0 10 0 0 7 0 7 10 6 9 9 9 9 0 10 0 10 10 6 10 6 1 1 1 1 10 0 10" style="fill:var(--primary-color)" />
-            <polygon points="0 5 10 5 10 6 0 6 0 5" style="fill:var(--primary-color)" />
-            <polygon points="2 7 2 10 3 10 3 7" style="fill:var(--primary-color)" />
-            <polygon points="4 7 4 10 5 10 5 7" style="fill:var(--primary-color)" />
-          </svg></a>        <div class="logo-type">ADAM <strong>MORSY</strong></div>
-      </div>
-
-      <div class="page-title" style="color:#000">#work</div>
-      <div class="nav-spacer"></div>
-      <input value="25" type="number" min="0" max="100" placeholder="progress">
-
-      <div id="back2Top" class="outline--2px">
-        <svg class="up-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #000;transform: ;msFilter:;">
-          <path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path>
-        </svg>
-        <svg class="ring" width="32" height="32">
-          <circle stroke="#000" stroke-width="4" fill="transparent" r="12" cx="16" cy="16" />
-        </svg>
-
-      </div>
-
-      <div class="nav-mode-container">
-        <input type="checkbox" id="nav-mode" />
-       <label for="nav-mode">
-        
-         <div class="icon-moon">
-            <i class="bx bxs-moon bx-md"></i>
-          </div>
-          <div class="icon-sun">
-            <i class="bx bxs-sun bx-md"></i>
-          </div>
-        </label>
-      </div>
-
-      <div class="nav-icon outline--2px">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </div>
-    </div>
-    <div id="nav-page" class="outline--2px">
-      <ul>
-        <li><a href="index.html">home</a></li>
-        <li><a href="about.html">about</a></li>
-        <li><a href="work.html">work</a></li>
-        <li><a href="#" class="current">contact</a></li>
-      </ul>
-    </div>
-    <footer>
-      <div class="footer-text">Copyright.2018 Adam Morsy. All Rights Reserved</div>
-
-    </footer>
-  </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-  <script src="js/script.js"></script>
-  <script>
-
-  // ---------------- autoscroll header on page load
-
-  $(document).ready(function () {
-    $(window).on("load", function (event) {
-      event.preventDefault();
-
-      $("html, body").delay(1000).animate(
-        {
-          scrollTop: frameHeight
-        },
-        2000,
-        "swing"
-      );
-    });
-  });
-
-  </script>
-</body>
-
+		</style>
+	
+			</head>
+			<body>
+	<div id="preloader" class="fade-out">
+	</div>	<svg id="fader" class="fade-out"></svg>
+	<script>fadeInPage()</script>
+				<div class="frame">
+					<div class="nav-bar">
+						<div class="nav-logo cursor-hover">
+							<a href="../index.html" class="custom-link" title="home">
+								<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="25 0 200 50">
+									<path class="meem" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="M 50,50 L 100,0
+									L  100,0 L125,25
+									L  125,25 L 100,50
+									L 100,50 L 75,25
+								" pathLength="1"></path>
+								<path class="dal" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+								M  138,0 L163,25
+								L  163,25 L 138,50
+							" pathLength="1"></path>
+							<path class="alef" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+						M  185,0 v50" pathLength="1"></path>
+						<path class="madd" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+					M 185,-25 h -50" pathLength="1"></path>
+				</svg></a>
+			</div>		<div class="logo-type rounded">ADAM<strong>&nbsp;&nbsp;MORSY</strong></div>		<div class="page-title">Contact</div>			<div class="nav-btns">
+				<!--      <div class="nav-icon">
+				<i class="ri-skip-up-line ri-2x" aria-hidden="true" title="Back to top"></i>
+				<i class="ri-arrow-up-double-fill ri-2x" aria-hidden="true" title="Going Up"></i>
+				</div>				<div class="nav-icon">
+				<i class="ri-moon-line ri-1x" aria-hidden="true" title="Dark Mode"></i>
+				<i class="ri-sun-line ri-1x" aria-hidden="true" title="Light Mode"></i>
+				</div> -->
+				<div class="nav-icon menu-toggle cursor-hover">
+				<div class="bar1"></div><div class="bar3"></div>
+				</div>			</div>		</div>		<div id="nav-page">
+		<span class="v-line"></span>
+			<div class="side-bar">
+				<div class="social-links">
+					<a href="https://www.linkedin.com/in/admorsy" target="_blank" class="linkedin custom-link cursor-hover">
+					<i class="ri-linkedin-line ri-1x" aria-hidden="true" title="LinkedIn"></i>
+					<p>linkedin.com/admorsy</p>
+					</a>
+					<a href="https://www.behance.net/admorsy" class="behance custom-link cursor-hover" target="_blank">
+					<i class="ri-behance-line ri-1x" aria-hidden="true" title="Behance"></i>
+					<p>behance.net/admorsy</p>
+					</a>
+					<a href="mailto:adam_morsy@outlook.com?subject=Hi,Adam!" class="email custom-link cursor-hover" target="_blank">
+					<i class="ri-mail-line ri-1x" aria-hidden="true" title="Email"></i>
+					<p>adam_morsy@outlook.com</p>
+					</a>
+					<!-- <a href="#" class="facebook custom-link" target="_blank">
+						<i class="ri-facebook-fill ri-1x" aria-hidden="true" title="Facebook">
+						</i>
+					<p></p>
+					</a> -->
+					<!-- <a href="#" class="pinterest custom-link" target="_blank">
+					<i class="ri-pinterest-fill ri-1x" aria-hidden="true" title="Pinterest"></i>
+					<p></p>
+					</a> -->
+				</div>			</div>			<div class="nav-links">
+			<a href="../index.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="hello" data-type="page-transition" data-text="hello" data-hover="hello">hello</a>
+			<a href="../resume.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="résumé" data-type="page-transition" data-hover="résumé">résumé</a>
+			<a href="../work.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="#work" data-type="page-transition" data-hover="#work">work</a>
+		<a href="../contact.html" class="nav-link cursor-hover-no-ring custom-link current" data-value="#contact" data-type="page-transition" data-hover="#contact">contact</a>	
+	</div>
+		</div>	</div>
+	<div class="header parallax-header">
+		<div class="parallax-layer"
+		data-speed="1.2"
+		data-x="0"
+		data-y="30"
+		data-scale="1.2"
+		data-origin="center center"
+		data-min="-40"
+		data-max="40">
+		<img src="../img/site/exp3@2x-min.png" alt="">
+	</div>
+	<!-- <div class="parallax-layer"
+	data-speed="0.5"
+	data-x="-5"
+	data-y="5"
+	data-scale="1.3"
+	data-origin="bottom center"
+	data-min="-60"
+	data-max="60">
+	<img src="../img/work/template/pyramids.png" alt="">
+</div>
+<div class="parallax-layer"
+data-speed="0.8"
+data-x="8"
+data-y="10"
+data-scale="1"
+data-origin="bottom center"
+data-min="-80"
+data-max="80">
+<img src="../img/work/template/camel.png" alt="">
+</div> -->
+<!-- <div class="color-overlay" style="background-color:#285F88;"></div> -->
+<div class="header-text centered text--white">contact</div>	<div class="tags">
+<!-- 
+	<span>branding</span>
+	<span>logo</span>
+	<span>visual identity</span> -->
+	<!-- <span>ux/ui</span>
+	<span>web design</span>
+	<span>interaction</span>
+	<span>typography</span>
+	<span>illustration</span>
+	<span>editorial</span>
+	<span>motion</span>
+	<span>3D</span>
+	<span>media art</span>
+	<span>interactive</span>
+		-->
+	</div></div><!-- Normal Scrolling Page -->
+<div class="page">
+	<div class="main">
+		<div class="block">
+	
+          <form class="cf">
+  <div class="half left cf">
+    <input type="text" id="input-name" placeholder="Name" class="cursor-hover-no-ring">
+    <input type="email" id="input-email" placeholder="Email address" class="cursor-hover-no-ring">
+    <input type="text" id="input-subject" placeholder="Subject" class="cursor-hover-no-ring">
+  </div>  <div class="half right cf">
+    <textarea name="message" type="text" id="input-message" placeholder="Message" class="cursor-hover-no-ring"></textarea>
+  </div>  
+  <input type="submit" value="Submit" id="input-submit" class="magnetic-hover cursor-hover-no-ring">
+</form>
+           </div>		</div>
+	</div>	<div class="footer">
+		2025 Adam Morsy. All rights reserved.
+	</div></div><div class="cursor-dot"></div><div class="cursor-ring"></div>	<script>
+	</script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="../js/script.js"></script>
+<script>window.addEventListener("pageshow", () => {
+  const overlay = document.getElementById("page-transition");
+  overlay.classList.remove("is-active");
+});</script></body>
 </html>

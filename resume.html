@@ -1,345 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Résumé | Adam Morsy</title>
-  <meta name="description"
-    content="Some brief info about my education, work experience, skills, and other qualifications.">
-  <meta name="author" content="Adam Morsy">
-  <meta name="robots" content="index, follow">
-  <meta name="keywords" content="art, design, graphic, web, sculpture, print, identity, drawing, coding, programming">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="img/site/RemixIconFont/remixicon.css">
-  <link rel="preconnect" href="https://rsms.me/">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="css/style.css">
-<noscript>
-  <style>
-    body {
-      opacity: 1;
-    }
-  </style>
-</noscript>
-<style>
-  html,
-  body {
-    background-color: var(--bg-color);
-  }
-</style>
-<script>
-function fadeInPage() {
-      if (!window.AnimationEvent) { return; }
-      var fader = document.getElementById('fader');
-      fader.classList.add('fade-out');
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      if (!window.AnimationEvent) { return }
-
-      var anchors = document.getElementsByTagName('a');
-
-      for (var idx=0; idx<anchors.length; idx+=1) {
-        if (anchors[idx].hostname !== window.location.hostname) {
-          return;
-        }
-
-        anchors[idx].addEventListener('click', setTimeout(function(event) {
-          var fader = document.getElementById('fader'),
-              anchor = event.currentTarget;
-
-          var listener = function() {
-            window.location = anchor.href;
-            fader.removeEventListener('animationend', listener);
-          };
-          fader.addEventListener('animationend', listener);
-
-          event.preventDefault();
-    // var navPage = document.getElementById("nav-page");
-    // navPage.classList.add("fade-out");
-          fader.classList.add('fade-in');
-        }),3000);
-      }
-    });
-
-    window.addEventListener('pageshow', function (event) {
-      if (!event.persisted) {
-        return;
-      }
-      var fader = document.getElementById('fader');
-      fader.classList.remove('fade-in');
-    });
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-
-      link = document.getElementById('link');
-        document.body.style.background = "var(--bg-color)";
-        link.style.color = 'var(--link-color)';
-    });
-  
-</script>
-</head>
-
-<body class="pgtr-resume">
-  <div id="preloader" class="fade-out">
-	</div>
-	<svg id="fader" class="fade-out"></svg>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Résumé | Adam Morsy</title>
+		<meta name="description"
+		content="Daraw branding project">
+		<meta name="author" content="Adam Morsy">
+		<meta name="robots" content="index, follow">
+		<meta name="keywords" content="art, design, graphic, web, sculpture, print, identity, drawing, coding, programming">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link
+		href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+		rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,ROND@6..144,1..1000,0..100&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.17/dist/lenis.css">
+	<script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
+				<style>
+				body {
+					opacity: 1;
+				}
+			</style>
+		</noscript>
+			</head>
+			<body class="pgtr-resume">
+	<div id="preloader" class="fade-out">
+	</div>	<svg id="fader" class="fade-out"></svg>
 	<script>fadeInPage()</script>
-  <div class="page">
-    <div class="header ik outline--2px"><img
-        src="https://ik.imagekit.io/amorsy/site/respectrum.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1635821308702" loading="lazy" alt="respectrum">
-      <div class="header-text"><span>#</span> <span>r</span> <span>é</span> <span>s</span> <span>u</span> <span>m</span>
-        <span>é</span></div>
-    </div>
-    <!-- <div id="scroll" class="custom-link"><span></span></div> -->
-    <div class="main">
-      <div class="block">
-        <h3 class="h3 text--600 text--lwrc mt--24 pb--16 border-bottom-2">education</h3>
-        <h4 class="h6 text--600 text--uprc mt--16 mb--8">bachelor of art <span class="float--right">&vellip; 2023 -
-          now</span></h4>
-      <h4 class="h6 text--600 text--cptz mb--8 mt--4">Major: Media Arts & Sciences</h4>
-      <h4 class="h4 text--xs text--600 mt--8 mb--24 text--italic">Arizona State University</h4>
-      <p class="text--sm mt--8">Gained knowledge and experience in creative coding using various tools and libraries like Max and p5.js. </p>
-      <p class="text--sm mb--8">Created visual guidelines and developed a content strategy to improve the social media presence of a brand</p>
-        <h4 class="h6 text--600 text--uprc mt--16 mb--8">associate degree <span class="float--right">&vellip; 2016 -
-            2020</span></h4>
-        <h4 class="h6 text--600 text--cptz mb--8 mt--4">Major: Art & Design</h4>
-        <h4 class="h4 text--xs text--600 mt--8 mb--24 text--italic">Community College of Philadelphia, PA</h4>
-        <p class="text--sm mt--8">Covered foundation coursework like drawing, and painting in oil and acrylics.</p>
-        <p class="text--sm mb--8">Developed my design skills and 3D art creation.</p>
-        <h4 class="h6 text--600 text--uprc mt--20 mb--8">BACHELOR OF SCIENCE <span class="float--right">&vellip; 2004 -
-            2008</span></h4>
-        <h4 class="h6 text--600 text--cptz mb--8 mt--4">Major: Electrical Engineering</h4>
-        <h4 class="h4 text--xs text--italic text--600 mt--8 mb--24">Ain Shams University in Cairo, Egypt</h4>
-        <p class="text--sm mt--8">Acquired good knowledge about electrical systems, technology and design applications.
-        </p>
-        <p class="mb--8">Developed great skills like problem solving, teamwork, precision, and research.</p><br>
-        <h3 class="h3 text--600 text--lwrc pb--16 border-bottom-2 mt--24">SKILLS</h3>
-        <table>
-          <tr>
-            <td>
-              <p class="h6 mt--16 mb--12">Photoshop</p>
-            </td>
-            <td>
-              <p class="h6 mtmb--12">Illustrator</p>
-            </td>
-            <td>
-              <p class="h6 mtmb--12">InDesign</p>
-            </td>
-            <!-- <td><span class="skill-bar"><span class="first skill-value"></span></span></td> -->
-          </tr>
-          <tr>
-           
-            <!-- <td><span class="skill-bar"><span class="second skill-value"></span></span></td> -->
-          </tr>
-          <tr>
-            <td>
-              <p class="h6 mtmb--12">ProCreate</p>
-            </td>
-            <td>
-              <p class="h6 mtmb--12">Typography</p>
-            </td>
-            <td>
-              <p class="h6 mtmb--12">Animation</p>
-            </td>
-            <!-- <td><span class="skill-bar"><span class="third skill-value"></span></span></td> -->
-          </tr>
-          <tr>
-           
-            <!-- <td><span class="skill-bar"><span class="forth skill-value"></span></span></td> -->
-          </tr>
-          <tr>
-            <td>
-              <p class="h6 mtmb--12">HTML</p>
-            </td>
-            <td>
-              <p class="h6 mtmb--12">CSS</p>
-            </td>
-            <td>
-              <p class="h6 mtmb--12">JS</p>
-            </td>
-            <!-- <td><span class="skill-bar"><span class="sixth skill-value"></span></span></td> -->
-          </tr>
-          <tr>
-           
-            <!-- <td><span class="skill-bar"><span class="seventh skill-value"></span></span></td> -->
-          </tr>
-          <tr>
-            
-            <!-- <td><span class="skill-bar"><span class="eighth skill-value"></span></span></td> -->
-          </tr>
-          <tr>
-           
-            <!-- <td><span class="skill-bar"><span class="nineth skill-value"></span></span></td> -->
-          </tr>
-          <tr>
-           
-            <!-- <td><span class="skill-bar"><span class="tenth skill-value"></span></span></td> -->
-          </tr>
-        </table><br>
-        <h3 class="h3 text--600 text--lwrc mt--24 pb--16 border-bottom-2">LANGUAGES</h3>
-        <table>
-          <tr>
-            <td>
-              <p class="h6 mt--16 mb--12">English</p>
-            </td>
-            <!-- <td><span class="skill-bar"><span class="eleventh skill-value"></span></span></td> -->
-          </tr>
-          <tr>
-            <td>
-              <p class="h6 mtmb--12">Arabic</p>
-            </td>
-            <!-- <td><span class="skill-bar"><span class="twelfth skill-value"></span></span></td> -->
-          </tr>
-        </table>
-      </div>
-      <div class="block py0">
-        <h3 class="h3 text--600 text--lwrc mt--24 pb--16 border-bottom-2">EXPERIENCE</h3>
-        <h4 class="h6 text--600 text--uprc mt--16 mb--8">Print designer<span class="float--right">&vellip; 2015 -
-            2020</span></h4>
-        <h4 class="h6 text--600 text--cptz mb--8 mt--4">Millennium Art Gallery Inc.</h4>
-        <h4 class="h4 text--xs text--italic text--600 mt--8 mb--24">Philadelphia, PA</h4>
-        <p class="text--sm mt--8">Designing, printing, and, sometimes framing in the custom framing store.</p>
-        <p class="text--sm mt--8">Managing social media and researching new ideas and materials to improve the business.
-        </p>
-        <p class="text--sm mt--8 mb--24">Identifying and planning for resources that help the store achieve its
-          production objectives.</p>
-        <h4 class="h6 text--600 text--uprc mt--24 mb--8">SENIOR GRAPHIC DESIGNER <span class="float--right">&vellip;
-            2014 - 2015</span></h4>
-        <h4 class="h6 text--600 text--cptz mb--8 mt--4">HMD | Hani Mahfouz Designs</h4>
-        <h4 class="h4 text--xs text--italic text--600 mt--8 mb--24">Cairo, Egypt</h4>
-        <p class="text--sm mt--8">Contributed design ideas in early planning stages with customers and project managers.
-        </p>
-        <p class="text--sm mt--8">Worked with clients to gather and define requirements, establish scopes and manage
-          project milestones.</p>
-        <p class="text--sm mt--8 mb--24">Developed creative design for marketing packages, including print materials,
-          brochures, banners and signs.</p>
-        <h4 class="h6 text--600 text--uprc mt--24 mb--8">JUNIOR GRAPHIC ARTIST <span class="float--right">&vellip; 2013
-            - 2014</span></h4>
-        <h4 class="h6 text--600 text--cptz mb--8 mt--4">Joud Home Accessories</h4>
-        <h4 class="h4 text--xs text--italic text--600 mt--8 mb--24">Cairo, Egypt</h4>
-        <p class="text--sm mt--8">Create artwork incorporating design techniques and elements like layout, typography,
-          composition, and color ready to be printed on different home accessories like coasters, trays and cushions.
-        </p>
-        <p class="text--sm mt--8">Develop collateral such as display, marketing and packaging materials according to
-          brand guidelines.</p><br>
-        <h3 class="h3 text--600 text--lwrc pb--16 border-bottom-2 mt--24">REFERENCES</h3>
-        <p class="h6 mt--16 mb0">Available Upon Request</p><br>
-        <h3 class="h3 text--600 text--italic text--lwrc pb--16 border-bottom-2 mt--24">RELATED LINKS</h3><br>
-        <ul>
-          <li><a href="/amorsy-resume.pdf" target="_blank" class="h6 mt--16 mb--12 custom-link"><i
-                class="ri-attachment-2 ri-1x"></i> my-resume.pdf</a></li>
-        </ul>
-      </div>
-    </div>
-    <footer>
-      <div class="footer-text">Copyright © 2021 Adam Morsy. All Rights Reserved.</div>
-    </footer>
-  </div>
-  <div id="frame">
-    <div class="top"></div>
-    <div class="middle">
-      <div class="nav-bar">
-        <div class="nav-logo">
-          <a href="index.html" class="custom-link" title="home">
-            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="25 0 200 50">
+				<div class="frame">
+					<div class="nav-bar">
+						<div class="nav-logo cursor-hover">
+							<a href="../index.html" class="custom-link" title="home">
+								<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="25 0 200 50">
+									<path class="meem" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="M 50,50 L 100,0
+									L  100,0 L125,25
+									L  125,25 L 100,50
+									L 100,50 L 75,25
+								" pathLength="1"></path>
+								<path class="dal" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+								M  138,0 L163,25
+								L  163,25 L 138,50
+							" pathLength="1"></path>
+							<path class="alef" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+						M  185,0 v50" pathLength="1"></path>
+						<path class="madd" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
+					M 185,-25 h -50" pathLength="1"></path>
+				</svg></a>
+			</div>		<div class="logo-type rounded">ADAM<strong>&nbsp;&nbsp;MORSY</strong></div>		<div class="page-title">Résumé</div>			<div class="nav-btns">
+			
+				<div class="nav-icon menu-toggle cursor-hover">
+				<div class="bar1"></div><div class="bar3"></div>
+				</div>			</div>		</div>		<div id="nav-page">
+		<span class="v-line"></span>
+			<div class="side-bar">
+				<div class="social-links">
+					<a href="https://www.linkedin.com/in/admorsy" target="_blank" class="linkedin custom-link cursor-hover">
+					<i class="ri-linkedin-line ri-1x" aria-hidden="true" title="LinkedIn"></i>
+					<p>linkedin.com/admorsy</p>
+					</a>
+					<a href="https://www.behance.net/admorsy" class="behance custom-link cursor-hover" target="_blank">
+					<i class="ri-behance-line ri-1x" aria-hidden="true" title="Behance"></i>
+					<p>behance.net/admorsy</p>
+					</a>
+					<a href="mailto:adam_morsy@outlook.com?subject=Hi,Adam!" class="email custom-link cursor-hover" target="_blank">
+					<i class="ri-mail-line ri-1x" aria-hidden="true" title="Email"></i>
+					<p>adam_morsy@outlook.com</p>
+					</a>
+					<!-- <a href="#" class="facebook custom-link" target="_blank">
+						<i class="ri-facebook-fill ri-1x" aria-hidden="true" title="Facebook">
+						</i>
+					<p></p>
+					</a> -->
+					<!-- <a href="#" class="pinterest custom-link" target="_blank">
+					<i class="ri-pinterest-fill ri-1x" aria-hidden="true" title="Pinterest"></i>
+					<p></p>
+					</a> -->
+				</div>			</div>			<div class="nav-links">
+			<a href="../index.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="hello" data-type="page-transition" data-text="hello" data-hover="hello">hello</a>
+			<a href="../resume.html" class="nav-link cursor-hover-no-ring custom-link current" data-value="résumé" data-type="page-transition" data-hover="résumé">résumé</a>
+			<a href="../work.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="#work" data-type="page-transition" data-hover="#work">work</a>
+		<a href="../contact.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="#contact" data-type="page-transition" data-hover="#contact">contact</a>	
+	</div>
+		</div>	</div>
+	<div class="header parallax-header">
+		<div class="parallax-layer"
+		data-speed="1.2"
+		data-x="0"
+		data-y="30"
+		data-scale="1.2"
+		data-origin="center center"
+		data-min="-40"
+		data-max="40">
+		<img src="./img/site/mood-swing-lg.png" alt="">
+	</div>
+	<!-- <div class="parallax-layer"
+	data-speed="0.5"
+	data-x="-5"
+	data-y="5"
+	data-scale="1.3"
+	data-origin="bottom center"
+	data-min="-60"
+	data-max="60">
+	<img src="../img/work/daraw/pyramids.png" alt="">
+</div>
+<div class="parallax-layer"
+data-speed="0.8"
+data-x="8"
+data-y="10"
+data-scale="1"
+data-origin="bottom center"
+data-min="-80"
+data-max="80">
+<img src="../img/work/daraw/camel.png" alt="">
+</div> -->
+<!-- <div class="color-overlay" style="background-color:#ebe5ee;"></div> -->
+<div class="header-text centered text--white">Résumé</div>	<div class="tags">
+	<!-- <span>branding</span>
+	<span>logo</span>
+	<span>visual identity</span> -->
+	<!-- <span>ux/ui</span>
+	<span>web design</span>
+	<span>interaction</span>
+	<span>typography</span>
+	<span>illustration</span>
+	<span>editorial</span>
+	<span>motion</span>
+	<span>3D</span>
+	<span>media art</span>
+	<span>interactive</span>
+		-->
+	</div></div><!-- Normal Scrolling Page -->
+<div class="page">
+	<div class="main">
+		
+		<div class="section block">
+			  <h3 class="text--700 text--uprc text--24 ml--auto mr--0 mt--24 pb--8 border-bottom-2">education</h3>
+        <h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+          Bachelor of Arts</h3>
+        <h3 class="text--22 text--700 mt--8 text--cptz">Media Arts & Sciences</h3>
+      <h3 class="text--18 text--400 mt--8">
+        <span class="mr--8"><i class="ri-map-pin-line text--gray mr--4"></i>Arizona State University, AZ </span>
+      </h3>
+      <h3 class="text--18 text--400 mt--8 mb--24">
+             <span ><i class="ri-calendar-line text--gray mr--4"></i>2023 - 2025</span>  
+</h3>
+      <p class="text--18 mt--4">Studied creative coding and generative art using tools such as Max and p5.js.</p>
+	  	    <p class="text--18mb--8">Explored "Unity" game engine and C# programming language through a series of projects.</p>
+      <p class="text--18mb--8">Produced visual guidelines and a content strategy to improve a brand’s social media presence.</p>
+         <h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+          Associate of arts</h3>
+        <h3 class="text--22 text--700 mt--8 text--cptz">Art & Design</h3>
+      <h3 class="text--18 text--400 mt--8">
+        <span class="mr--8"><i class="ri-map-pin-line text--gray mr--4"></i>Community College of Philadelphia, PA</span>
+      </h3>
+      <h3 class="text--18 text--400 mt--8 mb--24">
+             <span ><i class="ri-calendar-line  text--gray mr--4"></i>2016 - 2020</span>  
+</h3>
       
-        <path class="meem" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="M 50,50 L 100,0
-           L  100,0 L125,25
-           L  125,25 L 100,50
-           L 100,50 L 75,25
-         " pathLength="1"></path>
-        <path class="dal" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
-           M  138,0 L163,25
-           L  163,25 L 138,50
-          " pathLength="1"></path>
-        <path class="alef" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
-           M  185,0 v50" pathLength="1"></path>
-      
-        <path class="madd" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" d="
-      M 185,-25 h -50" pathLength="1"></path>
-      
-      </svg></a>
-          <div class="logo-type">ADAM<strong>&nbsp;&nbsp;MORSY</strong></div>
-        </div>
-        <div class="page-title">#résumé</div>
-        <div class="nav-spacer"></div><input value="25" type="number" min="0" max="100" placeholder="progress">
-        <div id="back2Top" class="custom-link"><svg class="ring" width="40" height="40">
-            <circle stroke="var(--border-color)" stroke-width="3" fill="transparent" r="14" cx="20" cy="20" /></svg>
-          <svg class="up-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-            style="fill: var(--border-color)">
-            <path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path>
-          </svg></div>
-        <div class="nav-mode-container custom-link"><input type="checkbox" id="nav-mode"> <label for="nav-mode">
-            <div class="icon-moon custom-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                height="24">
-                <path fill="none" d="M0 0h24v24H0z" />
-                <path
-                  d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22 6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981z"
-                  fill="currentColor" /></svg></div>
-            <div class="icon-sun custom-link" hidden><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                width="24" height="24">
-                <path fill="none" d="M0 0h24v24H0z" />
-                <path
-                  d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"
-                  fill="currentColor" /></svg></div>
-          </label></div>
-        <div class="nav-icon custom-link">
-          <div class="bar1"></div>
-          <div class="bar3"></div>
-        </div>
-      </div>
-      <div id="nav-page" class="outline--2px">
-        <div class="side-bar">
-          <div class="social-links">
-						<a href="https://www.linkedin.com/in/admorsy" target="_blank" class="linkedin custom-link">
-							<i class="ri-linkedin-fill ri-1x" aria-hidden="true" title="LinkedIn"></i>
+        <p class="text--18 mt--4">Completed foundational coursework in drawing, oil painting, and acrylic painting.</p>
+        <p class="text--18mb--8">Strengthened design and traditional 3D art production skills..</p>
+                <h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+          BACHELOR OF SCIENCE</h3>
+        <h3 class="text--22 text--700 mt--8 text--cptz">Electrical Engineering</h3>
+      <h3 class="text--18 text--400 mt--8">
+        <span class="mr--8"><i class="ri-map-pin-line text--gray mr--4"></i>Ain Shams University, Cairo, Egypt</span>
+      </h3>
+      <h3 class="text--18 text--400 mt--8 mb--24">
+             <span ><i class="ri-calendar-line  text--gray mr--4"></i>2004 - 2008</span>  
 
-							<p>linkedin.com/admorsy</p>
-						</a>
+</h3>
+       
+        <p class="text--18 mt--4">Trained in electrical systems, technical drawing, and engineering design principles.
+        </p>
+        <p class="mb--8">Built strong skills in problem solving, research, teamwork, and analytical thinking.</p>
+    <br>
+        <h3 class="text--700 text--uprc text--24 ml--auto mr--0 mt--16 pb--8 border-bottom-2">skills</h3>
+		<h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+          Technical</h3>
+        <div class="skills">
+			
+              <span class="skill">Adobe Creative Suite</span>
+			   <span class="skill">Unity</span>
+			   			   <span class="skill">C#</span>
+						   			   			   <span class="skill">Maya</span>
+			   			   <span class="skill">Python</span>
+			
+			   <span class="skill">Max/MSP</span>
+			    <span class="skill">HTML</span>
+			   <span class="skill">CSS</span>
+			      <span class="skill">JS</span>
+				  			      <span class="skill">Logic Pro</span>
+        </div>		 <h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+          Creative</h3>
+		   <div class="skills">
+         
+              <span class="skill">Branding</span>
+              <span class="skill">Typography</span>
+              <span class="skill">Web Design</span>
+              <span class="skill">Creative Coding</span>
+              <span class="skill">Animation</span>
+			  <span class="skill">Prototyping</span>
+			  <span class="skill">Wireframing</span>
+			  <span class="skill">Music Production</span>
+        </div> <h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+          Other</h3>
+		   <div class="skills">
+         
+              <span class="skill">Music Production</span>
+              <span class="skill">Digital Drawing</span>
+              <span class="skill">Mixed Media Art</span>
+			                <span class="skill">Machine Learning
+							</span>
+			  </div>			  <br>
+              <h3 class="text--700 text--uprc text--24 ml--auto mr--0 mt--28 pb--8 border-bottom-2">Languages</h3> 
 
-						<a href="https://www.behance.net/admorsy" class="behance custom-link" target="_blank">
-							<i class="ri-behance-fill ri-1x" aria-hidden="true" title="Behance"></i>
+       <div class="skills">
+              <span class="skill">English</span>
+              <span class="skill">Arabic</span>
+        </div><br>
+      </div>	    <div class="section block py0">
+        <h3 class="text--700 text--uprc text--24 ml--auto mr--0 mt--24 pb--8 border-bottom-2">experience</h3>
+       
+        <h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+           Graphic & Web Designer</h3>
+        <h3 class="text--22 text--700 mt--8 text--cptz">Millennium Art Gallery Inc.</h3>
+      <h3 class="text--18 text--400 mt--8">
+        <span class="mr--8"><i class="ri-map-pin-line text--gray"></i> Philadelphia, PA</span>
+      </h3>
+      <h3 class="text--18 text--400 mt--8 mb--24">
+             <span ><i class="ri-calendar-line  text--gray mr--4"></i> 2016 - 2020</span>  
+</h3>
+       
+       
+        <p class="text--18 mt--4">Rebranded the store, producing a new logo, packaging system, and social media assets.
+        </p>
+        <p class="text--18 mt--4 mb--24">Designed and launched a modern e-commerce website to expand the gallery’s online presence.</p>
 
-							<p>behance.net/admorsy</p>
-						</a>
-						<!-- <a href="#" class="facebook custom-link" target="_blank">
-							<i class="ri-facebook-fill ri-1x" aria-hidden="true" title="Facebook">
-							</i>
+               <h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+          SENIOR GRAPHIC DESIGNER</h3>
+        <h3 class="text--22 text--700 mt--8 text--cptz">HMD | Hani Mahfouz Designs</h3>
+      <h3 class="text--18 text--400 mt--8">
+        <span class="mr--8"><i class="ri-map-pin-line text--gray"></i> Cairo, Egypt</span>
+      </h3>
+      <h3 class="text--18 text--400 mt--8 mb--24">
+             <span ><i class="ri-calendar-line  text--gray mr--4"></i> 2014 - 2015</span>  
+</h3>
+    
+        <p class="text--18 mt--4">Collaborated with clients and project managers to develop concepts during early planning stages.
+        </p>
+        <p class="text--18 mt--4">Defined project scope and milestones, translating client requirements into visual solutions.</p>
+        <p class="text--18 mt--4 mb--24">Produced marketing collateral including brochures, banners, signage, and print campaigns.</p>
+                       <h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+          JUNIOR GRAPHIC ARTIST</h3>
+        <h3 class="text--22 text--700 mt--8 text--cptz">Joud Home Accessories</h3>
+      <h3 class="text--18 text--400 mt--8">
+        <span class="mr--8"><i class="ri-map-pin-line text--gray"></i> Cairo, Egypt</span>
+      </h3>
+      <h3 class="text--18 text--400 mt--8 mb--24">
+             <span ><i class="ri-calendar-line  text--gray mr--4"></i> 2013 - 2014</span>  
+</h3>
+        <p class="text--18 mt--4">Produced artwork using typography, calligraphy, layout, and color composition.
+        </p>
+		  <p class="text--18 mt--4">Coordinated with vendors to oversee print production and ensure color consistency across products.
+        </p>
+        <p class="text--18 mt--4">Designed display, packaging, and promotional materials aligned with brand guidelines.</p>
+		  <h3 class="text--18 text--500 mt--28 text--uprc mb--8">
+          GRAPHIC DESIGNER & ARTIST</h3>
+        <h3 class="text--22 text--700 mt--8 text--cptz">Freelance</h3>
+      <h3 class="text--18 text--400 mt--8">
+             <span><i class="ri-calendar-line  text--gray mr--4"></i> 2014 - Present</span>
+			
+</h3>
+<br>
+ <p class="text--18 mt--4">Founded “vint,” a small design brand specializing in vintage-style designs featuring motivational quotes, printed on various products.
+        </p>
+        <p class="text--18 mt--4">Delivered visual identities, websites, and digital assets for startups and small businesses.
 
-							<p></p>
-						</a> -->
-						<!-- <a href="#" class="pinterest custom-link" target="_blank">
-							<i class="ri-pinterest-fill ri-1x" aria-hidden="true" title="Pinterest"></i>
 
-							<p></p>
-						</a> -->
-						<a href="mailto:adam_morsy@outlook.com?subject=Hi,Adam!" class="email custom-link" target="_blank">
-							<i class="ri-mail-line ri-1x" aria-hidden="true" title="Email"></i>
-
-							<p>adam_morsy@outlook.com</p>
-						</a>
-					</div>
-        </div><span class="v-line"></span> <span class="h-line"></span>
-        <div class="nav-links custom-link">
-          <div class="nav-link custom-link"><a href="index.html" class="custom-link" data-hover="hello"
-              data-type="page-transition">hello</a></div>
-          <div class="nav-link custom-link current"><a href="resume.html" class="custom-link current"
-              data-hover="résumé" data-type="page-transition">#résumé</a></div>
-          <div class="nav-link custom-link"><a href="portfolio.html" class="custom-link" data-hover="portfolio"
-              data-type="page-transition">portfolio</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="bottom"></div>
-    <div class="right"></div>
-    <div class="left"></div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
+        </p>
+        <p class="text--18 mt--4">Managed projects end-to-end, from concept development to final delivery.</p>
+		<br>
+        <h3 class="text--700 text--uprc text--24 ml--auto mr--0 mt--20 pb--8 border-bottom-2">references</h3>
+        <p class="text--18 mt--16 mb0">Available Upon Request</p><br>
+        <h3 class="h3 text--400 text--italic text--lwrc pb--16 border-bottom-2 mt--8">RELATED LINKS</h3><br>
+        
+          <a href="./amorsy-resume.pdf" target="_blank" class="text--18 mt--16 mb--12 custom-link"><i
+                class="ri-attachment-2 ri-1x"></i> my-resume.pdf</a>
+        
+      </div>	
+		</div>		<br>
+	</div>	<div class="footer">
+		2025 Adam Morsy. All rights reserved.
+	</div></div><div class="cursor-dot"></div><div class="cursor-ring"></div>	<script>
+	</script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="../js/script.js"></script>
 </body>
-
 </html>

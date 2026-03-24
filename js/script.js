@@ -1,180 +1,540 @@
-/*! admorsy.github.io-091121 27-11-2021 */
+// ----------------------
+// MENU + NAV TOGGLE
+// ----------------------
 
-var windowHeight = $(window).height(),
-  frameHeight = windowHeight - 65,
-  totalHeight = $(document).height();
-let theme = localStorage.getItem("dark-theme");
-const navMode = document.querySelector(".nav-mode-container"),
-  darkTheme = () => {
-    document.documentElement.setAttribute("data-theme", "dark"), localStorage.setItem("dark-theme", "dark"), document.body.classList.remove("light"), document.body.classList.add("dark"), console.log("it's dark, baby")
-  },
-  lightTheme = () => {
-    document.documentElement.setAttribute("data-theme", "light"), localStorage.setItem("dark-theme", "light"), document.body.classList.remove("dark"), document.body.classList.add("light"), console.log("It's light, baby")
-  };
-
-function ResImg() {
-  $(".ik img").each(function () {
-    var e = $(this).parent().width(),
-      t = $(this).parent().height();
-    console.log(e, t);
-    var a = $(this).attr("src").split("?")[0];
-    console.log(a), newSrc = $(this).parent().hasClass("project") ? a + "?tr=ar-8-5,w-" + e : t < e ? a + "?tr=w-" + e + ",h-" + t : a + "?tr=w-" + t + ",h-" + e, console.log(newSrc), $(this).attr("src", newSrc), console.log($(this).attr("src"))
-  })
-}
-"dark" === theme && darkTheme(), "light" === theme && lightTheme(), navMode.addEventListener("change", () => {
-  ("dark" === localStorage.getItem("dark-theme") ? lightTheme : darkTheme)()
-}), window.onload = ResImg(), window.addEventListener("resize", ResImg), ResImg();
-var navPage = $("#nav-page"),
-  navLink = $("#nav-page a");
 $(".nav-icon").click(function () {
-  $(this).toggleClass("is--active"), $("html").toggleClass("nav-page--open")
-});
-navLink.click(function () {
-  $("html").toggleClass("nav-page--open")
-});
+	$(this).toggleClass("is--active");
+	$("html").toggleClass("nav-page--open");
 
-
-var circle = document.querySelector("circle"),
-  radius = circle.r.baseVal.value,
-  circumference = 2 * radius * Math.PI,
-  area = radius * radius * Math.PI;
-circle.style.strokeDasharray = circumference + " " + circumference, circle.style.strokeDashoffset = "" + circumference, $(document).ready(function () {
-  $("footer").css("display", "none"), $(".footer-text").css("display", "none"), $(window).scroll(function () {
-    var e = $(this).scrollTop(),
-      t = $(window).height(),
-      a = $(document).height();
-    $(".scrolled").html(e), $(".nav-bar input").attr("value", e);
-    var n, s = document.querySelector(".nav-bar input");
-    s.value < a && 0 < s.value && (s.value, n = circumference - e * circumference / (a - t), circle.style.strokeDashoffset = n, console.log(n), n <= 3 ? ($("footer").fadeIn(), $(".footer-text").fadeIn()) : ($("footer").fadeOut(), $(".footer-text").fadeOut())), frameHeight <= e ? ($(".page-title").css("opacity", "1"), $("#back2Top .ring").fadeIn()) : ($(".page-title").css("opacity", "0"), $("#back2Top .ring").fadeOut());
-    s = .05 * e;
-    0 < e && e < frameHeight ? ($(".header-text span:first-child").css("transform", "translateY(" + -6 * s + "px)"), $(".header-text span:nth-child(2)").css("transform", "translateY(" + -10 * s + "px)"), $(".header-text span:nth-child(3)").css("transform", "translateY(" + -7 * s + "px)"), $(".header-text span:nth-child(4)").css("transform", "translateY(" + -4 * s + "px)"), $(".header-text span:nth-child(5)").css("transform", "translateY(" + -6 * s + "px)"), $(".header-text span:nth-child(6)").css("transform", "translateY(" + -10 * s + "px)"), $(".header-text span:nth-child(7)").css("transform", "translateY(" + -10 * s + "px)"), $(".header-text span:nth-child(8)").css("transform", "translateY(" + -7 * s + "px)"), $(".header-text span:nth-child(9)").css("transform", "translateY(" + -4 * s + "px)"), $(".header-text span:nth-child(10)").css("transform", "translateY(" + -6 * s + "px)")) : $(".header-text span").css("transform", "translateY(0)")
-  })
-}), $(document).ready(function () {
-  $("#back2Top").on("click", function (e) {
-    e.preventDefault(), $("html, body").animate({
-      scrollTop: 0
-    }, 1e3, "swing")
-  })
-}), $(function () {
-  $("#scroll").on("click", function (e) {
-    e.preventDefault(), $("html, body").animate({
-      scrollTop: frameHeight
-    }, 1e3, "linear")
-  })
-}),
-  function () {
-    function e() {
-      [].forEach.call(document.getElementsByClassName("project"), function (e, t) {
-        var a;
-        (a = (a = e).getBoundingClientRect()).top < (window.innerHeight || document.body.clientHeight) && a.left < (window.innerWidth || document.body.clientWidth) ? e.classList.add("loaded") : e.classList.remove("loaded")
-      })
-    }
-    window.onload = function () {
-      window.addEventListener("scroll", e), e()
-    }
-  }(), $("#filter-btns div").click(function () {
-    $("#filter-btns div").removeClass("filter-active"), $(this).addClass("filter-active");
-    var e = $(this).data("filter");
-    $("#projects").fadeTo(300, 0), $(".project").fadeOut(300).addClass("scale-out-center").removeClass("scale-in-center"), setTimeout(function () {
-      $(e).fadeIn(300).addClass("scale-in-center").removeClass("scale-out-center"), $("#projects").fadeTo(300, 1)
-    }, 400)
-  }),
-  function () {
-    var projectPage = $("<div class='project-page ik'></div>"),
-      projectTitle = $("<h1></h1>"),
-      projectTags = $("<h3></h3>"),
-      projectImage = $("<img>"),
-      projectDesc = $("<p></p>"),
-      projectDetails = $("<p></p>"),
-      projectCloseBtn = $("<div class='project-close-btn custom-link'><span>🡸 back to portfolio</span></div>");
-      $(".middle").append(projectCloseBtn),
-    projectPage.append(projectTitle).append(projectTags).append(projectImage).append(projectDesc).append(projectDetails), $(".middle").append(projectPage), $(".project img").click(function (e) {
-      e.preventDefault();
-      var t = $(this).attr("title"),
-        a = $(this).attr("data-tags"),
-        n = $(this).attr("data-description"),
-        x = $(this).attr("data-details"),
-        w = projectImage.width(),
-        h = projectImage.height();
-      console.log(w, h);
-      h = $(this).attr("src").split("?")[0];
-      console.log(h);
-      w = h + "?tr=ar-8-5,w-" + w;
-      console.log(w), console.log($(this).attr("src")), projectImage.attr("src", w), projectTitle.text(t), projectTags.text(a), projectDesc.text(n), projectDetails.text(x), projectPage.delay(300).fadeIn("fast"), $(".project-page").animate({
-        scrollTop: 0
-      }, 500), $("html").addClass("project-page--open"), projectCloseBtn.click(function () {
-        projectPage.fadeOut(0), $("html").removeClass("project-page--open")
-      })
-    })
-  }(), $(".project").mouseover(function (e) {
-    e.preventDefault();
-    var e = $(this).find("img"),
-      t = $(this).find("h4"),
-      e = e.attr("title");
-    t.text(e).fadeIn("slow"), $(".project").mouseout(function () {
-      t.text(" ")
-    })
-  }), $(".close-icon").click(function () {
-    $("html").hasClass("project-page--open") && $(this).removeClass("project-page--open")
-  });
-
-
-const typedTextSpan = document.querySelector(".typed-text");
-const cursorSpan = document.querySelector(".cursor");
-
-const textArray = [
-  " ",
-  "hello.",
-  " ",
-  "name : 'adam morsy'",
-  "position : 'graphic designer and mixed media artist'",
-  "interests : 'patterns, geometry, motion'",
-  "skills: 'design, paper-folding, coding'",
-  "likes: 'gray-blues, squares, and peacocks'",
-  "available for hire: 'yes!'",
-  "email: 'adam_morsy@outlook.com'"
-];
-
-const typingDelay = 60;
-const erasingDelay = 60;
-const newTextDelay = 2000; // Delay between current and next text
-let textArrayIndex = 0;
-let charIndex = 0;
-
-function type() {
-  if (charIndex < textArray[textArrayIndex].length) {
-    if (!cursorSpan.classList.contains("typing"))
-      cursorSpan.classList.add("typing");
-    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(type, typingDelay);
-  } else {
-    cursorSpan.classList.remove("typing");
-    setTimeout(erase, newTextDelay);
-  }
-}
-
-function erase() {
-  if (charIndex > 0) {
-    if (!cursorSpan.classList.contains("typing"))
-      cursorSpan.classList.add("typing");
-    typedTextSpan.textContent = textArray[textArrayIndex].substring(
-      0,
-      charIndex - 1
-    );
-    charIndex--;
-    setTimeout(erase, erasingDelay);
-  } else {
-    cursorSpan.classList.remove("typing");
-    textArrayIndex++;
-    if (textArrayIndex >= textArray.length) textArrayIndex = 12;
-    setTimeout(type, typingDelay + 200);
-    return;
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  // On DOM Load initiate the effect
-  if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
+// ----------------------
+// SMOOTH SCROLL
+// ----------------------
+
+const lenis = new Lenis({
+		duration: 1.6, // higher = smoother
+		smooth: true,
+		smoothTouch: true
+});
+
+function raf(time) {
+		lenis.raf(time);
+		requestAnimationFrame(raf);
+	}
+
+	requestAnimationFrame(raf);
+
+	// ----------------------
+	// CUSTOM CURSOR
+	// ----------------------
+
+	$(function () {
+		const $dot = $(".cursor-dot");
+		const $ring = $(".cursor-ring");
+
+		let mouseX = 0;
+		let mouseY = 0;
+
+		let ringX = 0;
+		let ringY = 0;
+
+		const speed = 0.5;
+		const buffer = 10;
+
+		let locked = false;
+		let activeElement = null;
+
+		// --- mouse movement ---
+		$(document).on("mousemove", function (e) {
+			mouseX = e.clientX;
+			mouseY = e.clientY;
+
+			document.body.style.cursor = "var(--cursor-custom-normal)";
+
+			$dot.css({
+					left: mouseX,
+					top: mouseY
+			});
+
+			// find the closest element inside buffer
+			let closest = null;
+			let minDist = Infinity;
+
+			$(".cursor-hover").each(function () {
+				const rect = this.getBoundingClientRect();
+
+				const insideBuffer =
+				mouseX > rect.left - buffer &&
+				mouseX < rect.right + buffer &&
+				mouseY > rect.top - buffer &&
+				mouseY < rect.bottom + buffer;
+
+				if (insideBuffer) {
+						// calculate distance to element center
+						const centerX = rect.left + rect.width / 2;
+						const centerY = rect.top + rect.height / 2;
+						const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
+
+						if (dist < minDist) {
+								minDist = dist;
+								closest = this;
+							}
+						}
+				});
+
+				if (closest) {
+						// lock to closest element
+						locked = true;
+						activeElement = closest;
+						const rect = closest.getBoundingClientRect();
+
+						$ring.css({
+								width: rect.width + "px",
+								height: rect.height + "px",
+								borderRadius: "0px",
+								"--tx": "0",
+								"--ty": "0",
+								left: rect.left,
+								top: rect.top
+						});
+					} else if (locked) {
+						// release if no element is in buffer
+						locked = false;
+						activeElement = null;
+
+						$ring.css({
+								width: "32px",
+								height: "32px",
+								borderRadius: "50%",
+								"--tx": "-50%",
+								"--ty": "-50%"
+						});
+					}
+			});
+
+			// --- ring animation ---
+			function animate() {
+					if (!locked) {
+							ringX += (mouseX - ringX) * speed;
+							ringY += (mouseY - ringY) * speed;
+
+							$ring.css({
+									left: ringX,
+									top: ringY
+							});
+						}
+
+						requestAnimationFrame(animate);
+					}
+
+					animate();
+
+					// --- hide cursor when leaving window ---
+					$(document).on("mouseleave", function () {
+						$(".cursor-dot, .cursor-ring").hide();
+						document.body.style.cursor = "var(--cursor-custom-normal)";
+
+				});
+
+				$(document).on("mouseenter", function () {
+					$(".cursor-dot, .cursor-ring").show();
+					document.body.style.cursor = "var(--cursor-custom-normal)";
+
+			});
+			$(document).on("mousemove", function () {
+				$(".cursor-dot, .cursor-ring").show();
+				document.body.style.cursor = "var(--cursor-custom-normal)";
+
+		});
+		let ringTimeout;
+
+		$(".cursor-hover-no-ring").on("mouseenter", function () {
+			clearTimeout(ringTimeout);
+			$(".cursor-ring").addClass("shrink");
+			document.body.style.cursor = "var(--cursor-custom-normal)";
+
+	});
+
+	$(".cursor-hover-no-ring").on("mouseleave", function () {
+		ringTimeout = setTimeout(() => {
+			$(".cursor-ring").removeClass("shrink");
+			document.body.style.cursor = "var(--cursor-custom-normal)";
+
+		}, 250);
+});
+
+
+});
+
+
+
+
+// --------------------------------------- //
+// ---- magnetic buttons on hover -------- //
+// ----------------------------------------//
+
+const magnetics = document.querySelectorAll(".magnetic-hover");
+
+document.addEventListener("mousemove", (e) => {
+	magnetics.forEach((magnetic) => {
+		const rect = magnetic.getBoundingClientRect();
+		const centerX = rect.left + rect.width / 2;
+		const centerY = rect.top + rect.height / 2;
+
+		const deltaX = e.clientX - centerX;
+		const deltaY = e.clientY - centerY;
+
+		const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+		const maxDistance = 80; // maximum distance to activate effect
+
+		if (distance < maxDistance) {
+				magnetic.style.transform = `translate(${deltaX * 0.1}px, ${deltaY * 0.1}px)`;
+			} else {
+				magnetic.style.transform = "translate(0, 0)";
+			}
+	});
+});
+
+// ---------------------- //
+// --- PARALLAX HEADER  --//
+// ---------------------- //
+
+
+$(function(){
+
+	const $header = $(".header");
+	const $layers = $(".parallax-layer");
+
+	function parallax(){
+
+			const rect = $header[0].getBoundingClientRect();
+			const headerHeight = $header.outerHeight();
+			const headerWidth = $header.outerWidth();
+
+			if(rect.bottom > 0 && rect.top < window.innerHeight){
+
+				const scrollProgress = -rect.top;
+
+				$layers.each(function(){
+
+					const speed = $(this).data("speed") || 0;
+					const xPercent = $(this).data("x") || 0;
+					const yPercent = $(this).data("y") || 0;
+					const scale = $(this).data("scale") || 1;
+					const angle = $(this).data("angle") || 0;
+					const origin = $(this).data("origin") || "center";
+
+					const baseX = headerWidth * (xPercent / 100);
+					const baseY = headerHeight * (yPercent / 100);
+
+					const parallaxY = baseY + scrollProgress * speed;
+					const rotation = scrollProgress * angle;
+
+					$(this).css({
+							transform: `translate(${baseX}px, ${parallaxY}px) scale(${scale}) rotate(${rotation}deg)`,
+							"transform-origin": origin
+					});
+
+
+
+			});
+
+		}
+
+		requestAnimationFrame(parallax);
+	}
+
+	parallax();
+
+});
+
+// ----------------------
+// fade in on scroll
+// ----------------------
+
+$(document).ready(function () {
+	/* Every time the window is scrolled ... */
+	$(window).scroll(function () {
+		/* Check the location of each desired element */
+		$(".hideme").each(function (i) {
+			var bottom_of_object = $(this).offset().top + $(this).outerHeight() / 4;
+			var bottom_of_window = $(window).scrollTop() + $(window).height();
+			/* If the object is completely visible in the window, fade it it */
+			if (bottom_of_window > bottom_of_object) {
+					$(this).animate({ opacity: "1" }, 900);
+				}
+		});
+});
+});
+
+
+// ===============================
+// SCROLL REVEAL (IntersectionObserver)
+// ===============================
+
+const observer = new IntersectionObserver((entries) => {
+
+	entries.forEach(entry => {
+
+		if (entry.isIntersecting) {
+				entry.target.classList.add("loaded");
+				observer.unobserve(entry.target); // animate only once
+			}
+
+	});
+
+}, {
+	threshold: 0.15
+});
+
+document.querySelectorAll(".project").forEach(project => {
+	observer.observe(project);
+});
+
+
+// ===============================
+// PROJECT FILTERING
+// ===============================
+
+
+const buttons = document.querySelectorAll(".filter-btn");
+const container = document.querySelector(".projects");
+const cards = Array.from(document.querySelectorAll(".project-card"));
+
+buttons.forEach(button => {
+
+	button.addEventListener("click", () => {
+
+		/* active button */
+
+		buttons.forEach(btn => btn.classList.remove("filter-active"));
+		button.classList.add("filter-active");
+
+		const filter = button.dataset.filter;
+
+		/* STEP 1 — fade out visible cards */
+
+		cards.forEach(card => {
+			if (!card.classList.contains("hidden")) {
+					card.classList.add("fade-out");
+				}
+		});
+
+		/* STEP 2 — after fade, reorder + filter */
+
+		setTimeout(() => {
+
+			let matched = [];
+			let unmatched = [];
+
+			cards.forEach(card => {
+
+				const tags = card.dataset.tags;
+
+				if (filter === "all" || tags.includes(filter)) {
+
+						card.classList.remove("hidden");
+						matched.push(card);
+
+					} else {
+
+						card.classList.add("hidden");
+						unmatched.push(card);
+
+					}
+
+			});
+
+			/* reorder cards */
+
+			[...matched, ...unmatched].forEach(card => {
+				container.appendChild(card);
+		});
+
+		/* STEP 3 — fade new cards in */
+
+		requestAnimationFrame(() => {
+			cards.forEach(card => {
+				card.classList.remove("fade-out");
+		});
+});
+
+}, 350);
+
+});
+
+});
+
+// -----------------------------------------//
+// -------- video play/pause button --------//
+// -----------------------------------------//
+
+document.querySelectorAll(".video-container").forEach(container => {
+	const video = container.querySelector("video");
+	const button = container.querySelector(".video-toggle");
+	const icon = button.querySelector("i");
+
+	// Unified function to update UI
+	function updateUI() {
+			if (video.paused) {
+					container.classList.remove("playing");
+					video.setAttribute("controls","false")
+
+					icon.classList.remove("ri-pause-fill");
+					icon.classList.add("ri-play-fill");
+				} else {
+					container.classList.add("playing");
+					video.setAttribute("controls","true")
+					icon.classList.remove("ri-play-fill");
+					icon.classList.add("ri-pause-fill");
+				}
+			}
+
+			// Play/pause toggle when custom button clicked
+			button.addEventListener("click", (e) => {
+				e.stopPropagation(); // prevent bubbling
+				if (video.paused) video.play();
+					else video.pause();
+			});
+
+			// Update UI whenever video plays or pauses (covers native controls & keyboard)
+			video.addEventListener("play", updateUI);
+			video.addEventListener("pause", updateUI);
+
+			// Optional: allow clicking video itself to toggle
+			// video.addEventListener("click", () => {
+				//   if (video.paused) video.play();
+				//   else video.pause();
+				// });
+		});
+
+		// -----------------------------------------//
+		// -------- SPLIT TEXT 2 LETTERS --------//
+		// -----------------------------------------//
+
+		function splitTextToLetters() {
+				const paragraphs = document.querySelectorAll(".intro-text p");
+
+				paragraphs.forEach(p => {
+					const text = p.textContent;
+					p.innerHTML = "";
+
+					text.split("").forEach(char => {
+						const span = document.createElement("span");
+
+						// Preserve spaces
+						span.innerHTML = char === " " ? "&nbsp;" : char;
+
+						p.appendChild(span);
+				});
+		});
+	}
+
+	// -------------------------- //
+	// -----PARALLEX LETTERS ----//
+	// -------------------------- //
+
+	function applyParallax() {
+			const scrollTop = window.scrollY;
+			const frameHeight = window.innerHeight;
+
+			const letters = document.querySelectorAll(".intro-text span");
+
+			const baseSpeed = 0.05;
+
+			// Normalize scroll (0 → 1)
+			const progress = Math.min(scrollTop / frameHeight, 1);
+
+			if (scrollTop > 0 && scrollTop < frameHeight) {
+
+					letters.forEach((letter, index) => {
+						const speed = -4 - Math.sin(index) * 6;
+						const translateY = speed * (scrollTop * baseSpeed);
+
+						// 👇 Fade out based on scroll
+						const opacity = 1 - 1.5 * progress;
+
+						letter.style.transform = `translateY(${translateY}px)`;
+						letter.style.opacity = opacity;
+				});
+
+			} else {
+				letters.forEach(letter => {
+					letter.style.transform = "translateY(0)";
+					letter.style.opacity = scrollTop >= frameHeight ? 0 : 1;
+			});
+		}
+	}
+
+	document.addEventListener("DOMContentLoaded", () => {
+		splitTextToLetters();
+
+		window.addEventListener("scroll", applyParallax);
+});
+
+
+// -------------------------- //
+// -----SLICE HERO IMAGE ----//
+// -------------------------- //
+
+// function applySliceParallax() {
+	//     const scrollTop = window.scrollY;
+	//     const slices = document.querySelectorAll(".slice");
+
+	//     slices.forEach(slice => {
+		//         const speed = parseFloat(slice.dataset.speed);
+		//         const offset = scrollTop * 2 * speed;
+
+
+		//         slice.style.transform = `translateY(${offset}px)`;
+		//     });
+		// }
+
+		// window.addEventListener("scroll", applySliceParallax);
+
+		// ------------------------ //
+		// ----- HEADER IMAGE + MOUSE ----- //
+		// ------------------------ //
+
+		$(function(){
+
+			const $header = $(".header");
+			const $image = $(".header img"); // adjust if needed
+
+			$header.on("mousemove", function(e){
+
+				const rect = this.getBoundingClientRect();
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
+
+				const width = rect.width;
+				const height = rect.height;
+
+				// normalize (0 → 1)
+				const progressX = x / width;
+				const progressY = y / height;
+
+				const center = width / 2;
+				const distance = Math.abs(x - center);
+				const maxDistance = width / 2;
+
+				const progress = distance / maxDistance;
+
+
+				// map to saturation (tweak these values)
+				const minSat = 5;
+				const maxSat = 10;
+
+				const value = minSat + (maxSat - minSat) * progress;
+
+				const valueX = minSat + (maxSat - minSat) * progressX;
+				const valueY = minSat + (maxSat - minSat) * progressY;
+
+
+				$image.css("transform", `translate(${-valueX}px,${-valueY}px)`);
+
+
+		});
+
+});
