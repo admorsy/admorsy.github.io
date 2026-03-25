@@ -36,7 +36,7 @@
 		</style>
 	
 			</head>
-			<body>
+			<body class="pgtr-contact">
 	<div id="preloader" class="fade-out">
 	</div>	<svg id="fader" class="fade-out"></svg>
 	<script>fadeInPage()</script>
@@ -95,7 +95,7 @@
 					<p></p>
 					</a> -->
 				</div>			</div>			<div class="nav-links">
-			<a href="../index.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="hello" data-type="page-transition" data-text="hello" data-hover="hello">hello</a>
+			<a href="../index.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="home" data-type="page-transition" data-text="home" data-hover="home">home</a>
 			<a href="../resume.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="résumé" data-type="page-transition" data-hover="résumé">résumé</a>
 			<a href="../work.html" class="nav-link cursor-hover-no-ring custom-link magnetic-hover" data-value="#work" data-type="page-transition" data-hover="#work">work</a>
 		<a href="../contact.html" class="nav-link cursor-hover-no-ring custom-link current" data-value="#contact" data-type="page-transition" data-hover="#contact">contact</a>	
@@ -110,7 +110,7 @@
 		data-origin="center center"
 		data-min="-40"
 		data-max="40">
-		<img src="../img/site/exp3@2x-min.png" alt="">
+		<img src="../img/site/exp3@2x-min-1600.webp" alt="">
 	</div>
 	<!-- <div class="parallax-layer"
 	data-speed="0.5"
@@ -120,7 +120,7 @@
 	data-origin="bottom center"
 	data-min="-60"
 	data-max="60">
-	<img src="../img/work/template/pyramids.png" alt="">
+	<img src="../img/work/template/pyramids-1600.webp" alt="">
 </div>
 <div class="parallax-layer"
 data-speed="0.8"
@@ -130,7 +130,7 @@ data-scale="1"
 data-origin="bottom center"
 data-min="-80"
 data-max="80">
-<img src="../img/work/template/camel.png" alt="">
+<img src="../img/work/template/camel-1600.webp" alt="">
 </div> -->
 <!-- <div class="color-overlay" style="background-color:#285F88;"></div> -->
 <div class="header-text centered text--white">contact</div>	<div class="tags">
@@ -152,13 +152,21 @@ data-max="80">
 	</div></div><!-- Normal Scrolling Page -->
 <div class="page">
 	<div class="main">
-		<div class="block">
+		<div class="block section">
 	
-          <form class="cf">
+		</div>
+		<div class="block section">
+	
+          <form class="cf" action="https://formspree.io/f/mlgorbrr" method="POST">
+				<p class="text-300 text--16">Have a project in mind, a collaboration, or just want to say hi?</p>
+<p>I’d love to hear from you.</p>
   <div class="half left cf">
-    <input type="text" id="input-name" placeholder="Name" class="cursor-hover-no-ring">
-    <input type="email" id="input-email" placeholder="Email address" class="cursor-hover-no-ring">
-    <input type="text" id="input-subject" placeholder="Subject" class="cursor-hover-no-ring">
+    <input type="text" name="name" id="input-name" placeholder="Name" class="cursor-hover-no-ring">
+    <input type="email" name="email" id="input-email" placeholder="Email address" class="cursor-hover-no-ring">
+    <input type="text" name="subject" id="input-subject" placeholder="Subject" class="cursor-hover-no-ring">
+	<input type="text" name="_gotcha" style="display:none">
+	<input type="hidden" name="_subject" value="New Portfolio Message">
+<input type="hidden" name="_template" value="table">
   </div>  <div class="half right cf">
     <textarea name="message" type="text" id="input-message" placeholder="Message" class="cursor-hover-no-ring"></textarea>
   </div>  

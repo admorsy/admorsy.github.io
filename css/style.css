@@ -1168,6 +1168,12 @@ html #nav-page .nav-link:hover {
 			max-width:100%;
 		}
 
+		.pgtr-resume .header-text,
+		.pgtr-work .header-text,
+		.pgtr-contact .header-text {
+			 font-size: clamp(3rem, 1vw, 6rem);
+		}
+
 		.header .tags {
 			position:absolute;
 			width: 100%;
@@ -2186,7 +2192,7 @@ html #nav-page .nav-link:hover {
 }
 
 @media (max-width: 600px) {
-  .projects {
+  .projects, .pgtr-index .projects {
     grid-template-columns: 1fr;
   }
 }
@@ -2405,7 +2411,7 @@ html #nav-page .nav-link:hover {
 			iframe {
 
 				width:100%;
-				max-width:600px;
+				/* max-width:600px; */
 				height:100%;
 				margin: 0 auto;
 				/* max-height:800px; */
@@ -2424,7 +2430,7 @@ html #nav-page .nav-link:hover {
   margin: 40px auto;
 }
 
-		.iframe-container {
+.iframe-container {
   position: relative;
   width: 100%;
   max-width: 1200px; /* optional */
@@ -2438,6 +2444,8 @@ html #nav-page .nav-link:hover {
   left: 0;
   width: 100%;
   height: 100%;
+  				max-width:1200px;
+
   border: 0;
 }
 
@@ -2495,13 +2503,48 @@ html #nav-page .nav-link:hover {
 			justify-items: center;
 			z-index: 102;
 			transform: scale(1);
+			 /* overflow-wrap: break-word; ensures it breaks at spaces naturally */
 
 		}
 
-		@media (max-width: 768px) {
+
+		
+		.intro-text p {
+
+			position:relative;
+			color: white;
+			text-align:left;
+			/* font-weight:300; */
+			opacity: 0.8;
+			margin:0px;
+			line-height: 100%;
+			border-radius: 0px;
+			/* max-width:400px; */
+			font-size: clamp(1rem, 6vw, 6rem);
+			/* background: rgba(100,0,0,0.5); */
+			/* mix-blend-mode: saturation; */
+			/* word-break: nowrap; */
+			/* text-wrap:nowrap; */
+			/* overflow-wrap: break-word; ensures it breaks at spaces naturally */
+			text-shadow: 2px 2px 6px #000;
+
+		}
+
+		.intro-text span {
+			display: inline-block;
+			will-change: transform, opacity;
+		}
+
+		.gear svg {
+			fill:var(--accent-color);
+			opacity: 1;
+		}
+
+
+		@media (max-width: 425px) {
 			.intro-text {
-				transform:scale(0.8);
-				padding-left: 30px;
+				transform:scale(0.7);
+				padding-left: 10px;
 			}
 			.main {
 				padding-left:40px;
@@ -2510,7 +2553,20 @@ html #nav-page .nav-link:hover {
   /* your mobile landscape fixes */
 }
 
-			@media (orientation: landscape) and (device: mobile) {
+	@media (min-width: 	768px) {
+			.intro-text {
+				transform:scale(0.9);
+				padding-left: 10px;
+			}
+			.main {
+				/* padding-left:40px;
+				padding-right:40px; */
+			}
+  /* your mobile landscape fixes */
+}
+
+
+			@media (orientation: landscape) and (max-width: 900px) {
 				.intro-text {
 
 					padding-top:0px;
@@ -2525,33 +2581,30 @@ html #nav-page .nav-link:hover {
 	/* your styles */	
 	}
 
-		.intro-text p {
+	/* Default: Hide mobile breaks */
+.mobile-break {
+  display: none;
+}
 
-			position:relative;
-			color: white;
-			text-align:left;
-			/* font-weight:300; */
-			opacity: 0.8;
-			margin:0px;
-			line-height: 100%;
-			border-radius: 0px;
-			/* font-size: clamp(1rem, 6vw, 6rem); */
-			/* background: rgba(100,0,0,0.5); */
-			/* mix-blend-mode: saturation; */
-			/* word-break: nowrap; */
-			text-wrap:nowrap;
-			text-shadow: 2px 2px 6px #000;
+/* On Desktop (e.g., screens wider than 768px) */
+@media (min-width: 768px) {
+  .desktop-break {
+    display: block; /* Shows the break you want for desktop */
+  }
+}
 
-		}
+/* On Mobile (screens smaller than 768px) */
+@media (max-width: 767px) {
+  .mobile-break {
+    display: block; /* Forces the break after 'illustrate,' */
+  }
+  .desktop-break {
+    display: none; /* Removes the break after 'build' */
+  }
+}
 
-		.intro-text span {
-			display: inline-block;
-			will-change: transform, opacity;
-		}
-
-		.gear svg {
-			fill:var(--accent-color);
-			opacity: 1;
+		.intro-text .first-line {
+			line-height:100px;
 		}
 
 		.pgtr-index .custom-button {
@@ -3118,8 +3171,8 @@ form textarea {
   will-change: transform;
 			}
 
-			.cursor-ring.shrink {
-   --scale: 0.2;
+			.cursor-ring.shrink {	
+   --scale: 0;
   opacity: 0;
 }
 
@@ -3127,16 +3180,27 @@ form textarea {
 				cursor:var(--cursor-custom-normal);
 			}
 
-			@media (pointer: coarse){
+			/* Hide cursor elements if disabled */
+.no-cursor .cursor-dot,
+.no-cursor .cursor-ring {
+  display: none !important;
+}
 
-				html, body, *{
-					cursor:auto !important;
-				}
+/* Optional: fallback cursor for all elements */
+.no-cursor {
+  cursor: auto !important;
+}
 
-				.cursor-dot,
-				.cursor-ring{
-					display:none;
-				}
+		@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto;
+  }
+
 
 				.project-card .project-overlay {
 					opacity:1;
@@ -3281,11 +3345,6 @@ form textarea {
 
 			*::-webkit-scrollbar-thumb:hover {
 				background: #D45D55;
-			}
-
-				*::-webkit-scrollbar-thumb:hover .cursor-ring {
-				opacity: 0;
-				display:none;
 			}
 
 

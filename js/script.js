@@ -25,150 +25,211 @@ function raf(time) {
 
 	requestAnimationFrame(raf);
 
-	// ----------------------
-	// CUSTOM CURSOR
-	// ----------------------
 
-	$(function () {
-		const $dot = $(".cursor-dot");
-		const $ring = $(".cursor-ring");
+// ----------------------
+// CUSTOM CURSOR (Desktop Only)
+// ----------------------
 
-		let mouseX = 0;
-		let mouseY = 0;
+$(function () {
 
-		let ringX = 0;
-		let ringY = 0;
+    // Detect touch / coarse-pointer devices
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
-		const speed = 0.5;
-		const buffer = 10;
+    if (isTouch) {
+        // Hide cursor elements and use normal pointer
+        $("body").addClass("no-cursor");
+        $(".cursor-dot, .cursor-ring").hide();
+        $("body").css("cursor", "auto");
+        return; // Don't initialize the cursor script on touch
+    }
 
-		let locked = false;
-		let activeElement = null;
+    // ----------------------
+    // Initialize the cursor
+    // ----------------------
+    function initializeCursor() {
+        const $dot = $(".cursor-dot");
+        const $ring = $(".cursor-ring");
 
-		// --- mouse movement ---
-		$(document).on("mousemove", function (e) {
-			mouseX = e.clientX;
-			mouseY = e.clientY;
+        let mouseX = 0;
+        let mouseY = 0;    
+        let ringX = 0;
+        let ringY = 0;
 
-			document.body.style.cursor = "var(--cursor-custom-normal)";
+        const speed = 0.5;
+        const buffer = 10;
 
-			$dot.css({
-					left: mouseX,
-					top: mouseY
-			});
+        let locked = false;
+        let activeElement = null;
 
-			// find the closest element inside buffer
-			let closest = null;
-			let minDist = Infinity;
+        // --- mouse movement ---
+        $(document).on("mousemove", function (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
 
-			$(".cursor-hover").each(function () {
-				const rect = this.getBoundingClientRect();
+            document.body.style.cursor = "var(--cursor-custom-normal)";
 
-				const insideBuffer =
-				mouseX > rect.left - buffer &&
-				mouseX < rect.right + buffer &&
-				mouseY > rect.top - buffer &&
-				mouseY < rect.bottom + buffer;
+            $dot.css({
+                left: mouseX,
+                top: mouseY
+            });
 
-				if (insideBuffer) {
-						// calculate distance to element center
-						const centerX = rect.left + rect.width / 2;
-						const centerY = rect.top + rect.height / 2;
-						const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
+            // find the closest element inside buffer
+            let closest = null;
+            let minDist = Infinity;
 
-						if (dist < minDist) {
-								minDist = dist;
-								closest = this;
-							}
-						}
-				});
+            $(".cursor-hover").each(function () {
+                const rect = this.getBoundingClientRect();
 
-				if (closest) {
-						// lock to closest element
-						locked = true;
-						activeElement = closest;
-						const rect = closest.getBoundingClientRect();
+                const insideBuffer =
+                    mouseX > rect.left - buffer &&
+                    mouseX < rect.right + buffer &&
+                    mouseY > rect.top - buffer &&
+                    mouseY < rect.bottom + buffer;
 
-						$ring.css({
-								width: rect.width + "px",
-								height: rect.height + "px",
-								borderRadius: "0px",
-								"--tx": "0",
-								"--ty": "0",
-								left: rect.left,
-								top: rect.top
-						});
-					} else if (locked) {
-						// release if no element is in buffer
-						locked = false;
-						activeElement = null;
+                if (insideBuffer) {
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
 
-						$ring.css({
-								width: "32px",
-								height: "32px",
-								borderRadius: "50%",
-								"--tx": "-50%",
-								"--ty": "-50%"
-						});
-					}
-			});
+                    if (dist < minDist) {
+                        minDist = dist;
+                        closest = this;
+                    }
+                }
+            });
 
-			// --- ring animation ---
-			function animate() {
-					if (!locked) {
-							ringX += (mouseX - ringX) * speed;
-							ringY += (mouseY - ringY) * speed;
+            if (closest) {
+                // lock to closest element
+                locked = true;
+                activeElement = closest;
+                const rect = closest.getBoundingClientRect();
 
-							$ring.css({
-									left: ringX,
-									top: ringY
-							});
-						}
+                $ring.css({
+                    width: rect.width + "px",
+                    height: rect.height + "px",
+                    borderRadius: "0px",
+                    "--tx": "0",
+                    "--ty": "0",
+                    left: rect.left,
+                    top: rect.top
+                });
+            } else if (locked) {
+                // release if no element is in buffer
+                locked = false;
+                activeElement = null;
 
-						requestAnimationFrame(animate);
-					}
+                $ring.css({
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    "--tx": "-50%",
+                    "--ty": "-50%"
+                });
+            }
+        });
 
-					animate();
+        // --- ring animation ---
+        function animate() {
+            if (!locked) {
+                ringX += (mouseX - ringX) * speed;
+                ringY += (mouseY - ringY) * speed;
 
-					// --- hide cursor when leaving window ---
-					$(document).on("mouseleave", function () {
-						$(".cursor-dot, .cursor-ring").hide();
-						document.body.style.cursor = "var(--cursor-custom-normal)";
+                $ring.css({
+                    left: ringX,
+                    top: ringY
+                });
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
 
-				});
+        // --- hide cursor when leaving window ---
+        $(document).on("mouseleave", function () {
+            $(".cursor-dot, .cursor-ring").hide();
+            document.body.style.cursor = "var(--cursor-custom-normal)";
+        });
 
-				$(document).on("mouseenter", function () {
-					$(".cursor-dot, .cursor-ring").show();
-					document.body.style.cursor = "var(--cursor-custom-normal)";
+        $(document).on("mouseenter", function () {
+            $(".cursor-dot, .cursor-ring").show();
+            document.body.style.cursor = "var(--cursor-custom-normal)";
+        });
 
-			});
-			$(document).on("mousemove", function () {
-				$(".cursor-dot, .cursor-ring").show();
-				document.body.style.cursor = "var(--cursor-custom-normal)";
+        $(document).on("mousemove", function () {
+            $(".cursor-dot, .cursor-ring").show();
+            document.body.style.cursor = "var(--cursor-custom-normal)";
+        });
 
-		});
-		let ringTimeout;
+        let ringTimeout;
 
-		$(".cursor-hover-no-ring").on("mouseenter", function () {
-			clearTimeout(ringTimeout);
-			$(".cursor-ring").addClass("shrink");
-			document.body.style.cursor = "var(--cursor-custom-normal)";
+        $(".cursor-hover-no-ring").on("mouseenter", function () {
+            clearTimeout(ringTimeout);
+            $(".cursor-ring").addClass("shrink");
+            document.body.style.cursor = "var(--cursor-custom-normal)";
+        });
 
-	});
+        $(".cursor-hover-no-ring").on("mouseleave", function () {
+            ringTimeout = setTimeout(() => {
+                $(".cursor-ring").removeClass("shrink");
+                document.body.style.cursor = "var(--cursor-custom-normal)";
+            }, 250);
+        });
 
-	$(".cursor-hover-no-ring").on("mouseleave", function () {
-		ringTimeout = setTimeout(() => {
-			$(".cursor-ring").removeClass("shrink");
-			document.body.style.cursor = "var(--cursor-custom-normal)";
+    } // End initializeCursor
 
-		}, 250);
+    // Call the function for non-touch devices
+    initializeCursor();
+
+});
+
+// ---------------------------------------------- //
+// -------- HIDE CURSOR-RING CLOSE TO SCROLL-BAR ------- //
+// ---------------------------------------------- //
+
+const cursorRing = document.querySelector(".cursor-ring");
+const cursorDot = document.querySelector(".cursor-dot");
+
+
+document.addEventListener("mousemove", (e) => {
+    const scrollbarWidth = 15; // approximate
+    const isOverScrollbar = e.clientX > window.innerWidth - scrollbarWidth;
+
+    if (isOverScrollbar) {
+        cursorRing.style.opacity = "0";
+		 cursorDot.style.opacity = "0";
+    } else {
+        cursorRing.style.opacity = "1";
+		cursorDot.style.opacity = "1";
+    }
+});
+
+// ---------------------------------------------- //
+// -------- HIDE CURSOR-RING ON SCROLL.   ------- //
+// ---------------------------------------------- //
+
+let scrollTimeout;
+
+window.addEventListener("scroll", () => {
+    cursorRing.style.opacity = "0";
+
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        cursorRing.style.opacity = "1";
+    }, 150);
 });
 
 
+// ---------------------------------------------- //
+// -------- SHRINK CURSOR-RING ON CLICK.   ------- //
+// ---------------------------------------------- //
+
+
+document.addEventListener("mousedown", () => {
+    cursorRing.classList.add("shrink");
 });
 
-
-
+document.addEventListener("mouseup", () => {
+    cursorRing.classList.remove("shrink");
+});
 
 // --------------------------------------- //
 // ---- magnetic buttons on hover -------- //
@@ -413,85 +474,136 @@ document.querySelectorAll(".video-container").forEach(container => {
 		// -------- SPLIT TEXT 2 LETTERS --------//
 		// -----------------------------------------//
 
-		function splitTextToLetters() {
-				const paragraphs = document.querySelectorAll(".intro-text p");
+	// 	function splitTextToLetters() {
+	// 			const paragraphs = document.querySelectorAll(".intro-text p");
 
-				paragraphs.forEach(p => {
-					const text = p.textContent;
-					p.innerHTML = "";
+	// 			paragraphs.forEach(p => {
+	// 				const text = p.textContent;
+	// 				p.innerHTML = "";
 
-					text.split("").forEach(char => {
-						const span = document.createElement("span");
+	// 				text.split("").forEach(char => {
+	// 					const span = document.createElement("span");
 
-						// Preserve spaces
-						span.innerHTML = char === " " ? "&nbsp;" : char;
+	// 					// Preserve spaces
+	// 					span.innerHTML = char === " " ? "&nbsp;" : char;
 
-						p.appendChild(span);
-				});
-		});
-	}
+	// 					p.appendChild(span);
+	// 			});
+	// 	});
+	// }
 
-	// -------------------------- //
-	// -----PARALLEX LETTERS ----//
-	// -------------------------- //
 
-	function applyParallax() {
-			const scrollTop = window.scrollY;
-			const frameHeight = window.innerHeight;
+	
+		// -----------------------------------------//
+		// -------- SPLIT TEXT 2 WORDS --------//
+		// -----------------------------------------//
+function splitTextToWords() {
+    const paragraphs = document.querySelectorAll(".intro-text p");
 
-			const letters = document.querySelectorAll(".intro-text span");
+    paragraphs.forEach(p => {
+        const nodes = Array.from(p.childNodes);
+        p.innerHTML = ""; // clear paragraph
 
-			const baseSpeed = 0.05;
+        nodes.forEach(node => {
+            processNode(node, p);
+        });
+    });
+}
 
-			// Normalize scroll (0 → 1)
-			const progress = Math.min(scrollTop / frameHeight, 1);
+function processNode(node, parent) {
+    if (node.nodeType === Node.TEXT_NODE) {
+        // split text into words and spaces
+        const words = node.textContent.split(/(\s+)/);
+        words.forEach(word => {
+            if (word === "") return;
+            if (word.trim() === "") {
+                // preserve spaces
+                parent.appendChild(document.createTextNode(word));
+            } else {
+                const span = document.createElement("span");
+                span.textContent = word;
+                parent.appendChild(span);
+            }
+        });
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+        // clone element but empty
+        const clone = node.cloneNode(false);
+        parent.appendChild(clone);
 
-			if (scrollTop > 0 && scrollTop < frameHeight) {
+        // recursively process children
+        Array.from(node.childNodes).forEach(child => {
+            processNode(child, clone);
+        });
+    }
+}
 
-					letters.forEach((letter, index) => {
-						const speed = -4 - Math.sin(index) * 6;
-						const translateY = speed * (scrollTop * baseSpeed);
+// Run after DOM loads
+document.addEventListener("DOMContentLoaded", () => {
+    splitTextToWords();
 
-						// 👇 Fade out based on scroll
-						const opacity = 1 - 1.5 * progress;
-
-						letter.style.transform = `translateY(${translateY}px)`;
-						letter.style.opacity = opacity;
-				});
-
-			} else {
-				letters.forEach(letter => {
-					letter.style.transform = "translateY(0)";
-					letter.style.opacity = scrollTop >= frameHeight ? 0 : 1;
-			});
-		}
-	}
-
-	document.addEventListener("DOMContentLoaded", () => {
-		splitTextToLetters();
-
-		window.addEventListener("scroll", applyParallax);
+    // Then attach parallax scroll
+    window.addEventListener("scroll", applyParallax);
 });
+		// -------------------------- //
+		// -----PARALLEX LETTERS ----//
+		// -------------------------- //
+
+		function applyParallax() {
+				const scrollTop = window.scrollY;
+				const frameHeight = window.innerHeight;
+
+				const words = document.querySelectorAll(".intro-text span");
+
+				const baseSpeed = 0.05;
+
+				// Normalize scroll (0 → 1)
+				const progress = Math.min(scrollTop / frameHeight, 1);
+
+				if (scrollTop > 0 && scrollTop < frameHeight) {
+
+				// 		letters.forEach((letter, index) => {
+				// 			const speed = -4 - Math.sin(index) * 6;
+				// 			const translateY = speed * (scrollTop * baseSpeed);
+
+				// 			// 👇 Fade out based on scroll
+				// 			const opacity = 1 - 1.5 * progress;
+
+				// 			letter.style.transform = `translateY(${translateY}px)`;
+				// 			letter.style.opacity = opacity;
+				// 	});
+
+				// } else {
+				// 	letters.forEach(letter => {
+				// 		letter.style.transform = "translateY(0)";
+				// 		letter.style.opacity = scrollTop >= frameHeight ? 0 : 1;
+				// });
 
 
-// -------------------------- //
-// -----SLICE HERO IMAGE ----//
-// -------------------------- //
+						words.forEach((word, index) => {
+							const speed = -4 - Math.sin(index) * 6;
+							const translateY = speed * (scrollTop * baseSpeed);
 
-// function applySliceParallax() {
-	//     const scrollTop = window.scrollY;
-	//     const slices = document.querySelectorAll(".slice");
+							// 👇 Fade out based on scroll
+							const opacity = 1 - 1.5 * progress;
 
-	//     slices.forEach(slice => {
-		//         const speed = parseFloat(slice.dataset.speed);
-		//         const offset = scrollTop * 2 * speed;
+							word.style.transform = `translateY(${translateY}px)`;
+							word.style.opacity = opacity;
+					});
 
+				} else {
+					words.forEach(word => {
+						word.style.transform = "translateY(0)";
+						word.style.opacity = scrollTop >= frameHeight ? 0 : 1;
+				});
+			}
+		}
 
-		//         slice.style.transform = `translateY(${offset}px)`;
-		//     });
-		// }
-
-		// window.addEventListener("scroll", applySliceParallax);
+		document.addEventListener("DOMContentLoaded", () => {
+			// splitTextToLetters();
+	splitTextToWords();
+			window.addEventListener("scroll", applyParallax);
+	});
+		
 
 		// ------------------------ //
 		// ----- HEADER IMAGE + MOUSE ----- //
