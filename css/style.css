@@ -45,15 +45,15 @@
 	--blue-light: #6cdaeb;
 	--blue-lighter: #bceefa;
 	--blue-lightest: #eff8ff;
-	--dgray1: #010406;
-	--dgray2: #06090b;
-	--dgray3: #0c0f11;
-	--dgray4: #101218;
-	--dgray5: #182024;
-	--dgray6: #1c1f21;
-	--dgray7: #212426;
-	--dgray8: #26292b;
-	--dgray9: #2c2f31;
+	--dgray1: #050608;
+	--dgray2: #0b0d10;
+	--dgray3: #101418;
+	--dgray4: #1e2328;
+	--dgray5: #2c3238;
+	--dgray6: #3a4148;
+	--dgray7: #485058;
+	--dgray8: #565f68;
+	--dgray9: #646e78;
 	--mgray1: #414446;
 	--mgray2: #56595b;
 	--mgray3: #6c6f71;
@@ -1283,8 +1283,9 @@ html #nav-page .nav-link:hover {
 			height: 50px;
 			border-top: 1px solid var(--border-color);
 			width:100%;
-			position:relative;
+			position:absolute;
 			left:0;
+			bottom:12px;
 			color:var(--border-color);
 			display: flex;
 			align-items: center;
@@ -1312,6 +1313,7 @@ html #nav-page .nav-link:hover {
 			font-size: 30px;
 			font-weight: 300;
 			color: var(--h-color);
+			line-height: 1.6rem;
 		}
 
 		.h4,
@@ -2477,9 +2479,14 @@ html #nav-page .nav-link:hover {
 		}
 
 		.pgtr-index .page {
-			height:100vh;
+			/* height:100vh; */
 			width:100%;
-			top: calc(100vh - 10px);
+			top: calc(100vh - 12px);
+		}
+
+		.pgtr-index .main {
+			margin-bottom:120px;
+		
 		}
 
 		.intro-text {
@@ -2581,6 +2588,13 @@ html #nav-page .nav-link:hover {
 	/* your styles */	
 	}
 
+			@media (max-width: 768px) {
+
+.main {
+	padding:30px;
+}
+			}
+
 	/* Default: Hide mobile breaks */
 .mobile-break {
   display: none;
@@ -2613,7 +2627,7 @@ html #nav-page .nav-link:hover {
 			height: 50px;
 			font-size: 1.2rem;
 			line-height: 120%;
-			border:2px solid var(--border-color);
+			border:3px solid var(--border-color);
 			color:var(--link-color);
 			display:flex;
 			justify-content: center;
@@ -2651,6 +2665,11 @@ html #nav-page .nav-link:hover {
 			justify-content: center;
 		}
 
+		
+
+	
+
+
 
 		/* -------- */
 		/* RESUME PAGE */
@@ -2663,6 +2682,7 @@ html #nav-page .nav-link:hover {
 
 		.pgtr-resume h3 {
 			color:var(--h2-color);
+			line-height: 1.2rem;
 		}
 
 		.pgtr-resume .section a {
@@ -2846,6 +2866,7 @@ html #nav-page .nav-link:hover {
 			align-items: center;
 			justify-items: baseline;
 			justify-content: baseline;
+			width:100%;
 		
 			padding: 20px;
 
@@ -2860,6 +2881,7 @@ html #nav-page .nav-link:hover {
 			align-items: flex-start;
 			justify-items:  center;
 			justify-content: baseline;
+			width:100%;
 			margin: 0;
 			padding: 16px;
 			border-left:2px solid var(--border-color);
@@ -3004,6 +3026,26 @@ html #nav-page .nav-link:hover {
 			width:80%;
 			margin:20px auto;
 		} */
+.flex-row {
+	display:flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	gap: 20px;
+}
+
+.flex-row div {
+	width:calc(50% - 10px);
+}
+
+
+@media (max-width: 480px) {
+  .flex-row div {
+    width: 100%;
+  
+  }
+}
 
 
 		.skills {
@@ -3048,25 +3090,39 @@ html #nav-page .nav-link:hover {
 		}
 
 		/* -------CONTACT PAGE ------- */
+			
+		.form-container {
 
-		
+			/* margin-top:100px; */
+			/* padding:40px; */
+			/* border-top:2px solid var(--border-color); */
+			background-color: transparent;
+		}
+
+		.pgtr-index	.form-container {
+
+			margin-top:100px;
+			padding:40px;
+			border-top:2px solid var(--border-color);
+			background-color: var(--dgray2);
+		}
+
+
 form {
   max-width:800px;
   text-align: center;
   margin: 20px auto;
 }
 form input, form textarea {
-  border: 0;
   outline: 0;
   padding: 1em;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
+
   border-radius: 0px;
   display: block;
   width: 100%;
   margin-top: 1em;
   color:#fff;
- background-color: var(--dgray2);
+			background-color: var(--dgray4);
   border:2px solid transparent;
   will-change: border;
   transition:0.2s border;
@@ -3077,16 +3133,42 @@ form input:hover, form textarea:hover {
   border:2px solid var(--accent-color);
 }
 
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--dgray4) inset; /* your dark bg */
+  -webkit-text-fill-color: #fff; /* your text color */
+  caret-color: #fff;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--dgray4) inset;
+  -webkit-text-fill-color: #fff;
+}
+
 form input:focus, form textarea:focus {
 	color:#fff;
 }
 form #input-submit {
+  color: var(--border-color);
+  background: var(--bg-color);
+  text-transform: uppercase;
+  border:3px solid var(--border-color);
+  will-change: border, transform;
+    transition:0.2s border, 0.2s transform;
+
+}
+
+form #input-submit:hover {
   color: var(--accent-color);
   background: var(--bg-color);
   text-transform: uppercase;
-  border:2px solid var(--accent-color);
+  border:3px solid var(--accent-color);
   cursor: pointer;
-    transition:0.2s transform;
+    transition:0.2s border, 0.2s transform;
 
 }
 
