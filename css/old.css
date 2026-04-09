@@ -87,13 +87,13 @@
 	--duration: 0.35s;
 	--delay: 0.35s;
 	--transition: all var(--duration) var(--easing) var(--delay);
-	--cursor-custom-normal: url(../img/site/cursors/svg/normal-blue.svg) 12 12,
+	--cursor-custom-normal: url(/img/site/cursors/svg/normal-blue.svg) 12 12,
 	default !important;
-	--cursor-custom-hover: url(../img/site/cursors/svg/hover-blue.svg) 12 12,
+	--cursor-custom-hover: url(/img/site/cursors/svg/hover-blue.svg) 12 12,
 	default !important;
-	--cursor-custom-click: url(../img/site/cursors/svg/click-blue.svg) 12 12,
+	--cursor-custom-click: url(/img/site/cursors/svg/click-blue.svg) 12 12,
 	default !important;
-	--cursor-custom-eye: url(../img/site/cursors/svg/eye-open-blue.svg) 24 24,
+	--cursor-custom-eye: url(/img/site/cursors/svg/eye-open-blue.svg) 24 24,
 	default !important;
 
 	--frame-width: 1200px;
@@ -125,13 +125,13 @@ html[data-theme="dark"] {
 	--duration: 0.3s;
 	--delay: 0.3s;
 	--transition: all var(--duration) var(--easing) var(--delay);
-	--cursor-custom-normal: url(../img/site/cursors/svg/normal-blue.svg) 12 12,
+	--cursor-custom-normal: url(/img/site/cursors/svg/normal-blue.svg) 12 12,
 	default !important;
-	--cursor-custom-hover: url(../img/site/cursors/svg/hover-blue.svg) 12 12,
+	--cursor-custom-hover: url(/img/site/cursors/svg/hover-blue.svg) 12 12,
 	default !important;
-	--cursor-custom-click: url(../img/site/cursors/svg/click-blue.svg) 12 12,
+	--cursor-custom-click: url(/img/site/cursors/svg/click-blue.svg) 12 12,
 	default !important;
-	--cursor-custom-eye: url(../img/site/cursors/svg/eye-open-blue.svg) 24 24,
+	--cursor-custom-eye: url(/img/site/cursors/svg/eye-open-blue.svg) 24 24,
 	default !important;
 }
 
@@ -149,13 +149,13 @@ html[data-theme="light"] {
 	--link-hover-color: var(--yellow-darker);
 	--overlay-color: var(--lgray3);
 	--transition: all 0.3s;
-	--cursor-custom-normal: url(../img/site/cursors/svg/normal-gold.svg) 12 12,
+	--cursor-custom-normal: url(/img/site/cursors/svg/normal-gold.svg) 12 12,
 	default !important;
-	--cursor-custom-hover: url(../img/site/cursors/svg/hover-gold.svg) 12 12,
+	--cursor-custom-hover: url(/img/site/cursors/svg/hover-gold.svg) 12 12,
 	default !important;
-	--cursor-custom-click: url(../img/site/cursors/svg/click-gold.svg) 12 12,
+	--cursor-custom-click: url(/img/site/cursors/svg/click-gold.svg) 12 12,
 	default !important;
-	--cursor-custom-eye: url(../img/site/cursors/svg/eye-open-gold.svg) 24 24,
+	--cursor-custom-eye: url(/img/site/cursors/svg/eye-open-gold.svg) 24 24,
 	default !important;
 }
 
@@ -2701,7 +2701,7 @@ body.loaded {
 }
 
 #precursor {
-	content: url(../img/site/cursors/svg/normal-blue.svg);
+	content: url(/img/site/cursors/svg/normal-blue.svg);
 	display: block;
 	top: 50%;
 	left: 50%;

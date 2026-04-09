@@ -90,11 +90,11 @@
 	/* --cursor-custom-normal: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32' fill='rgba(239,87,83,1)'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z'%3E%3C/path%3E%3C/svg%3E") 12 12, default !important; */
 		--cursor-custom-normal: none !important;
 
-	/* --cursor-custom-hover: url(../img/site/cursors/svg/hover-blue.svg) 12 12,
+	/* --cursor-custom-hover: url(/img/site/cursors/svg/hover-blue.svg) 12 12,
 	default !important;
-	--cursor-custom-click: url(../img/site/cursors/svg/click-blue.svg) 12 12,
+	--cursor-custom-click: url(/img/site/cursors/svg/click-blue.svg) 12 12,
 	default !important;
-	--cursor-custom-eye: url(../img/site/cursors/svg/eye-open-blue.svg) 24 24,
+	--cursor-custom-eye: url(/img/site/cursors/svg/eye-open-blue.svg) 24 24,
 	default !important; */
 	--font-sans-serif: "Google Sans Flex", sans-serif;
 
@@ -2731,7 +2731,7 @@ html #nav-page .nav-link:hover {
 		}
 
 		#precursor {
-			content: url(../img/site/cursors/svg/normal-blue.svg);
+			content: url(/img/site/cursors/svg/normal-blue.svg);
 			display: block;
 			top: 50%;
 			left: 50%;
