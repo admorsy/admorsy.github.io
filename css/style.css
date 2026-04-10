@@ -1273,9 +1273,9 @@ html #nav-page .nav-link:hover {
 
 		.footer::before {
 			content:"©";
-			font-size: 2rem;
+			font-size: 1.2rem;
 			font-weight:300;
-			padding-top:10px;
+			/* padding-top:10px; */
 			margin-right:2px;
 		}
 
@@ -2210,12 +2210,6 @@ html #nav-page .nav-link:hover {
 
 			position: relative;
 			display: block;
-			/* width: 100%;   */
-			/* flex: 0 1 calc(33.4% - 8px); */
-			/* max-width: 600px; */
-			/* height:300px; */
-			/* max-height:300px; */
-			/* fixed aspect ratio: 4:3 for example */
 			aspect-ratio: 3 / 2;
 			opacity: 1;
 			overflow: hidden;
@@ -2225,22 +2219,7 @@ html #nav-page .nav-link:hover {
 			transition: opacity .35s ease, transform .35s ease;
 
 		}
-
 	
-
-		@media (max-width: 768px) {
-			.project-card {
-			/* flex: 0 1 calc(50% - 6	px); */
-				/* max-width: 50%; */
-			}
-		}
-
-			/* @media (max-width: 425px) {
-			.project-card {
-				flex: 0 1 100%;
-				max-width: 100%;
-			}	
-		} */
 
 		/* TAGS */
 
@@ -3113,12 +3092,17 @@ html #nav-page .nav-link:hover {
 			background-color: transparent;
 		}
 
-		.pgtr-index	.form-container {
+			.form-container {
 
-			margin-top:100px;
-			padding:40px;
-			border-top:2px solid var(--border-color);
+			margin-top:40px;
+			/* padding:20px; */
+			/* border-top:2px solid var(--border-color); */
 			background-color: var(--dgray2);
+		}
+
+		.pgtr-index .form-container {
+			margin-top:120px;
+			border-top:2px solid var(--border-color);
 		}
 
 
@@ -3126,21 +3110,28 @@ form {
   max-width:800px;
   text-align: center;
   margin: 20px auto;
+  padding:40px;
+  background-color: var(--dgray2);
+
 }
+
 form input, form textarea {
   outline: 0;
   padding: 1em;
-
   border-radius: 0px;
   display: block;
   width: 100%;
   margin-top: 1em;
   color:#fff;
-			background-color: var(--dgray4);
+  background-color: var(--dgray4);
   border:2px solid transparent;
   will-change: border;
   transition:0.2s border;
   resize: none;
+}
+
+form input {
+	height:50px;
 }
 form input:focus, form textarea:focus,
 form input:hover, form textarea:hover {
@@ -3172,7 +3163,9 @@ form #input-submit {
   text-transform: uppercase;
   border:3px solid var(--border-color);
   will-change: border, transform;
-    transition:0.2s border, 0.2s transform;
+  width:200px;
+  margin:80px auto;
+  transition:0.2s border, 0.2s transform;
 
 }
 
@@ -3187,7 +3180,7 @@ form #input-submit:hover {
 }
 
 form textarea {
-  height: 126px;
+  height: calc(150px + 2em);
 }
 
 .half {
@@ -3223,6 +3216,145 @@ form textarea {
 .cf:after {
   clear: both;
 }
+
+/* ------CONTACT SOCIAL LINKS */
+.contact {
+	background: var(--dgray1);
+	margin:0 auto;
+}
+
+	.contact .social-links {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-content: center;
+			justify-content: space-between;
+			    /* max-width: 800px; */
+				margin: 0px;
+				padding:20px;
+			/* width:100%;
+			max-width: var(--frame-width); */
+		}
+
+		@media (max-width: 768px) {
+  .contact .social-links {
+flex-direction: column;
+}
+
+.contact .social-links a {
+  margin-bottom: 16px; /* add spacing between links in column layout */
+
+}
+form {
+			margin-top:20px;
+			padding:20px;
+			background-color: var(--dgray2);
+}
+		}
+
+		.contact .social-links a {
+			height: 40px;
+			line-height: 40px;
+			transition: all 0.3s;
+			text-decoration: none;
+			pointer-events: auto;
+			/* padding-bottom:12px; */
+			display:flex;
+			justify-content:flex-start;
+			align-content:center;
+			align-items:center;
+		}
+
+		.contact .social-links a i {
+			width: 40px;
+			/* height: 42px; */
+			line-height: 40px;
+			text-align: center;
+			outline:2px solid var(--border-color);
+			outline-offset: -2px;
+			/* border-right:2px solid var(--bg-color); */
+			font-size: 1.4rem;
+			transition: all 0.3s;
+			color: var(--border-color);
+			background: none;
+		}
+
+		.contact .social-links a:hover i {
+			color:white;
+			outline:2px solid transparent;	
+		}
+
+		.contact .social-links a p {
+			height:40px;
+			color: var(--h1-color);
+			line-height:40px;
+			font-size: 0.9rem;
+			margin-left:10px;
+			padding-top: 5px;
+			/* outline:2px solid red; */
+		}
+
+		.contact .social-links .linkedin:hover i {
+			background: #007bb5;
+			transition: all 0.3s;
+		}
+
+		/* .ri-behance-fill:before {
+			content: "\eab9";
+		}
+		*/
+		.contact .social-links .behance:hover i {
+			background: #1769ff;
+			transition: all 0.3s;
+		}
+		/*
+		.ri-facebook-box-fill:before {
+			content: "\ecb8";
+		} */
+
+		.contact .social-links .facebook:hover {
+			background: #3b5998;
+			transition: all 0.3s;
+		}
+
+		/* .ri-pinterest-fill:before {
+			content: "\efff";
+		}
+		*/
+		.contact .social-links .pinterest:hover {
+			background: #cb2027;
+			transition: all 0.3s;
+		}
+
+		/* .ri-mail-line:before {
+			content: "\eef6";
+		} */
+
+		.contact .social-links .email:hover i {
+			background: #dd4b39;
+			transition: all 0.3s;
+		}
+
+		.contact .external .ri-external-link-line {
+			outline:none;
+			background: none;
+			width: auto;
+			line-height:20px;
+		}
+
+			.contact .external .ri-external-link-line::before {
+			font-size:1rem;
+			margin-left:4px;
+			padding:0;
+			vertical-align: text-bottom;
+		}
+
+		.contact .social-links a:hover .ri-external-link-line {
+			color: var(--accent-color);
+			transition: all 0.3s;
+			background: transparent;
+		}
+
 
 		/* shared cursor settings */
 		.cursor-dot,
@@ -3519,7 +3651,16 @@ html, body, * {
 	content-visibility: hidden;
 }
 
+figure {
+	margin:0;
+	text-align: center;
+}
 
+figcaption {
+	font-size: 1rem;
+	color: var(--mgray9);
+	margin-top: 8px;
+}
 	
 
 	

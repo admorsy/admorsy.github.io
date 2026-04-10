@@ -384,42 +384,49 @@ buttons.forEach(button => {
 
 		/* STEP 2 — after fade, reorder + filter */
 
-		setTimeout(() => {
+setTimeout(() => {
 
-			let matched = [];
-			let unmatched = [];
+	let matched = [];
+	let unmatched = [];
 
-			cards.forEach(card => {
+	cards.forEach(card => {
 
-				const tags = card.dataset.tags;
+		const tags = card.dataset.tags;
 
-				if (filter === "all" || tags.includes(filter)) {
+		if (filter === "all" || tags.includes(filter)) {
 
-						card.classList.remove("hidden");
-						matched.push(card);
+			card.classList.remove("hidden");
 
-					} else {
+			// 👇 set initial state BEFORE animation
+			card.classList.add("fade-out");
 
-						card.classList.add("hidden");
-						unmatched.push(card);
+			matched.push(card);
 
-					}
+		} else {
 
+			card.classList.add("hidden");
+			unmatched.push(card);
+
+		}
+
+	});
+
+	/* reorder cards */
+	[...matched, ...unmatched].forEach(card => {
+		container.appendChild(card);
+	});
+
+	/* 👇 force browser to apply initial state */
+	requestAnimationFrame(() => {
+		requestAnimationFrame(() => {
+
+			/* animate IN */
+			matched.forEach(card => {
+				card.classList.remove("fade-out");
 			});
 
-			/* reorder cards */
-
-			[...matched, ...unmatched].forEach(card => {
-				container.appendChild(card);
 		});
-
-		/* STEP 3 — fade new cards in */
-
-		requestAnimationFrame(() => {
-			cards.forEach(card => {
-				card.classList.remove("fade-out");
-		});
-});
+	});
 
 }, 350);
 
