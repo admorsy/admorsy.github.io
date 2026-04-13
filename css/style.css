@@ -2704,6 +2704,12 @@ html #nav-page .nav-link:hover {
 			outline-offset: -4px; */
 		}
 
+		.half-width {
+			width: 50%;
+			min-width:300px;
+			margin:0 auto;
+		}
+
 		.video-toggle{
 
 			position: absolute;
@@ -2751,6 +2757,13 @@ html #nav-page .nav-link:hover {
 			transform: translate(-50%, -50%) scale(1.1);
 		}
 		
+
+		.cubes-video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
 
 
 		/* ------TIMELINE TABLE */
@@ -3556,6 +3569,14 @@ figcaption {
 	color: var(--mgray9);
 	margin-top: 8px;
 }
-	
 
-	
+
+.cubes-gif {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+}
