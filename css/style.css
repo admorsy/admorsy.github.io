@@ -2247,11 +2247,8 @@ html #nav-page .nav-link:hover {
 
 			opacity: 0;
 
-			background: linear-gradient(
-				transparent,
-				rgba(0,0,0,0.6)
-			);
-
+			/* background: linear-gradient(transparent,rgba(0,0,0,0.8)); */
+ 			background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 50%);
 			transition: opacity 0.3s ease;
 
 		}
