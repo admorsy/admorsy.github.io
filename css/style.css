@@ -1102,6 +1102,7 @@ html #nav-page .nav-link:hover {
 			z-index:200;
 			text-shadow: 0 0 8px rgba(0,0,0,0.5);
 			max-width:100%;
+			line-height: 1.2;
 		}
 
 		.pgtr-resume .header-text,
@@ -1132,16 +1133,29 @@ html #nav-page .nav-link:hover {
 		}
 
 		.header .tags span {
-			border: 1px solid white;
-			color: white;
-			opacity: 0.5;
-			padding: 6px 10px;
+			/* border: 1px solid white; */
+			color: var(--mgray9);
+			/* padding: 6px 10px; */
 			margin: 4px;
 			border-radius: 8px;
-			background: rgba(0,0,0,0.5);
+			    text-transform: capitalize;
+			/* background: rgba(0,0,0,0.5); */
 			-webkit-backdrop-filter: blur(5px);
 			backdrop-filter: blur(5px);
 		}
+
+
+		.header .tags span::after {
+  content: "⚫︎";
+  margin-left: 6px;
+  font-size: 0.6rem;
+
+}
+
+.header .tags span:last-child::after {
+  content: "";
+}
+
 
 		.centered {
 			top: 50%;
@@ -1207,13 +1221,12 @@ html #nav-page .nav-link:hover {
 		/* FOOTER */
 		/* ------ */
 
-		.footer::before {
+		/* .footer::before {	
 			content:"©";
 			font-size: 1.2rem;
 			font-weight:300;
-			/* padding-top:10px; */
 			margin-right:2px;
-		}
+		} */
 
 		.footer {
 			height: 50px;
@@ -2133,6 +2146,7 @@ html #nav-page .nav-link:hover {
   .projects, .pgtr-index .projects {
     grid-template-columns: 1fr;
   }
+  
 }
 
 
@@ -2268,6 +2282,7 @@ html #nav-page .nav-link:hover {
 			color: white;
 			font-size: 18px;
 			font-weight: 500;
+			line-height: 1.2;
 
 		}
 
@@ -2279,29 +2294,42 @@ html #nav-page .nav-link:hover {
 
 			display: flex;
 			flex-wrap: wrap;
-			gap: 6px;
+			/* gap: 6px; */
 			margin-top: 8px;
 
 		}
 
 		.project-tags span {
 
-			border: 1px solid white;
-			color: white;
+			/* border: 1px solid white; */
+			color: var(--mgray9);
 
-			opacity: 0.6;
-
-			padding: 4px 8px;
+			opacity:1;
+    text-transform: capitalize;
+			/* padding: 4px 8px; */
 
 			border-radius: 6px;
 
-			font-size: 12px;
+			font-size: 0.8rem;
 
-			background: rgba(0,0,0,0.5);
+			margin:6px 6px 0px 0px;
+
+			/* background: rgba(0,0,0,0.5); */
 			--backdrop-filter: blur(5px);
 			backdrop-filter: blur(5px);
 
 		}
+
+		.project-tags span::after {
+  content: "⚫︎";
+  margin-left: 6px;
+  font-size: 0.6rem;
+
+}
+
+.project-tags span:last-child::after {
+  content: "";
+}
 
 		pgtr-work-project .block video {
 			width: 110%;
@@ -2372,6 +2400,10 @@ html #nav-page .nav-link:hover {
 
   .game-message {
     display: block;
+  }
+
+  .footer {
+	font-size:0.7rem;
   }
 
 }
@@ -2465,6 +2497,9 @@ html #nav-page .nav-link:hover {
 				padding-left:40px;
 				padding-right:40px;
 			}
+			 .footer {
+	font-size:0.5rem;
+  }
   /* your mobile landscape fixes */
 }
 
@@ -2477,6 +2512,9 @@ html #nav-page .nav-link:hover {
 				/* padding-left:40px;
 				padding-right:40px; */
 			}
+			 .footer {
+	font-size:0.6rem;
+  }
   /* your mobile landscape fixes */
 }
 
@@ -2511,7 +2549,11 @@ html #nav-page .nav-link:hover {
 /* On Desktop (e.g., screens wider than 768px) */
 @media (min-width: 768px) {
   .desktop-break {
-    display: block; /* Shows the break you want for desktop */
+    display: block;/* Shows the break you want for desktop */
+  }
+
+  	 .footer {
+	font-size:0.6rem;
   }
 }
 
@@ -2623,6 +2665,9 @@ html #nav-page .nav-link:hover {
 				padding-right:60px; */
 				/* margin: 60px 60px 100px; */
 			}
+				 .footer {
+	font-size:1rem;
+  }
 
 		}
 
