@@ -1621,7 +1621,7 @@ p {
 .text--lwrc {
 	text-transform: lowercase;
 }
-.text--cptz {
+. text--cptz {
 	text-transform: capitalize;
 }
 .text--bold {

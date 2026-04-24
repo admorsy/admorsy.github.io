@@ -754,7 +754,7 @@ body {
 			text-decoration: none;
 			position: relative;
 			color: var(--link-color);
-			text-transform: uppercase;
+			text-transform: capitalize;
 			padding-right: 200px;
 			margin: 10px 0px;
 			opacity: 0;
@@ -1095,7 +1095,7 @@ html #nav-page .nav-link:hover {
 		.header-text {
 
 			position:absolute;
-			text-transform:uppercase;
+			text-transform:capitalize;
 			text-align: center;
 			margin-top:-20px;
 			font-size: clamp(1.5rem, 2vw, 6rem);
@@ -1121,7 +1121,7 @@ html #nav-page .nav-link:hover {
 			font-size:0.9rem;
 			padding-right: 50px;
 			padding-left: 50px;
-			height: 30px;
+			line-height: 10px;
 			display:flex;
 			flex-flow:row wrap;
 			position: absolute;
@@ -1134,14 +1134,24 @@ html #nav-page .nav-link:hover {
 
 		.header .tags span {
 			/* border: 1px solid white; */
+
 			color: var(--mgray9);
-			/* padding: 6px 10px; */
-			margin: 4px;
-			border-radius: 8px;
-			    text-transform: capitalize;
+						text-shadow: 0px 2px 2px rgba(0,0,0,0.5);
+			
+
+			opacity:1;
+    text-transform: capitalize;
+			/* padding: 4px 8px; */
+
+			border-radius: 6px;
+
+			font-size: 1rem;
+
+			margin:6px 6px 0px 0px;
 			/* background: rgba(0,0,0,0.5); */
-			-webkit-backdrop-filter: blur(5px);
-			backdrop-filter: blur(5px);
+			/* -webkit-backdrop-filter: blur(5px);
+			backdrop-filter: blur(5px); */
+
 		}
 
 
@@ -2102,23 +2112,28 @@ html #nav-page .nav-link:hover {
 
 		.filter-btn {
 			text-align: center;
-			height: 50px;
-			line-height: 50px;
+			height: 30px;
+			line-height: 25px;
 			padding: 0px 16px;
 			margin: 2px;
 			font-weight: 500;
 			/* background: var(--bg-color); */
 			color: var(--p-color);
 			border: 2px solid transparent;
-			transition: border 0.15s;
+			border-radius:6px;
+			will-change: border, color;
+			transition: border 0.25s, color 0.25s;
 		}
 
 		.filter-btn.filter-active,
 		.filter-btn:hover {
 			color: var(--link-hover-color);
-			border: 2px solid var(--link-hover-color);
 		}
 
+	.filter-btn.filter-active {
+			color: var(--link-hover-color);
+			border: 2px solid var(--link-hover-color);
+		}
 
 		/* ===============================
 		PROJECT GRID
@@ -2280,10 +2295,9 @@ html #nav-page .nav-link:hover {
 		.project-title {
 
 			color: white;
-			font-size: 18px;
-			font-weight: 500;
-			line-height: 1.2;
-
+			font-size:1.1rem;
+			font-weight: 500;	
+			line-height: 1.3;
 		}
 
 		/* ===============================
@@ -2295,7 +2309,10 @@ html #nav-page .nav-link:hover {
 			display: flex;
 			flex-wrap: wrap;
 			/* gap: 6px; */
-			margin-top: 8px;
+			margin-top: 0px;
+						line-height: 0px;
+						margin-bottom:10px;
+
 
 		}
 
@@ -2303,6 +2320,8 @@ html #nav-page .nav-link:hover {
 
 			/* border: 1px solid white; */
 			color: var(--mgray9);
+						text-shadow: 0px 4px 4px rgba(0,0,0,0.5);
+
 
 			opacity:1;
     text-transform: capitalize;
@@ -2312,18 +2331,23 @@ html #nav-page .nav-link:hover {
 
 			font-size: 0.8rem;
 
-			margin:6px 6px 0px 0px;
+			margin:4px 6px 0px 0px;
+			line-height: 6px;
 
 			/* background: rgba(0,0,0,0.5); */
-			--backdrop-filter: blur(5px);
-			backdrop-filter: blur(5px);
+			/* --backdrop-filter: blur(5px);
+			backdrop-filter: blur(5px); */
 
 		}
 
 		.project-tags span::after {
-  content: "⚫︎";
+  content: ".";
+  /* vertical-align:bottom; */
+	/* line-height: 20px; */
   margin-left: 6px;
-  font-size: 0.6rem;
+  /* padding-bottom:10px; */
+  font-size: 2rem;
+  color:var(--mgray6);
 
 }
 
