@@ -1,3 +1,44 @@
+// ----------------------------------------------
+// TITLE CASE FUNCTION (for header titles)
+// ----------------------------------------------
+
+
+function toTitleCase(str) {
+  const smallWords = new Set([
+    "a","an","and","as","at","but","by",
+    "for","in","nor","of","on","or",
+    "per","the","to","vs","via"
+  ]);
+
+  return str
+    .toLowerCase()
+    .split(/\s+/)
+    .map((word, i, arr) => {
+      const clean = word.replace(/[^a-z0-9']/gi, "");
+
+      const isSmallWord =
+        smallWords.has(clean) &&
+        i !== 0 &&
+        i !== arr.length - 1;
+
+      return isSmallWord
+        ? word
+        : word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".header-text").forEach(el => {
+    el.textContent = toTitleCase(el.textContent);
+  });
+
+   document.querySelectorAll(".nav-link").forEach(el => {
+    el.textContent = toTitleCase(el.textContent);
+  });
+});
+
+
 // ----------------------
 // MENU + NAV TOGGLE
 // ----------------------
@@ -658,140 +699,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// ------------------------ //
-// ----- CUBES GIF CONTROL ----- //
-// ------------------------ //	
-
-// const el = document.querySelector('.cubes-gif');
-
-// const totalFrames = 100;
-// const threshold = 50;
-// const fps = 30;
-
-// let currentFrame = 0;
-
-// // Modes
-// // "CW"  = 0 → 100
-// // "CCW" = 100 → 0
-// let mode = "CW";
-
-// let isHovering = false;
-
-// const frameDuration = 100 / fps;
-// let lastTime = 0;
-
-// // ------------------
-// // PRELOAD
-// // ------------------
-// const images = [];
-// for (let i = 0; i <= totalFrames; i++) {
-//   const img = new Image();
-//   const num = String(i).padStart(3, '0');
-//   img.src = `/img/work/cubes/cubes-frames/frame_${num}.png`;
-//   images.push(img);
-// }
-
-// // ------------------
-// // UPDATE FRAME
-// // ------------------
-// function updateFrame() {
-//   const num = String(currentFrame).padStart(3, '0');
-//   el.style.backgroundImage =
-//     `url('/img/work/cubes/cubes-frames/frame_${num}.png')`;
-// }
-
-// updateFrame();
-
-// // ------------------
-// // ANIMATION LOOP
-// // ------------------
-// function animate(time) {
-//   if (time - lastTime >= frameDuration) {
-
-//     // ------------------
-//     // HOVERING BEHAVIOR
-//     // ------------------
-//     if (isHovering) {
-
-//       if (mode === "CW") {
-//         if (currentFrame < totalFrames) {
-//           currentFrame++;
-//         }
-//       }
-
-//       else if (mode === "CCW") {
-//         if (currentFrame > 0) {
-//           currentFrame--;
-//         }
-//       }
-
-//     }
-
-//     // ------------------
-//     // MOUSE OUT BEHAVIOR
-//     // ------------------
-//     else {
-
-//       if (mode === "CW") {
-//         if (currentFrame < threshold) {
-//           // reverse direction
-//           mode = "CCW";
-//         } else {
-//           // continue to end
-//           if (currentFrame < totalFrames) {
-//             currentFrame++;
-//           }
-//         }
-//       }
-
-//       else if (mode === "CCW") {
-//         if (currentFrame > threshold) {
-//           // reverse direction
-//           mode = "CW";
-//         } else {
-//           // continue to start
-//           if (currentFrame > 0) {
-//             currentFrame--;
-//           }
-//         }
-//       }
-
-//     }
-
-//     // ------------------
-//     // STOP CONDITIONS
-//     // ------------------
-
-//     // reached 100 → stop + flip mode
-//     if (currentFrame === totalFrames) {
-//       mode = "CCW";
-//     }
-
-//     // reached 0 → stop + flip mode
-//     if (currentFrame === 0) {
-//       mode = "CW";
-//     }
-
-//     updateFrame();
-//     lastTime = time;
-//   }
-
-//   requestAnimationFrame(animate);
-// }
-
-// requestAnimationFrame(animate);
-
-// // ------------------
-// // EVENTS
-// // ------------------
-// el.addEventListener('mouseenter', () => {
-//   isHovering = true;
-// });
-
-// el.addEventListener('mouseleave', () => {
-//   isHovering = false;
-// });
-
 // ----------------------------------------------
 // SIMPLIFIED VERSION OF CUBES GIF (no mouseout) 
 // ----------------------------------------------
@@ -882,51 +789,9 @@ el.addEventListener('mouseleave', () => {
 });
 
 
+console.log(document.querySelector(".header-text").textContent);
+
 // ----------------------------------------------
-// ALTERNATIVE VIDEO CONTROL (hover to play)
-// ----------------------------------------------	
-// const forward = document.querySelector('.forward');
-// const reverse = document.querySelector('.reverse');
-// const wrapper = document.querySelector('.cubes-wrap');
+// TITLE CASE FUNCTION (for header titles)
+// ----------------------------------------------
 
-// let isForward = true;
-// let isPlaying = false;
-
-// // ⏱️ SET THIS to match your GIF duration (in ms)
-// const duration = 3000; // example: 3 seconds
-
-// // store original src
-// const forwardSrc = forward.src;
-// const reverseSrc = reverse.src;
-
-// // ------------------
-// // HOVER
-// // ------------------
-// wrapper.addEventListener('mouseenter', () => {
-//   if (isPlaying) return;
-
-//   isPlaying = true;
-
-//   if (isForward) {
-//     // show forward
-//     forward.style.opacity = 1;
-//     reverse.style.opacity = 0;
-
-//     // restart GIF
-//    forward.src = forwardSrc + "?t=" + Date.now();
-//   } else {
-//     // show reverse
-//     reverse.style.opacity = 1;
-//     forward.style.opacity = 0;
-
-//     // restart GIF
-//     reverse.src = "";
-//     reverse.src = reverseSrc;
-//   }
-
-//   // simulate "ended"
-//   setTimeout(() => {
-//     isPlaying = false;
-//     isForward = !isForward;
-//   }, duration);
-// });

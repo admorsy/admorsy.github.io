@@ -754,7 +754,7 @@ body {
 			text-decoration: none;
 			position: relative;
 			color: var(--link-color);
-			text-transform: capitalize;
+			/* text-transform: capitalize; */
 			padding-right: 200px;
 			margin: 10px 0px;
 			opacity: 0;
@@ -1095,7 +1095,7 @@ html #nav-page .nav-link:hover {
 		.header-text {
 
 			position:absolute;
-			text-transform:capitalize;
+			/* text-transform:capitalize; */
 			text-align: center;
 			margin-top:-20px;
 			font-size: clamp(1.5rem, 2vw, 6rem);
@@ -1140,7 +1140,7 @@ html #nav-page .nav-link:hover {
 			
 
 			opacity:1;
-    text-transform: capitalize;
+			text-transform: capitalize;
 			/* padding: 4px 8px; */
 
 			border-radius: 6px;
