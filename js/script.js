@@ -60,13 +60,21 @@ const lenis = new Lenis({
 });
 
 function raf(time) {
-		lenis.raf(time);
-		requestAnimationFrame(raf);
-	}
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
 
-	requestAnimationFrame(raf);
+requestAnimationFrame(raf);
 
+// 👇 add this
+window.addEventListener("load", () => {
+  lenis.resize();
+});
 
+// 👇 optional but VERY useful for your setup
+window.addEventListener("resize", () => {
+  lenis.resize();
+});
 // ----------------------
 // CUSTOM CURSOR (Desktop Only)
 // ----------------------
@@ -478,45 +486,41 @@ setTimeout(() => {
 // -----------------------------------------//
 // -------- video play/pause button --------//
 // -----------------------------------------//
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".video-container").forEach(container => {
+    const video = container.querySelector("video");
+    const button = container.querySelector(".video-toggle");
+    const icon = button ? button.querySelector("i") : null;
 
-document.querySelectorAll(".video-container").forEach(container => {
-	const video = container.querySelector("video");
-	const button = container.querySelector(".video-toggle");
-	const icon = button.querySelector("i");
+    function updateUI() {
+      if (!button) return; // skip UI updates if no button
 
-	// Unified function to update UI
-	function updateUI() {
-			if (video.paused) {
-					container.classList.remove("playing");
-					video.setAttribute("controls","false")
+      if (video.paused) {
+        container.classList.remove("playing");
+        video.removeAttribute("controls");
+        icon.classList.remove("ri-pause-fill");
+        icon.classList.add("ri-play-fill");
+      } else {
+        container.classList.add("playing");
+        video.setAttribute("controls", "true");
+        icon.classList.remove("ri-play-fill");
+        icon.classList.add("ri-pause-fill");
+      }
+    }
 
-					icon.classList.remove("ri-pause-fill");
-					icon.classList.add("ri-play-fill");
-				} else {
-					container.classList.add("playing");
-					video.setAttribute("controls","true")
-					icon.classList.remove("ri-play-fill");
-					icon.classList.add("ri-pause-fill");
-				}
-			}
+    // Only add click handler if button exists
+    if (button) {
+      button.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (video.paused) video.play();
+        else video.pause();
+      });
+    }
 
-			// Play/pause toggle when custom button clicked
-			button.addEventListener("click", (e) => {
-				e.stopPropagation(); // prevent bubbling
-				if (video.paused) video.play();
-					else video.pause();
-			});
-
-			// Update UI whenever video plays or pauses (covers native controls & keyboard)
-			video.addEventListener("play", updateUI);
-			video.addEventListener("pause", updateUI);
-
-			// Optional: allow clicking video itself to toggle
-			// video.addEventListener("click", () => {
-				//   if (video.paused) video.play();
-				//   else video.pause();
-				// });
-		});
+    video.addEventListener("play", updateUI);
+    video.addEventListener("pause", updateUI);
+  });
+});
 
 		// -----------------------------------------//
 		// -------- SPLIT TEXT 2 LETTERS --------//

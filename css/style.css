@@ -3631,8 +3631,8 @@ figure {
 }
 
 figcaption {
-	font-size: 1rem;
-	color: var(--mgray9);
+	font-size: 0.9rem;
+	color: var(--mgray3);
 	margin-top: 8px;
 }
 
