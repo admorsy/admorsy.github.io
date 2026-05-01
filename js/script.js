@@ -796,6 +796,6 @@ el.addEventListener('mouseleave', () => {
 console.log(document.querySelector(".header-text").textContent);
 
 // ----------------------------------------------
-// TITLE CASE FUNCTION (for header titles)
+// Load Game 
 // ----------------------------------------------
 

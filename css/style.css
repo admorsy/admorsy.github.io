@@ -2665,7 +2665,8 @@ html #nav-page .nav-link:hover {
 
 		.pgtr-resume .section p::before,
 		.list-item::before {
-			content:'◉ ';
+			content:'◉';
+			margin-right: 8px;
 		}
 
 
