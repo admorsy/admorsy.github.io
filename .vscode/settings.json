@@ -11,5 +11,57 @@
         "statusBar.debuggingForeground": "#FCFCFE",
         "statusBar.noFolderBackground": "#1E1E5C",
         "statusBar.noFolderForeground": "#FCFCFE"
-    }
+    },
+    "folder-customization.folders": [
+        {
+            "path": "admorsy.github.io/css/",
+            "color": "foldercustomization.AnsiColor32"
+        },
+        {
+            "path": "admorsy.github.io/js/",
+            "color": "__blocked__"
+        }
+    ],
+    "folder-color.pathColors": [
+        {
+            "folderPath": "admorsy.github.io/css/",
+            "color": "foldercolorizer.color_0087af"
+        },
+        {
+            "folderPath": "admorsy.github.io/img/",
+            "color": "foldercolorizer.color_00af00"
+        },
+        {
+            "folderPath": "admorsy.github.io/js/",
+            "color": "foldercolorizer.color_d7af00"
+        },
+        {
+            "folderPath": "admorsy.github.io/resume/",
+            "color": "foldercolorizer.color_d75f00"
+        },
+        {
+            "folderPath": "admorsy.github.io/index.html/",
+            "color": "foldercolorizer.color_d75f00"
+        },
+        {
+            "folderPath": "admorsy.github.io/work/",
+            "color": "foldercolorizer.color_d75f00"
+        },
+        {
+            "folderPath": "admorsy.github.io/contact/",
+            "color": "foldercolorizer.color_d75f00"
+        },
+        {
+            "filePath": "admorsy.github.io/rename.sh",
+            "color": "foldercolorizer.color_87af00"
+        },
+        {
+            "filePath": "admorsy.github.io/optimize-images.sh",
+            "color": "foldercolorizer.color_87af00"
+        },
+        {
+            "filePath": "admorsy.github.io/.gitignore",
+            "color": "foldercolorizer.color_626262"
+        }
+    ]
 }
